@@ -1,11 +1,15 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const Menu = () => {
+export const Menu = () => {
   return (
-    <div>
-      
+    <div className="optionsMenu">
+      <NavLink to="" className="nav-link-TomarPedido">Tomar Pedidos</NavLink>
+      <NavLink to="" className="nav-link-Pendientes">Pedidos Pendientes</NavLink>
+      <NavLink to="" className="nav-link-Preparados">Pedidos Preparados</NavLink>
+      <NavLink to="" className="nav-link-Entregados">Pedidos Entregadosr</NavLink>
+
     </div>
   )
 }
 
-export default Menu
