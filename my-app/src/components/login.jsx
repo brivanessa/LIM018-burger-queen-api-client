@@ -15,7 +15,7 @@ export const Login = () => {
         if(txtEmail.length===0 || txtPassword.length===0 ){
             alert("Completa tus datos...");
         } else {
-            if(correo==="123" && password==="123" ){
+            if(correo==="juanPerez@gmail.com" && password==="123456" ){
               setLogin("true");
               document.getElementById("viewLogin").style.display ="none"
             }else{
