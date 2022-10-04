@@ -3,7 +3,7 @@ import React from 'react'
 export const WPedidos = () => {
   return (
     <div>
-      Tomar Pedidos
+      Tomar Pedidos yes!
     </div>
   )
 }
