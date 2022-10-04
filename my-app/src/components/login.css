@@ -1,0 +1,63 @@
+:root {
+    --brown: #9D7261;
+    --brown1: #CCB19D;
+    --orange1: #F0A28E;
+    --brown2: #675741;
+    --black: #000000;
+    --brown3: #BA8A6A;
+    --white: #FFFFFE;
+}
+  
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /*Bordes de las cajas por dentro*/
+    font-size: 62.5%; /*Reseteando los tamaños de fuente para que 1 rem sea igual a 10px*/
+}
+
+.viewLogin{
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/fondoFastFood.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display:flex;
+    justify-content: flex-end;
+    position: absolute;
+}
+.spaceLogin {
+    width: 50%;
+    height: 100%;
+    background-image: url('../assets/fondoRosa.jpg');
+    opacity: 0.9;
+    background-size: cover;
+    background-attachment: fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logoFastFood{
+    margin-top:-5rem;
+    display:flex;
+    flex-direction: center;
+    justify-content: center;
+    /* width: 5rem; */
+    height: 25rem;
+}
+.areaDatosLogin{
+    margin-top:-2rem;
+    width: 35rem;
+    height: 25rem;
+    background-color: var(--white);
+    border-radius: 3rem;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.email, .password, .instructions{
+    text-align: justify;
+    margin: 0.5rem 2rem;
+    font-size: 1.5rem;
+}
