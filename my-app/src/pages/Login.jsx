@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import logo from '../assets/logo.png'
 import './login.css'
-import { Menu } from './Menu.jsx'
-import { auth } from '../helpers/api'
-const baseUrl = "http://localhost:3001/usuarios"
+// import { Menu } from './Menu.jsx'
+// import Navbar from '../components/Navbar';
 
-console.log(axios.get(baseUrl))
+import { auth } from '../helpers/api'
+import Navbar from '../components/Navbar'
+// const baseUrl = "http://localhost:3001/usuarios"
+
+// console.log(axios.get(baseUrl))
 
 
 export const Login = () => {
@@ -23,7 +26,7 @@ export const Login = () => {
         } else {
             auth(txtEmail, txtPassword)
                 .then((res) => {
-                    if (res.status === '200') {
+                    if (res.status === 200) {
                         // guardar el token: se puede guardar en el localStorage o en el sessionStorage
                         // tener en cuenta que la mejor man era es en una cookie
                         setLogin("true");
@@ -62,7 +65,7 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-            {myLogin === "true" && <Menu usuario={correo} />}
+            {myLogin === "true" && <Navbar usuario={correo} />}
         </>
 
     );
