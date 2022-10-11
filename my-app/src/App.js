@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import {Login} from './components/Login';
+import { Menu } from './components/Menu.jsx'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route exact path="/" element={<Login/>}/>
+      <Route exact path="/Menu" element={<Menu/>}/>
     </Routes>
     </BrowserRouter>
 
