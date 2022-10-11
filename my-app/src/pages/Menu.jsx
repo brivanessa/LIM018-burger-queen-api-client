@@ -54,10 +54,10 @@ export const Menu = (props) => {
         <div>Hola: {props.usuario}</div>
         <nav>
           {/* <ul> */}
-          <li><NavLink to="" className="nav-link-TomarPedido" onClick={ view_tomarPedidos } >Tomar Pedidos</NavLink></li>
-          <li><NavLink to="" className="nav-link-Pendientes" onClick={ view_pendientes } >Pedidos Pendientes</NavLink></li>
-          <li><NavLink to="" className="nav-link-Preparados" onClick={ view_preparados } >Pedidos Preparados</NavLink></li>
-          <li><NavLink to="" className="nav-link-Entregados" onClick={ view_entregados } >Pedidos Entregadosr</NavLink></li>
+          <li><NavLink to="/Menu" className="nav-link-TomarPedido" onClick={ view_tomarPedidos } >Tomar Pedidos</NavLink></li>
+          <li><NavLink to="/Menu/Pendientes" className="nav-link-Pendientes" onClick={ view_pendientes } >Pedidos Pendientes</NavLink></li>
+          <li><NavLink to="/Menu/Preparados" className="nav-link-Preparados" onClick={ view_preparados } >Pedidos Preparados</NavLink></li>
+          <li><NavLink to="/Menu/Entregados" className="nav-link-Entregados" onClick={ view_entregados } >Pedidos Entregadosr</NavLink></li>
           <li href="" onClick={ cerrarSesion }>Cerrar sesión</li>
           {/* </ul> */}
         </nav>

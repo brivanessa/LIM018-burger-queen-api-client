@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 // import axios from 'axios'
 import logo from '../assets/logo.png'
 import './login.css'
-import { Menu } from './Menu.jsx'
+// import { Menu } from './Menu.jsx'
+// import Navbar from '../components/Navbar';
+
 import { auth } from '../helpers/api'
+import Navbar from '../components/Navbar'
 // const baseUrl = "http://localhost:3001/usuarios"
 
 // console.log(axios.get(baseUrl))
@@ -62,7 +65,7 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-            {myLogin === "true" && <Menu usuario={correo} />}
+            {myLogin === "true" && <Navbar usuario={correo} />}
         </>
 
     );
