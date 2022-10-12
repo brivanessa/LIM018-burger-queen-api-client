@@ -1,28 +1,9 @@
 {
-    "usuarios":[
-        {
-            "id":1,
-            "nombre": "Juan Perez",
-            "correo": "juanPerez@gmail.com",
-            "password":"123456",
-            "rol":"waiter"
-        },
-
-        {
-            "id":2,
-            "nombre": "Maria Perez",
-            "correo": "maria@gmail.com",
-            "password":"123456",
-            "rol":"waiter"
-        },
-
-        {
-            "id":3,
-            "nombre": "Mara Perez",
-            "correo": "mariana@gmail.com",
-            "password":"123456",
-            "rol":"waiter"
-        }
-
-    ]
-}
+    "post": [
+      { "id": 1, "title": "json-server", "author": "typicode" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }
