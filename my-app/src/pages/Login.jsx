@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import logo from '../assets/logo.png'
 import './login.css'
-// import { WPedidos } from './WPedidos.jsx'
-// import Navbar from '../components/Navbar';
-// import { Navigate } from "react-router-dom";
+import { WPedidos } from './WPedidos'
+
 
 import { auth } from '../helpers/api'
-// import Navbar from '../components/Navbar'
-// const baseUrl = "http://localhost:3001/usuarios"
+import { useNavigate } from 'react-router-dom'
+
 
 // console.log(axios.get(baseUrl))
 
 
 export const Login = () => {
+    const navigate = useNavigate();
     const [myLogin, setLogin] = useState("false");
     const [correo, setCorreo] = useState();
     const [password, setPassword] = useState();
@@ -35,8 +35,8 @@ export const Login = () => {
                         // tener en cuenta que la mejor man era es en una cookie
                         setLogin("true");
                         document.getElementById("viewLogin").style.display = "none";
-                        // return (<Navigate to='/Menu'/>)
-                        // if (tokenSaved != null){<Navigate to='/Menu'/>}// WPedidos()
+                        navigate("/Menu")
+
                     } else if (res.status === '400') {
                         setLogin("false");
                         alert("El usuario o contraseña son incorrectos...");
@@ -71,7 +71,6 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-            {/* {<Navigate to='/Menu'/>} */}
             {/* {myLogin === "true" && <WPedidos usuario={correo} />} */}
             {/* {myLogin === "true" && <WPedidos usuario={correo} />} */}
         </>
