@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-// import axios from 'axios'
 import logo from '../assets/logo.png'
 import './login.css'
-// import { Menu } from './Menu.jsx'
+// import { WPedidos } from './WPedidos.jsx'
 // import Navbar from '../components/Navbar';
+// import { Navigate } from "react-router-dom";
 
 import { auth } from '../helpers/api'
-import Navbar from '../components/Navbar'
+// import Navbar from '../components/Navbar'
 // const baseUrl = "http://localhost:3001/usuarios"
 
 // console.log(axios.get(baseUrl))
@@ -27,10 +27,16 @@ export const Login = () => {
             auth(txtEmail, txtPassword)
                 .then((res) => {
                     if (res.status === 200) {
+                        console.log(res.headers)
+                        console.log(res.data.token!= null)
+                        localStorage.setItem('llave', res.data.token); //guardar datos en el navegador
+                        const tokenSaved =localStorage.getItem('llave') //para obtener la var
                         // guardar el token: se puede guardar en el localStorage o en el sessionStorage
                         // tener en cuenta que la mejor man era es en una cookie
                         setLogin("true");
-                        document.getElementById("viewLogin").style.display = "none"
+                        document.getElementById("viewLogin").style.display = "none";
+                        // return (<Navigate to='/Menu'/>)
+                        // if (tokenSaved != null){<Navigate to='/Menu'/>}// WPedidos()
                     } else if (res.status === '400') {
                         setLogin("false");
                         alert("El usuario o contraseña son incorrectos...");
@@ -65,7 +71,9 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-            {myLogin === "true" && <Navbar usuario={correo} />}
+            {/* {<Navigate to='/Menu'/>} */}
+            {/* {myLogin === "true" && <WPedidos usuario={correo} />} */}
+            {/* {myLogin === "true" && <WPedidos usuario={correo} />} */}
         </>
 
     );
