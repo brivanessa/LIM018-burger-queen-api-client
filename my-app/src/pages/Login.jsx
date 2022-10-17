@@ -55,8 +55,8 @@ export const Login = () => {
             <div className='viewLogin' id='viewLogin'>
                 <div className='spaceLogin'>
                     <div className="logoFastFood">
-                        {/* <img src={logo} alt="logo"></img> */}
-                        <img src='https://cdn-icons-png.flaticon.com/512/2203/2203145.png' alt="logo"></img>
+                        <img src={logo} alt="logo"></img>
+                        {/* <img src='https://cdn-icons-png.flaticon.com/512/2203/2203145.png' alt="logo"></img> */}
                     </div>
                     <div className='areaDatosLogin'>
                         <div className='instructions'>

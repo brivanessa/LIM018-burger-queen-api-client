@@ -1,4 +1,6 @@
-const header = () => {
+import React from 'react';
+
+export const Header = () => {
     return ( 
         <div className='viewWaiterPeiddos' id='viewWPedidos'>
         <div className="headerViews" id="menu">
@@ -25,7 +27,7 @@ const header = () => {
                 <div className="productName">Jugo de Frutas</div>
                 <div className="productCost">S/.10.0</div>
                 <div className="imgProduct">
-                  <img src={sanwich} alt="sanwich"></img>
+                  {/* <img src={sanwich} alt="sanwich"></img> */}
                 </div>
                 <div className="buttonAñadir">+ Añadir</div>
               </div>
@@ -33,7 +35,7 @@ const header = () => {
                   <div className="productName">Jugo de Frutas</div>
                   <div className="productCost">S/.10.0</div>
                   <div className="imgProduct">
-                    <img src={sanwich} alt="sanwich"></img>
+                    {/* <img src={sanwich} alt="sanwich"></img> */}
                   </div>
                   <div className="buttonAñadir">+ Añadir</div>
               </div>
@@ -41,7 +43,7 @@ const header = () => {
                   <div className="productName">Jugo de Frutas</div>
                   <div className="productCost">S/.10.0</div>
                   <div className="imgProduct">
-                    <img src={sanwich} alt="sanwich"></img>
+                    {/* <img src={sanwich} alt="sanwich"></img> */}
                   </div>
                   <div className="buttonAñadir">+ Añadir</div>
               </div>
@@ -53,4 +55,4 @@ const header = () => {
      );
 }
  
-export default header;
+// export default header;

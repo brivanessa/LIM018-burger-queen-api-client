@@ -18,6 +18,7 @@ server.use((req, res, next) => {
   else if (req.headers.authorization === `Bearer ${secret}`) {
     console.log('qqqqqq',req.headers);
   next();
+  
   } else {
   res.sendStatus(401)
   }
@@ -40,6 +41,6 @@ server.listen(3001, () => {
   console.log('JSON Server is running')
 })
 
-// const datos = router.db.value()
+const datos = router.db.value()
 // console.log('aqui', datos.user)
-// console.log('aqui', datos.products)
+console.log('aqui', datos.products)
