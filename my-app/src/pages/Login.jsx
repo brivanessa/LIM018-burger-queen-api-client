@@ -56,18 +56,21 @@ export const Login = () => {
                 <div className='spaceLogin'>
                     <div className="logoFastFood">
                         <img src={logo} alt="logo"></img>
+                        {/* <img src='https://cdn-icons-png.flaticon.com/512/2203/2203145.png' alt="logo"></img> */}
                     </div>
                     <div className='areaDatosLogin'>
-                        <p className='instructions'>Escribe tu usuario y contraseña para iniciar sesión.</p>
+                        <div className='instructions'>
+                            <p> Escribe tu usuario y contraseña para iniciar sesión.</p>
+                        </div>
                         <div className='email'>
-                            {/* <img src={require('../assets/usuario.png')} alt="usuario" className='usuarioImagen'></img> */}
-                            <input type='email' id='emailInput' placeholder='Correo electrónico' className='loginEmail' onChange={(e) => setCorreo(e.target.value)}></input>
+                            <img src='https://cdn-icons-png.flaticon.com/512/64/64572.png' alt="usuario" className='usuarioImagen'></img>
+                            <input type='email' id='emailInput' placeholder=' Correo electrónico' className='loginEmail' onChange={(e) => setCorreo(e.target.value)}></input>
                         </div>
                         <div className='password'>
-                            {/* <img src='../assets/contraseña.png' alt="contraseña"></img> */}
-                            <input type='password' id='passwordInput' placeholder='Contraseña' className='loginPassword' onChange={(e) => setPassword(e.target.value)}></input>
+                            <img src='https://cdn-icons-png.flaticon.com/512/5134/5134230.png' alt="contraseña"></img>
+                            <input type='password' id='passwordInput' placeholder=' Contraseña' className='loginPassword' onChange={(e) => setPassword(e.target.value)}></input>
                         </div>
-                        <input type="submit" className="btnLogin" onClick={iniciarSesion}></input>
+                        <input type="submit" className="btnLogin" onClick={iniciarSesion} value="INGRESAR"></input>
                     </div>
                 </div>
             </div>

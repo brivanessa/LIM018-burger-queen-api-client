@@ -18,6 +18,13 @@ server.use((req, res, next) => {
   else if (req.headers.authorization === `Bearer ${secret}`) {
     console.log('qqqqqq',req.headers);
   next();
+  }
+  else if(req.method === "GET" && req.path === "/products") {
+    const datos = router.db.value()
+    res.jsonp({
+      products: datos
+    })
+  
   } else {
   res.sendStatus(401)
   }
@@ -41,5 +48,5 @@ server.listen(3001, () => {
 })
 
 // const datos = router.db.value()
-// console.log('aqui', datos.user)
+// // console.log('aqui', datos.user)
 // console.log('aqui', datos.products)
