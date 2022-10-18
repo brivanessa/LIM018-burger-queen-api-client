@@ -7,5 +7,3 @@ export const Header = () => {
         </div>
      );
 }
- 
-// export default header;

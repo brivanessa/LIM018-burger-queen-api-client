@@ -15,7 +15,7 @@ export const auth = (email,password) => {
 export const productsGet = (token) => {
     return axios.get(`${BASE_URL}${productsGetPath}`, {
         headers: {
-            'authorization': token
+            'authorization':`Bearer ${token}` 
         }})
 }
 
