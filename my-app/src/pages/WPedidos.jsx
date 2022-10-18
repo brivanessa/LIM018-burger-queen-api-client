@@ -5,9 +5,22 @@ import { WPendientes } from './WPendientes'
 import { WPreparados } from './WPreparados'
 import { Header } from '../components/Header'
 import { WEntregados } from './WEntregados'
+
+// import { productsGet } from '../helpers/api'
+
 import '../pages/WPedidos.css'
 import sanwich from '../assets/sanwich.png'
 export const WPedidos = () => {
+  // const tokenSaved =localStorage.getItem('llave')
+  // console.log(tokenSaved)
+  // productsGet(tokenSaved)
+  // .then((res) => {
+  //   // console.log(res)
+  //   // console.log(res.headers)
+  // console.log(res.data.products.productos)
+  // const productosMenu = res.data.products.productos;
+  // })
+    
   return (
     <div>
       <BrowserRouter>

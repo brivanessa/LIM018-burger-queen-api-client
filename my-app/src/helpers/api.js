@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BASE_URL = "http://localhost:3001"
 const authPath = "/auth"
-const productsGetPath = "GET/products"
+const productsGetPath = "/products"
 
 export const auth = (email,password) => {
      console.log(email)
@@ -18,3 +18,10 @@ export const productsGet = (token) => {
             'authorization': token
         }})
 }
+
+// export const productsGet = (token) => {
+//     console.log(`${BASE_URL}${productsGetPath}`)
+//     if(token==="EsUnSecreto"){
+//     return axios.get(`${BASE_URL}${productsGetPath}`)
+// }
+// }
