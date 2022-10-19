@@ -41,7 +41,7 @@
         "admin": true
       }
     ],
-    "productos": [
+    "products": [
       {
         "_id": "1",
         "name": "Café americano",

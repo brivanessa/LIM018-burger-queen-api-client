@@ -1,21 +1,21 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect } from 'react';
 import { productsGet } from '../helpers/api'
 
 
 export const Menu = () => {
   const [productosMenuArray, setProductosMenuArray] = useState([])
   const tokenSaved =localStorage.getItem('llave')
-  // console.log(tokenSaved)
-  productsGet(tokenSaved)
+
+  useEffect(()=>{productsGet(tokenSaved)
   .then((res) => {
     // console.log(res)
     // console.log(res.headers)
-  console.log(res.data.products.productos)
-  const productosMenu = res.data.products.productos;
+  console.log(res.data)
+  const productosMenu = res.data;
   setProductosMenuArray(productosMenu)
-  })
-  // console.log(productosMenu)
+  }).catch(error => console.log(error))
+})
     return ( 
       <div className='viewWaiterPeiddos' id='viewWPedidos'>
         <div className="waiterBody">
@@ -36,22 +36,6 @@ export const Menu = () => {
                 </div>
                   )
                   )}
-              {/* <div className="product">
-                  <div className="productName">Jugo de Frutas</div>
-                  <div className="productCost">S/.10.0</div>
-                  <div className="imgProduct">
-                    <img src={sanwich} alt="sanwich"></img>
-                  </div>
-                  <div className="buttonAñadir">+ Añadir</div>
-              </div>
-              <div className="product">
-                  <div className="productName">Jugo de Frutas</div>
-                  <div className="productCost">S/.10.0</div>
-                  <div className="imgProduct">
-                    <img src={sanwich} alt="sanwich"></img>
-                  </div>
-                  <div className="buttonAñadir">+ Añadir</div>
-              </div> */}
             </div> 
           </div> 
         </div>
@@ -62,4 +46,3 @@ export const Menu = () => {
      );
 }
  
-// export default header;

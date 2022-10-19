@@ -7,21 +7,10 @@ import { Header } from '../components/Header'
 import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
 
-// import { productsGet } from '../helpers/api'
 
 import '../pages/WPedidos.css'
-import sanwich from '../assets/sanwich.png'
 export const WPedidos = () => {
-  // const tokenSaved =localStorage.getItem('llave')
-  // console.log(tokenSaved)
-  // productsGet(tokenSaved)
-  // .then((res) => {
-  //   // console.log(res)
-  //   // console.log(res.headers)
-  // console.log(res.data.products.productos)
-  // const productosMenu = res.data.products.productos;
-  // })
-    
+
   return (
     <div className='pedidosMenuView'>
       <Header/>
@@ -42,5 +31,3 @@ export const WPedidos = () => {
   )
 }
 
-
-// export default WPedidos

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../assets/logo.png'
 import './login.css'
-import { WPedidos } from './WPedidos'
-
 
 import { auth } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'

@@ -10,7 +10,7 @@ server.use(middlewares)
 
 server.use((req, res, next) => {
 
-  // console.log(req.headers);
+  console.log("HOLAAAAAA",req.headers);
 
   if(req.method === "POST" && req.path === "/auth") {
    next();
@@ -18,13 +18,12 @@ server.use((req, res, next) => {
   else if (req.headers.authorization === `Bearer ${secret}`) {
     console.log('qqqqqq',req.headers);
   next();
-  }
-  else if(req.method === "GET" && req.path === "/products") {
-    const datos = router.db.value()
-    res.jsonp({
-      products: datos
-    })
-  
+  // }
+  // else if(req.method === "GET" && req.path === "/products") {
+  //   const datos = router.db.value()
+  //   res.jsonp({
+  //     products: datos
+  //   })
   } else {
   res.sendStatus(401)
   }
@@ -41,6 +40,19 @@ server.post('/auth', (req, res) => {
     })
   } else res.status(400).send('Bad Request')
 })
+
+
+// server.get("/products",(req,res)=>{
+//   console.log('header',req.headers)
+//   console.log('hey',!!req.headers)
+//   if (!!req.headers) {
+//         console.log('hey',req.headers.link)
+//         const datos = router.db.value()    
+//         res.jsonp({
+//           products: datos
+//         })
+//   } else res.status(401).send('No hay cabeceras')
+// })
 
 server.use(router)
 server.listen(3001, () => {
