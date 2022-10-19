@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect } from 'react';
 import { productsGet } from '../helpers/api'
 
 
@@ -7,7 +7,7 @@ export const Menu = () => {
   const [productosMenuArray, setProductosMenuArray] = useState([])
   const tokenSaved =localStorage.getItem('llave')
 
-  productsGet(tokenSaved)
+  useEffect(()=>{productsGet(tokenSaved)
   .then((res) => {
     // console.log(res)
     // console.log(res.headers)
@@ -15,6 +15,7 @@ export const Menu = () => {
   const productosMenu = res.data;
   setProductosMenuArray(productosMenu)
   }).catch(error => console.log(error))
+})
     return ( 
       <div className='viewWaiterPeiddos' id='viewWPedidos'>
         <div className="waiterBody">
