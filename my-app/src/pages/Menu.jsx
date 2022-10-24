@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { productsGet } from '../helpers/api'
+import '../pages/Menu.css'
 
 export const Menu = () => {
   const [productosMenuArray, setProductosMenuArray] = useState([])
@@ -19,7 +20,6 @@ export const Menu = () => {
         //setOrderArray(4)
       }).catch(error => console.log(error))
   }, [])
-
   //-----------Añadir productos al pedido------------------------------------------------------------------------
 
   const ClientOrderAdd = (producto) => {
