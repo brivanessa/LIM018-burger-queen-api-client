@@ -20,7 +20,7 @@ export const Menu = () => {
       }).catch(error => console.log(error))
   }, [])
 
-  //-----------Añadir productos al pedido------------------
+  //-----------Añadir productos al pedido------------------------------------------------------------------------
 
   const ClientOrderAdd = (producto) => {
     //  setOrderArray([...OrderArray,  producto.name]);
@@ -28,32 +28,28 @@ export const Menu = () => {
       return item._id === producto._id
     })
     if (existInOrder) {
-      const addQuantityItem = OrderArray.map((item) => {
+      const newArrayOrderAdd = OrderArray.map((item) => {
         if (item._id === producto._id) {
-
-
-          return { ...producto, quantity: item.quantity + 1, price: item.price + producto.price }
+          return { ...producto, quantity: item.quantity + 1, priceTotal: item.priceTotal + producto.price }
         }
         return item;
       })
-      setOrderArray(addQuantityItem)
-
+      setOrderArray(newArrayOrderAdd)
     } else {
-
-      setOrderArray([...OrderArray, { ...producto, quantity: 1 }]);
+      setOrderArray([...OrderArray, { ...producto, quantity: 1, priceTotal: producto.price }]);
 
     }
   }
+  //-----------Sumar el total del pedido-------------------------------------------------------------------------
 
   // const TotalAmountOrder = () => {
   OrderArray.map((product, i) => {
     const item = product;
-    totalOrder += item.price;
-    console.log(totalOrder)
- 
+    totalOrder += item.priceTotal;
   })
   // setTotalOrder(totalOrder1)
   //}
+  //----------Borrar pedidos--------------------------------------------------------------------------------------
 
   const deleteItemOrder = (product) => {
     const existInOrder = OrderArray.find((value) => {
@@ -61,20 +57,16 @@ export const Menu = () => {
     });
 
     if (existInOrder.quantity === 1) {
-      setOrderArray(
-        OrderArray.filter(elementInCar => elementInCar._id !== product._id)
-      )
-    } else if (existInOrder.quantity > 1) {
-      console.log("product.price")
-      const newArray = OrderArray.map((element) => {
-        if (element._id === product._id) {
-          console.log(product.price)
-          return { ...product, quantity: element.quantity - 1, price: element.price - product.price }
+      setOrderArray(OrderArray.filter(itemInOrder => itemInOrder._id !== product._id))
 
+    } else if (existInOrder.quantity > 1) {
+      const newArrayOrderSustract = OrderArray.map((item) => {
+        if (item._id === product._id) {
+          return { ...product, quantity: item.quantity - 1, priceTotal: item.priceTotal - product.price }
         }
-        return element;
+        return item;
       })
-      setOrderArray(newArray)
+      setOrderArray(newArrayOrderSustract)
     }
   };
 
@@ -126,9 +118,9 @@ export const Menu = () => {
               <tr key={i}>
                 <td className="itemsOrderTable">{product.quantity}</td>
                 <td className="itemsOrderTable">{product.name}</td>
-                <td className="itemsOrderTable">{product.price}</td>
+                <td className="itemsOrderTable">{product.priceTotal}</td>
                 <td>
-                  <button className="Btn-delete-item-product" type="button" onClick={() => deleteItemOrder(product)}>Elidddd
+                  <button className="ButonDeleteItem" type="button" onClick={() => deleteItemOrder(product)}>DELETE
                     {/* <img   alt="buttonDelete" className="Image-button-delete" /> */}
                   </button>
                 </td>
