@@ -3,6 +3,7 @@
     padding: 0px;
     box-sizing: border-box;
     /*Bordes de las cajas por dentro*/
+
     font-size: 62.5%;
 
     /*Reseteando los tamaños de fuente para que 1 rem sea igual a 10px*/
@@ -156,7 +157,15 @@
     width: 100%;
     height: 30rem;
     margin:1rem;
+    padding: 2rem 5rem 1rem;
     color: aliceblue;
-    font-size: 10px;
+    font-size: 2.5rem;
     border-radius: 1rem;
+  }
+ .rowHeadTable{
+  font-size: 1.5rem;
+  }
+
+  .itemsOrderTable{
+       font-size: 1rem;
   }
