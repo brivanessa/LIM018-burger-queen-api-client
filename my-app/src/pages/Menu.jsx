@@ -90,11 +90,13 @@ export const Menu = () => {
   return (
     <div className='viewWaiterPedidos' id='viewWPedidos'>
       <div className="waiterBody">
-        < div className="waiterOptions" >
-              </div>
         <div className="waiterContainer">
-        <button type="submit" className="waiterButtons" >Desayunos</button>
-          <button type="submit" className="waiterButtons" >Almuerzos</button>
+          < div className="waiterOptions" >
+            <button type="submit" className="waiterButtons" >DESAYUNO</button>
+            <button type="submit" className="waiterButtons" >ALMUERZO</button>
+          </div>
+          {/* <button type="submit" className="waiterButtons" >DESAYUNO</button>
+          <button type="submit" className="waiterButtons" >ALMUERZO</button> */}
           <div className="menuConstainer">
             {productosMenuArray.map((producto, index) => (
               <div className="product" key={index} onClick={(e) => {
@@ -119,36 +121,38 @@ export const Menu = () => {
         </div>
       </div>
       <div className="waiterList">
-        <h1>DETALLE DEL PEDIDO</h1>
+        <h1 className='subtituloPedido'>DETALLE DEL PEDIDO</h1>
+        <div className='datos' >
+          <input type='text'  placeholder='CLIENTE:' className='text' 
+          //onChange={(e) => setPassword(e.target.value)}
+          ></input>
+          <input type='text'  placeholder='MESA Nº:' className='text' 
+          //onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
         <table className="TableOrder">
           <thead>
             <tr className="rowHead">
               <th className="rowHeadTable">Cantidad</th>
               <th className="rowHeadTable">Descripción</th>
               <th className="rowHeadTable">Importe S/.</th>
-              <th className="rowHeadTable"> </th>
             </tr>
           </thead>
           <tbody>
             {OrderArray.map((product, i) => (
               <tr key={i}>
-                <td className="itemsOrderTable">{product.quantity}</td>
+                <td className="itemsOrderTable">{product.quantity} unid.</td>
                 <td className="itemsOrderTable">{product.name}</td>
-                <td className="itemsOrderTable">{product.priceTotal}</td>
-               
-                  <button className="ButonDeleteItem" type="button" onClick={() => deleteItemOrder(product)}>DELETE
-                    {/* <img   alt="buttonDelete" className="Image-button-delete" />  */}
+                <td className="itemsOrderTable">{product.priceTotal}</td>           
+                  <button className="ButonDeleteItem" type="button" onClick={() => deleteItemOrder(product)}>
+                    <img   src="https://cdn-icons-png.flaticon.com/512/1175/1175088.png" alt="borrar"/> 
                   </button>
-               
               </tr>
             ))}
-            <tr>
-                          
-            </tr>
           </tbody>
           <tfoot>
-          <th className="itemsOrderTable">TotalPedido S/.</th>
-              <td className="itemsOrderTable">{totalOrder}</td>
+          <th className="itemsOrderTable">TotalPedido</th>
+              <td className="itemsOrderTable">{totalOrder} soles</td>
           </tfoot>
         </table>
         <input type="submit" className="btnEnviar" onClick={enviarPedido} value="ENVIAR"></input>

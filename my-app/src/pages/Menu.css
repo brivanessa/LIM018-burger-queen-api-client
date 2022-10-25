@@ -1,3 +1,14 @@
+:root {
+  --brown: #9D7261;
+  --brown1: #CCB19D;
+  --orange1: #F0A28E;
+  --brown2: #675741;
+  --black: #000000;
+  --brown3: #BA8A6A;
+  --white: #FFFFFE;
+}
+
+
 * {
   margin: 0px;
   padding: 0px;
@@ -5,10 +16,14 @@
   /*Bordes de las cajas por dentro*/
 
   font-size: 62.5%;
-
   /*Reseteando los tamaños de fuente para que 1 rem sea igual a 10px*/
 }
 
+.ButonDeleteItem{
+  background-color: transparent;
+  border-style: none;
+  height: 3rem;
+}
 /* .pedidosMenuView{
     width: 100%;
     height: 100%;
@@ -51,10 +66,15 @@
   justify-content: space-between;
 }
 
-.viewWaiterPedidos {
+/* .viewWaiterPedidos {
   background-color: rgba(243, 143, 143, 0.8);
   backdrop-filter: blur(15px);
-}
+} */
+
+ .pedidosMenuView{
+    background-color: rgba(243, 143, 143, 0.8);
+    background-size: cover;
+  } 
 
 .waiterContainer {
   background-color: rgba(9, 4, 1, 0.3);
@@ -68,13 +88,34 @@
 .waiterOptions {
   display: flex;
   justify-content: space-evenly;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   padding: 1rem 0rem;
   margin: 0.5rem;
 }
 
-.waiterButtons {
+.datos {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  margin: 1rem 0rem;
+
+}
+
+input::placeholder {
+  color: rgb(65, 64, 64);
+
+}
+.text{
+  background-color:rgb(251, 249, 248, 0.5);
+  border-style:none;
+/* border-bottom-width: 0.2px; */
+  margin: 0.3rem;
+  padding: 0.3rem 2rem;
+  border-radius: 1rem;
+}
+
+/* .waiterButtons {
   padding: 1rem;
   margin: 1rem;
   list-style-type: none;
@@ -83,14 +124,45 @@
   background-color: rgba(48, 31, 16, 1);
   color: aliceblue;
   padding: 1rem;
-  /* transform: rotate(270deg); */
   font-size: 10px;
   border-radius: 6px;
 }
 
 .waiterButtons:hover {
   background-color: rgb(123, 90, 11);
+} */
+
+
+.waiterButtons{
+  margin-top:2rem;
+  margin: 0rem 0.5rem;
+  width: 10rem;
+  border-style:solid;
+  border-color:  rgba(48, 31, 16, 1);
+  border-width: medium;
+  background-color: rgba(48, 31, 16, 1);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  text-decoration: none;
 }
+
+.waiterButtons:hover {
+  background-color: rgb(245, 220, 120);
+  color:rgba(48, 31, 16, 1);
+}
+
+
+
+
+
+
+
+
+
+
 
 .typeMenu {
   display: flex;
@@ -136,7 +208,10 @@
 }
 
 .productName {
-  background-color: rgba(103, 87, 65, 1);
+  /* background-color: rgba(103, 87, 65, 1); */
+  background-color: rgb(245, 220, 120);
+  /* background-color:  rgba(243, 143, 143, 0.8); */
+  color:black;
   border-radius: 4px;
   padding: 5.5%;
   font-size: 10px;
@@ -169,48 +244,44 @@ img {
   font-size: 10px;
 }
 
+
+.buttonAñadir:hover {
+  /* background-color: rgb(245, 220, 120); */
+  color:rgb(245, 220, 120);
+  border-color: rgb(245, 220, 120);
+  border-style: solid;
+  /* border: 0.5rem */
+}
+
 .waiterList {
   background-color: rgba(9, 4, 1, 0.3);
+  /* background-color: black; */
   width: 100%;
-  height: 30rem;
+  height: 100%;
   margin: 1rem;
-  padding: 2rem 5rem 1rem;
+  padding: 1.5rem;
   color: aliceblue;
   font-size: 2.5rem;
   border-radius: 1rem;
 }
 
-.rowHeadTable {
+
+td {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+th, td{
+  border-radius:  0.5rem;
   font-size: 1.5rem;
 }
 
-.itemsOrderTable {
-  font-size: 1rem;
-}
-
 table {
-  border: none;
-  background-color: #b1485c;
-  border-radius: 4px;
+  /* border: none; */
+  background-color:rgb(251, 249, 248, 0.3);
+  width: 100%;
+  border-radius:  1rem;
+  border-collapse: separate;
+  padding: 1rem;
+  font-size: 3rem;
+  color: black
 }
-
-
-/* tbody  {
- color:black;
-  background-color: #dad6cb;
-  border-radius: 0.5rem;
-  border-collapse: collapse;
-
-} 
-
-
-
-caption {
-  font-family: 'Rock Salt', cursive;
-  padding: 20px;
-  font-style: italic;
-  caption-side: bottom;
-  color: #666;
-  text-align: right;
-  letter-spacing: 1px;
-} */
