@@ -89,7 +89,7 @@ export const Menu = () => {
 
   return (
     <div className='viewWaiterPedidos' id='viewWPedidos'>
-      <div className="waiterBody">
+      {/* <div className="waiterBody"> */}
         <div className="waiterContainer">
           < div className="waiterOptions" >
             <button type="submit" className="waiterButtons" >DESAYUNO</button>
@@ -119,7 +119,7 @@ export const Menu = () => {
             )}
           </div>
         </div>
-      </div>
+      {/* </div> */}
       <div className="waiterList">
         <h1 className='subtituloPedido'>DETALLE DEL PEDIDO</h1>
         <div className='datos' >
