@@ -3,6 +3,7 @@ import axios from 'axios'
 const BASE_URL = "http://localhost:3001"
 const authPath = "/auth"
 const productsGetPath = "/products"
+const ordersPostPath = "/orders"
 
 export const auth = (email,password) => {
      console.log(email)
@@ -17,6 +18,25 @@ export const productsGet = (token) => {
         headers: {
             'authorization':`Bearer ${token}` 
         }})
+}
+
+// export const ordersPost = (token, saveOrder) => {
+//     return axios.post(`${BASE_URL}${ordersPostPath}`, {
+//         headers: {
+//             'authorization':`Bearer ${token}` 
+//         },
+//         body: JSON.stringify(saveOrder),
+//     })
+// }
+
+export const ordersPost = (token, saveOrder) => {
+    console.log('saveOrder',saveOrder)
+    return axios.post(`${BASE_URL}${ordersPostPath}`, {
+        headers: {
+            'authorization':`Bearer ${token}` 
+        },
+        body: saveOrder,
+    })
 }
 
 // export const productsGet = (token) => {

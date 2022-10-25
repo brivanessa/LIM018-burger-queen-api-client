@@ -35,7 +35,7 @@ export const Login = () => {
                         document.getElementById("viewLogin").style.display = "none";
                         navigate("/Menu")
 
-                    } else if (res.status === '400') {
+                    } else if (res.status === 400) {
                         setLogin("false");
                         alert("El usuario o contraseña son incorrectos...");
                         document.getElementById("emailInput").value = "";

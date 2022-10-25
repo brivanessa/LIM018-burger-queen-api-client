@@ -41,7 +41,19 @@ server.post('/auth', (req, res) => {
   } else res.status(400).send('Bad Request')
 })
 
-
+server.post("/orders", (req,res)=>{
+  console.log('object')
+  if(!!req.headers){
+    console.log('a')
+    const order = {
+      pedido: req.body,
+      status: 'pendiente',
+    }
+    const orders = router.db.get('orders');
+    orders.push(order).write();
+    res.status(200).jsonp(order)
+  } else res.status(400).send('Bad Request 3')
+})
 // server.get("/products",(req,res)=>{
 //   console.log('header',req.headers)
 //   console.log('hey',!!req.headers)

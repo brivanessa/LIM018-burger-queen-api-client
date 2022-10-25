@@ -138,6 +138,16 @@
         "type": "tentempié",
         "dateEntry": ""
       }
-    ]
+    ],
+    "orders": [
+      {
+        "_id": "12",
+        "name": "Bebida/gaseosa 750ml",
+        "price": 10,
+        "image": "https://cdn-icons-png.flaticon.com/512/920/920592.png",
+        "type": "tentempié",
+        "dateEntry": ""
+      }
+    ]  
     
   }
