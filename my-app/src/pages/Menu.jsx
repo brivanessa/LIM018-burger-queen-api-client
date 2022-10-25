@@ -19,7 +19,8 @@ export const Menu = () => {
         setProductosMenuArray(productosMenu)
         //setOrderArray(4)
       }).catch(error => console.log(error))
-  }, [])
+      
+       }, [])
   //-----------Añadir productos al pedido------------------------------------------------------------------------
 
   const ClientOrderAdd = (producto) => {
@@ -69,16 +70,14 @@ export const Menu = () => {
       setOrderArray(newArrayOrderSustract)
     }
   };
-
-
   return (
-    <div className='viewWaiterPeiddos' id='viewWPedidos'>
+    <div className='viewWaiterPedidos' id='viewWPedidos'>
       <div className="waiterBody">
         < div className="waiterOptions" >
-          <button type="submit" className="waiterButtons" >Desayunos</button>
-          <button type="submit" className="waiterButtons" >Almuerzos</button>
-        </div>
+              </div>
         <div className="waiterContainer">
+        <button type="submit" className="waiterButtons" >Desayunos</button>
+          <button type="submit" className="waiterButtons" >Almuerzos</button>
           <div className="menuConstainer">
             {productosMenuArray.map((producto, index) => (
               <div className="product" key={index} onClick={(e) => {
@@ -107,9 +106,9 @@ export const Menu = () => {
         <table className="TableOrder">
           <thead>
             <tr className="rowHead">
-              <th className="rowHeadTable">Cant.</th>
-              <th className="rowHeadTable">Producto</th>
-              <th className="rowHeadTable">S/.</th>
+              <th className="rowHeadTable">Cantidad</th>
+              <th className="rowHeadTable">Descripción</th>
+              <th className="rowHeadTable">Importe S/.</th>
               <th className="rowHeadTable"> </th>
             </tr>
           </thead>
@@ -119,20 +118,21 @@ export const Menu = () => {
                 <td className="itemsOrderTable">{product.quantity}</td>
                 <td className="itemsOrderTable">{product.name}</td>
                 <td className="itemsOrderTable">{product.priceTotal}</td>
-                <td>
+               
                   <button className="ButonDeleteItem" type="button" onClick={() => deleteItemOrder(product)}>DELETE
-                    {/* <img   alt="buttonDelete" className="Image-button-delete" /> */}
+                    {/* <img   alt="buttonDelete" className="Image-button-delete" />  */}
                   </button>
-                </td>
+               
               </tr>
             ))}
             <tr>
-              <td>
-              </td>
-              <th className="itemsOrderTable">TotalPedido   S/.</th>
-              <td className="itemsOrderTable">{totalOrder}</td>
+                          
             </tr>
           </tbody>
+          <tfoot>
+          <th className="itemsOrderTable">TotalPedido S/.</th>
+              <td className="itemsOrderTable">{totalOrder}</td>
+          </tfoot>
         </table>
       </div>
     </div>
