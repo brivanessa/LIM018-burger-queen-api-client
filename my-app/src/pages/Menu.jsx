@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { productsGet } from '../helpers/api'
+import { productsGet, ordersPost } from '../helpers/api'
 import '../pages/Menu.css'
 
 export const Menu = () => {
@@ -70,6 +70,21 @@ export const Menu = () => {
     }
   };
 
+  function enviarPedido(e) {
+    e.preventDefault();
+    console.log(localStorage.getItem('llave'))
+    console.log('qwer', OrderArray)
+   // ordersPost(localStorage.getItem('llave'), OrderArray)
+    ordersPost(localStorage.getItem('llave'), OrderArray)
+
+    .then((res) => {
+      if(res.status===200){
+        alert('su pedido fue agregado exitosamente')
+      } else{ alert('hubo un error')}
+    })
+    .catch((err)=>{console.log('error',err)})
+  }
+  console.log('aaaaaaaaa',OrderArray);
 
   return (
     <div className='viewWaiterPeiddos' id='viewWPedidos'>
@@ -134,6 +149,7 @@ export const Menu = () => {
             </tr>
           </tbody>
         </table>
+        <input type="submit" className="btnEnviar" onClick={enviarPedido} value="ENVIAR"></input>
       </div>
     </div>
   );
