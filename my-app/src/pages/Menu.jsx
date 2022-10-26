@@ -95,14 +95,9 @@ export const Menu = () => {
             <button type="submit" className="waiterButtons" >DESAYUNO</button>
             <button type="submit" className="waiterButtons" >ALMUERZO</button>
           </div>
-          {/* <button type="submit" className="waiterButtons" >DESAYUNO</button>
-          <button type="submit" className="waiterButtons" >ALMUERZO</button> */}
           <div className="menuConstainer">
             {productosMenuArray.map((producto, index) => (
-              <div className="product" key={index} onClick={(e) => {
-                // console.log(e.target)
-
-              }}>
+              <div className="product" key={index}>
                 <div className="productName">{producto.name}</div>
                 <div className="productCost">`S/{producto.price}`</div>
                 <div className="imgProduct">

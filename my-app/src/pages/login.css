@@ -48,7 +48,7 @@
     background-color: rgba(251, 251, 251, 0.8);
     border-radius: 2rem;
     display:flex;
-    justify-content:; /*verticalmente*/
+    justify-content:flex-start;/*verticalmente*/
     align-items: center;
     flex-direction: column;
     font-size: 3.5rem;
@@ -59,12 +59,22 @@
     /* margin: 0.5rem 2rem; */
     margin-top:1rem;
 }    
-.email, .password {
+.email, .password{
     font-size: 2rem;
     display:flex;
     justify-content: center;
     height: 3rem;
 }
+
+.errorMessage{
+    font-size: 1.5rem;
+    display:flex;
+    justify-content: center;
+    height: 3rem;
+    padding: 1rem;
+}
+
+
 .loginEmail, .loginPassword {
   background-color: transparent;
   border-style:none;
