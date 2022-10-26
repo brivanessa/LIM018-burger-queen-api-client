@@ -14,21 +14,22 @@ export const Login = () => {
     const [myLogin, setLogin] = useState("false");
     const [correo, setCorreo] = useState();
     const [password, setPassword] = useState();
+    const [errorMessage, seterrorMessage] = useState("");
 
     function iniciarSesion(e) {
         e.preventDefault();
         const txtEmail = document.getElementById("emailInput").value;
         const txtPassword = document.getElementById("passwordInput").value;
         if (txtEmail.length === 0 || txtPassword.length === 0) {
-            alert("Completa tus datos...");
+            seterrorMessage("Completa tus datos...");
         } else {
             auth(txtEmail, txtPassword)
                 .then((res) => {
                     if (res.status === 200) {
                         console.log(res.headers)
-                        console.log(res.data.token!= null)
+                        console.log(res.data.token != null)
                         localStorage.setItem('llave', res.data.token); //guardar datos en el navegador
-                        const tokenSaved =localStorage.getItem('llave') //para obtener la var
+                        const tokenSaved = localStorage.getItem('llave') //para obtener la var
                         // guardar el token: se puede guardar en el localStorage o en el sessionStorage
                         // tener en cuenta que la mejor man era es en una cookie
                         setLogin("true");
@@ -37,16 +38,17 @@ export const Login = () => {
 
                     } else if (res.status === 400) {
                         setLogin("false");
-                        alert("El usuario o contraseña son incorrectos...");
+                        seterrorMessage("El usuario o contraseña son incorrectos...");
                         document.getElementById("emailInput").value = "";
                         document.getElementById("passwordInput").value = "";
                         document.getElementById("emailInput").focus();
                     }
                 })
-                .catch((err)=>{alert('error')})
+                .catch((err) => {
+                    seterrorMessage("Por favor ingresa los datos correctos.");
+                })
         }
     }
-
 
     return (  //return html y antes de return logica js
         <>
@@ -69,6 +71,7 @@ export const Login = () => {
                             <input type='password' id='passwordInput' placeholder=' Contraseña' className='loginPassword' onChange={(e) => setPassword(e.target.value)}></input>
                         </div>
                         <input type="submit" className="btnLogin" onClick={iniciarSesion} value="INGRESAR"></input>
+                        <div className='errorMessage'>{errorMessage} </div>
                     </div>
                 </div>
             </div>
