@@ -7,24 +7,50 @@ export const Menu = () => {
   const [productosMenuArray, setProductosMenuArray] = useState([])
   const tokenSaved = localStorage.getItem('llave')
   const [OrderArray, setOrderArray] = useState([])
-  // const [TotalOrder, setTotalOrder] = useState(0)
+  const [desayuno, setDesayuno] = useState('false');
+  const [almuerzo, setAlmuerzo] = useState('false');
+ 
   let totalOrder = 0;
   useEffect(() => {
     productsGet(tokenSaved)
       .then((res) => {
-        // console.log(res)
-        // console.log(res.headers)
-        console.log(res.data)
+        //console.log(res.data)
         const productosMenu = res.data;
-        setProductosMenuArray(productosMenu)
-        //setOrderArray(4)
+        //let datos 
+        if(desayuno==='true' &&  almuerzo==='false'){
+          console.log((productosMenu.filter((item)=>{
+            return item.type==="desayuno"  
+          })))
+          return setProductosMenuArray(productosMenu.filter((item)=>{
+            return item.type==="desayuno"  
+          }))
+        } else if (desayuno==='false' &&  almuerzo==='true'){
+          console.log((productosMenu.filter((item)=>{
+            return item.type==="tentempié"})))
+          return setProductosMenuArray(productosMenu.filter((item)=>{
+            return item.type==="tentempié"}))
+        } else {
+          setProductosMenuArray(productosMenu)
+        }
+        //const productosMenu = res.data;
+        //setProductosMenuArray(productosMenu)
+
       }).catch(error => console.log(error))
       
-       }, [])
+       },[desayuno,almuerzo,tokenSaved ] )
+
+  function filterDesayuno(){
+    setDesayuno('true');
+    setAlmuerzo('false')
+  }  
+  function filterAlmuerzo(){
+    setDesayuno('false');
+    setAlmuerzo('true')
+  }   
+
   //-----------Añadir productos al pedido------------------------------------------------------------------------
 
   const ClientOrderAdd = (producto) => {
-    //  setOrderArray([...OrderArray,  producto.name]);
     const existInOrder = OrderArray.find((item) => {
       return item._id === producto._id
     })
@@ -75,7 +101,6 @@ export const Menu = () => {
     e.preventDefault();
     console.log(localStorage.getItem('llave'))
     console.log('qwer', OrderArray)
-   // ordersPost(localStorage.getItem('llave'), OrderArray)
     ordersPost(localStorage.getItem('llave'), OrderArray)
 
     .then((res) => {
@@ -85,49 +110,38 @@ export const Menu = () => {
     })
     .catch((err)=>{console.log('error',err)})
   }
-  console.log('aaaaaaaaa',OrderArray);
+  //console.log('aaaaaaaaa',OrderArray);
 
   return (
     <div className='viewWaiterPedidos' id='viewWPedidos'>
-      {/* <div className="waiterBody"> */}
         <div className="waiterContainer">
           < div className="waiterOptions" >
-            <button type="submit" className="waiterButtons" >DESAYUNO</button>
-            <button type="submit" className="waiterButtons" >ALMUERZO</button>
+            <button type="submit" className="waiterButtons" onClick={filterDesayuno}>DESAYUNO</button>
+            <button type="submit" className="waiterButtons" onClick={filterAlmuerzo}>ALMUERZO</button>
           </div>
-          {/* <button type="submit" className="waiterButtons" >DESAYUNO</button>
-          <button type="submit" className="waiterButtons" >ALMUERZO</button> */}
           <div className="menuConstainer">
-            {productosMenuArray.map((producto, index) => (
-              <div className="product" key={index} onClick={(e) => {
-                // console.log(e.target)
-
-              }}>
+            {productosMenuArray.map((producto) => (
+              <div className="product" key={producto._id}>
                 <div className="productName">{producto.name}</div>
                 <div className="productCost">`S/{producto.price}`</div>
                 <div className="imgProduct">
                   <img src={producto.image} alt="sanwich"></img>
                 </div>
                 <div className="buttonAñadir" onClick={() => {
-                  ClientOrderAdd(producto);
-                  //TotalAmountOrder()
-                }
-                }>+ Añadir
+                    ClientOrderAdd(producto);
+                  }
+                  }>+ Añadir
                 </div>
               </div>
-            )
-            )}
+            ))}
           </div>
         </div>
-      {/* </div> */}
       <div className="waiterList">
         <h1 className='subtituloPedido'>DETALLE DEL PEDIDO</h1>
         <div className='datos' >
           <input type='text'  placeholder='CLIENTE:' className='text' 
-          //onChange={(e) => setPassword(e.target.value)}
           ></input>
           <input type='text'  placeholder='MESA Nº:' className='text' 
-          //onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
         <table className="TableOrder">
