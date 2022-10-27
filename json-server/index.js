@@ -45,11 +45,18 @@ server.post("/orders", (req,res)=>{
   console.log('object')
   if(!!req.headers){
     console.log('a')
-    const order = {
-      pedido: req.body,
-      status: 'pendiente',
-    }
     const orders = router.db.get('orders');
+    //console.log('jj',orders.__wrapped__.orders.length)
+    const order = {
+      _id: orders.__wrapped__.orders.length + 1,
+      userId: req.body.userId,
+      client: req.body.client,
+      products: req.body.products,
+      status: 'pending',
+      dateEntry: new Date().toLocaleString(),
+      dateProcessed:''
+    }
+    //const orders = router.db.get('orders');
     orders.push(order).write();
     res.status(200).jsonp(order)
   } else res.status(400).send('Bad Request 3')

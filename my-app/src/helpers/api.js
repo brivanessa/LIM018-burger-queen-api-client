@@ -20,24 +20,47 @@ export const productsGet = (token) => {
         }})
 }
 
-// export const ordersPost = (token, saveOrder) => {
+// export async function ordersPost (saveOrder) {
+//     try{
+//         const response = await axios({
+//             url:`${BASE_URL}${ordersPostPath}`,
+//             method: 'POST',
+//             data: saveOrder
+//         })
+//         return response
+
+//     } catch (e){
+//         console.log(e)
+//     }
+
+// }
+
+export const orderPost = (token, saveOrder) => {
+    console.log('saveOrder',saveOrder)
+    return axios.post(`${BASE_URL}${ordersPostPath}`, saveOrder,
+        {headers: {
+            'authorization':`Bearer ${token}` 
+        }},
+    )
+}
+//     console.log('saveOrder',saveOrder)
 //     return axios.post(`${BASE_URL}${ordersPostPath}`, {
 //         headers: {
 //             'authorization':`Bearer ${token}` 
 //         },
-//         body: JSON.stringify(saveOrder),
+//         body: saveOrder,
 //     })
 // }
 
-export const ordersPost = (token, saveOrder) => {
-    console.log('saveOrder',saveOrder)
-    return axios.post(`${BASE_URL}${ordersPostPath}`, {
-        headers: {
-            'authorization':`Bearer ${token}` 
-        },
-        body: saveOrder,
-    })
-}
+// export const ordersPost = (token, saveOrder) => {
+//     console.log('saveOrder',saveOrder)
+//     return axios.post(`${BASE_URL}${ordersPostPath}`, {
+//         headers: {
+//             'authorization':`Bearer ${token}` 
+//         },
+//         body: saveOrder,
+//     })
+// }
 
 // export const productsGet = (token) => {
 //     console.log(`${BASE_URL}${productsGetPath}`)

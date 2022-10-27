@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { productsGet, ordersPost } from '../helpers/api'
+import { productsGet, orderPost } from '../helpers/api'
 import '../pages/Menu.css'
 
 export const Menu = () => {
@@ -9,35 +9,27 @@ export const Menu = () => {
   const [OrderArray, setOrderArray] = useState([])
   const [desayuno, setDesayuno] = useState('false');
   const [almuerzo, setAlmuerzo] = useState('false');
- 
+  const [cliente, setCliente] = useState();
+  const [mesa, setMesa] = useState();
+
   let totalOrder = 0;
   useEffect(() => {
     productsGet(tokenSaved)
       .then((res) => {
-        //console.log(res.data)
         const productosMenu = res.data;
-        //let datos 
         if(desayuno==='true' &&  almuerzo==='false'){
-          console.log((productosMenu.filter((item)=>{
-            return item.type==="desayuno"  
-          })))
           return setProductosMenuArray(productosMenu.filter((item)=>{
             return item.type==="desayuno"  
           }))
         } else if (desayuno==='false' &&  almuerzo==='true'){
-          console.log((productosMenu.filter((item)=>{
-            return item.type==="tentempié"})))
           return setProductosMenuArray(productosMenu.filter((item)=>{
             return item.type==="tentempié"}))
         } else {
           setProductosMenuArray(productosMenu)
         }
-        //const productosMenu = res.data;
-        //setProductosMenuArray(productosMenu)
-
       }).catch(error => console.log(error))
       
-       },[desayuno,almuerzo,tokenSaved ] )
+       },[desayuno,almuerzo,tokenSaved] )
 
   function filterDesayuno(){
     setDesayuno('true');
@@ -74,8 +66,6 @@ export const Menu = () => {
     const item = product;
     totalOrder += item.priceTotal;
   })
-  // setTotalOrder(totalOrder1)
-  //}
   //----------Borrar pedidos--------------------------------------------------------------------------------------
 
   const deleteItemOrder = (product) => {
@@ -101,7 +91,19 @@ export const Menu = () => {
     e.preventDefault();
     console.log(localStorage.getItem('llave'))
     console.log('qwer', OrderArray)
-    ordersPost(localStorage.getItem('llave'), OrderArray)
+    const today = new Date();
+    const productsAndQty = OrderArray.map((item)=>{return (
+      {
+        product: item._id, //cambiar pro productId si no funciona
+        qty: item.quantity,
+      })})
+    const resumenPedido = {
+      userId: `${today.toLocaleString()}-${cliente}`,
+      client: `${cliente}/mesa:${mesa}`,
+      products: productsAndQty
+    }
+    console.log(resumenPedido)
+    orderPost(localStorage.getItem('llave'), resumenPedido)
 
     .then((res) => {
       if(res.status===200){
@@ -139,9 +141,9 @@ export const Menu = () => {
       <div className="waiterList">
         <h1 className='subtituloPedido'>DETALLE DEL PEDIDO</h1>
         <div className='datos' >
-          <input type='text'  placeholder='CLIENTE:' className='text' 
+          <input type='text'  placeholder='CLIENTE:' className='text'  onChange={(e) => setCliente(e.target.value)}
           ></input>
-          <input type='text'  placeholder='MESA Nº:' className='text' 
+          <input type='text'  placeholder='MESA Nº:' className='text' onChange={(e) => setMesa(e.target.value)}
           ></input>
         </div>
         <table className="TableOrder">
