@@ -20,28 +20,18 @@ export const productsGet = (token) => {
         }})
 }
 
-// export const ordersPost = (token, saveOrder) => {
-//     return axios.post(`${BASE_URL}${ordersPostPath}`, {
-//         headers: {
-//             'authorization':`Bearer ${token}` 
-//         },
-//         body: JSON.stringify(saveOrder),
-//     })
-// }
-
-export const ordersPost = (token, saveOrder) => {
+export const orderPost = (token, saveOrder) => {
     console.log('saveOrder',saveOrder)
-    return axios.post(`${BASE_URL}${ordersPostPath}`, {
-        headers: {
+    return axios.post(`${BASE_URL}${ordersPostPath}`, saveOrder,
+        {headers: {
             'authorization':`Bearer ${token}` 
-        },
-        body: saveOrder,
-    })
+        }},
+    )
 }
 
-// export const productsGet = (token) => {
-//     console.log(`${BASE_URL}${productsGetPath}`)
-//     if(token==="EsUnSecreto"){
-//     return axios.get(`${BASE_URL}${productsGetPath}`)
-// }
-// }
+export const ordersGet = (token) => {
+    return axios.get(`${BASE_URL}${ordersPostPath}`, {
+        headers: {
+            'authorization':`Bearer ${token}` 
+        }})
+}
