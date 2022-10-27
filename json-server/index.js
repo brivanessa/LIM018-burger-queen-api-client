@@ -42,7 +42,7 @@ server.post('/auth', (req, res) => {
 })
 
 server.post("/orders", (req,res)=>{
-  console.log('object')
+  //console.log('object')
   if(!!req.headers){
     console.log('a')
     const orders = router.db.get('orders');

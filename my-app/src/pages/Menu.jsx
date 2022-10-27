@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { productsGet, orderPost } from '../helpers/api'
+import { productsGet, orderPost} from '../helpers/api'
 import '../pages/Menu.css'
 
 export const Menu = () => {
@@ -102,15 +102,14 @@ export const Menu = () => {
       client: `${cliente}/mesa:${mesa}`,
       products: productsAndQty
     }
-    console.log(resumenPedido)
-    orderPost(localStorage.getItem('llave'), resumenPedido)
-
-    .then((res) => {
-      if(res.status===200){
-        alert('su pedido fue agregado exitosamente')
-      } else{ alert('hubo un error')}
-    })
-    .catch((err)=>{console.log('error',err)})
+    //console.log(resumenPedido)
+      orderPost(localStorage.getItem('llave'), resumenPedido)
+      .then((res) => {
+        if(res.status===200){
+          alert('su pedido fue agregado exitosamente')
+        } else{ alert('hubo un error')}
+      })
+      .catch((err)=>{console.log('error',err)})
   }
   //console.log('aaaaaaaaa',OrderArray);
 

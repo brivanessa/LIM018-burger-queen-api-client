@@ -174,6 +174,108 @@
       "status": "pending",
       "dateEntry": "26/10/2022, 23:32:50",
       "dateProcessed": ""
+    },
+    {
+      "_id": 2,
+      "userId": "26/10/2022 23:34:58-SOFIA",
+      "client": "SOFIA/mesa:1",
+      "products": [
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        },
+        {
+          "product": "5-Hamburguesa simple",
+          "qty": 2
+        },
+        {
+          "product": "9-Agua 500ml",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "26/10/2022, 23:34:58",
+      "dateProcessed": ""
+    },
+    {
+      "_id": 3,
+      "userId": "27/10/2022 00:23:13-JUAN",
+      "client": "JUAN/mesa:5",
+      "products": [
+        {
+          "product": "2-Café con leche",
+          "qty": 1
+        },
+        {
+          "product": "1-Café americano",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "27/10/2022, 00:23:13",
+      "dateProcessed": ""
+    },
+    {
+      "_id": 4,
+      "userId": "27/10/2022 00:42:50-undefined",
+      "client": "undefined/mesa:undefined",
+      "products": [
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        },
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "27/10/2022, 00:42:50",
+      "dateProcessed": ""
+    },
+    {
+      "_id": 5,
+      "userId": "27/10/2022 01:20:11-Mariana",
+      "client": "Mariana/mesa:8",
+      "products": [
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        },
+        {
+          "product": "2-Café con leche",
+          "qty": 1
+        },
+        {
+          "product": "1-Café americano",
+          "qty": 1
+        },
+        {
+          "product": "9-Agua 500ml",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "27/10/2022, 01:20:11",
+      "dateProcessed": ""
+    },
+    {
+      "_id": 6,
+      "userId": "27/10/2022 01:28:07-Carlos",
+      "client": "Carlos/mesa:11",
+      "products": [
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        },
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "27/10/2022, 01:28:07",
+      "dateProcessed": ""
     }
   ]
 }
