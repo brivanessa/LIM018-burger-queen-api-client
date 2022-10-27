@@ -89,16 +89,16 @@ export const Menu = () => {
 
   function enviarPedido(e) {
     e.preventDefault();
-    console.log(localStorage.getItem('llave'))
-    console.log('qwer', OrderArray)
+    // console.log(localStorage.getItem('llave'))
+    // console.log('qwer', OrderArray)
     const today = new Date();
     const productsAndQty = OrderArray.map((item)=>{return (
       {
-        product: item._id, //cambiar pro productId si no funciona
+        product: item._id, //cambiar por productId si no funciona
         qty: item.quantity,
       })})
     const resumenPedido = {
-      userId: `${today.toLocaleString()}-${cliente}`,
+      userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
       client: `${cliente}/mesa:${mesa}`,
       products: productsAndQty
     }
