@@ -111,6 +111,14 @@ export const Menu = () => {
       })
       .catch((err)=>{console.log('error',err)})
   }
+
+  function cleanPedido () {
+    //document.getElementsByClassName('text').value='';
+    document.getElementById('textName').value='';
+    document.getElementById('textMesa').value='';
+    setOrderArray([])
+
+  }
   //console.log('aaaaaaaaa',OrderArray);
 
   return (
@@ -140,9 +148,9 @@ export const Menu = () => {
       <div className="waiterList">
         <h1 className='subtituloPedido'>DETALLE DEL PEDIDO</h1>
         <div className='datos' >
-          <input type='text'  placeholder='CLIENTE:' className='text'  onChange={(e) => setCliente(e.target.value)}
+          <input type='text'  placeholder='CLIENTE:' className='text'  id='textName' onChange={(e) => setCliente(e.target.value)}
           ></input>
-          <input type='text'  placeholder='MESA Nº:' className='text' onChange={(e) => setMesa(e.target.value)}
+          <input type='text'  placeholder='MESA Nº:' className='text'  id='textMesa' onChange={(e) => setMesa(e.target.value)}
           ></input>
         </div>
         <table className="TableOrder">
@@ -170,7 +178,10 @@ export const Menu = () => {
               <td className="itemsOrderTable">{totalOrder} soles</td>
           </tfoot>
         </table>
-        <input type="submit" className="btnEnviar" onClick={enviarPedido} value="ENVIAR"></input>
+        <div className="btnsMenu">
+          <input type="submit" className="btnEnviar" onClick={enviarPedido} value="ENVIAR"></input>
+          <input type="submit" className="btnClear" onClick={cleanPedido} value="CANCELAR"></input>
+        </div>
       </div>
     </div>
   );
