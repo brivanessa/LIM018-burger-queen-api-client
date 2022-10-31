@@ -256,3 +256,8 @@ table {
   font-size: 3rem;
   color: black
 }
+
+.btnsMenu{
+  display: flex;
+  justify-content: space-around;
+}
