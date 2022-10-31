@@ -74,7 +74,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   padding: 1.5rem;
-  margin: 0rem;
+  margin: 0rem 0rem 2rem 0rem;
   background-color: BLACK;
   color: white;
 }
@@ -94,7 +94,7 @@
 
 .waiterContainer {
   background-color: rgba(9, 4, 1, 0.3);
-  margin: 0rem 1rem;
+  margin: 3rem 1rem;
   height: 70vh;
   border-radius: 1rem;
   padding: 0.5rem;
@@ -130,26 +130,6 @@ input::placeholder {
   border-radius: 1rem;
 }
  
-.waiterButtons{
-  margin-top:2rem;
-  margin: 0rem 0.5rem;
-  width: 10rem;
-  border-style:solid;
-  border-color:  rgba(48, 31, 16, 1);
-  border-width: medium;
-  background-color: rgba(48, 31, 16, 1);
-  color: white;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 0.3rem;
-  text-decoration: none;
-}
-
-.waiterButtons:hover {
-  background-color: rgb(245, 220, 120);
-  color:rgba(48, 31, 16, 1);
-}
 
 .typeMenu {
   display: flex;
@@ -230,7 +210,7 @@ img {
 .waiterList {
   background-color: rgba(9, 4, 1, 0.3);
   width: 100vh;
-  margin: 0rem 1rem;
+  margin: 3rem 1rem;
   padding: 1.5rem;
   color: aliceblue;
   font-size: 2.5rem;
