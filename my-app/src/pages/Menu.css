@@ -92,13 +92,30 @@
     background-size: cover;
   } 
 
+
+
 .waiterContainer {
   background-color: rgba(9, 4, 1, 0.3);
   margin: 0rem 1rem;
   height: 70vh;
   border-radius: 1rem;
   padding: 0.5rem;
+  overflow:auto;
 }
+
+.waiterContainer::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  display: none;   
+}
+  .waiterContainer::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /*  Ocultar scroll */
+
+  background: #5e2b2b;
+ border-radius: 3rem;
+}
+
 
 
 .waiterOptions {
@@ -175,7 +192,7 @@ input::placeholder {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-}
+ }
 
 .product {
   display: flex;
@@ -190,9 +207,6 @@ input::placeholder {
   margin: 0.5rem;
   margin-block-end: 1rem;
 }
-
-
-
 .productCost {
 
   color: aliceblue;
@@ -228,15 +242,28 @@ img {
 }
 
 .waiterList {
-  background-color: rgba(9, 4, 1, 0.3);
+ /*overflow: scroll;
+   background-color: rgba(9, 4, 1, 0.3);
   width: 100vh;
   margin: 0rem 1rem;
   padding: 1.5rem;
   color: aliceblue;
   font-size: 2.5rem;
+  border-radius: 1rem; */
+  background-color: rgba(9, 4, 1, 0.3);
+  margin: 0rem 1rem;
+  height: 70vh;
   border-radius: 1rem;
+  padding: 1.5rem;
+  color: aliceblue;
+  font-size: 2.5rem;
+  border-radius: 1rem;
+ 
 }
 
+.x{
+  overflow: hidden;
+}
 
 td {
   background-color: rgba(255, 255, 255, 0.5);
@@ -256,3 +283,4 @@ table {
   font-size: 3rem;
   color: black
 }
+

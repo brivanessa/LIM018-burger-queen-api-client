@@ -145,6 +145,7 @@ export const Menu = () => {
           <input type='text'  placeholder='MESA Nº:' className='text' onChange={(e) => setMesa(e.target.value)}
           ></input>
         </div>
+        <div className="x">
         <table className="TableOrder">
           <thead>
             <tr className="rowHead">
@@ -170,6 +171,7 @@ export const Menu = () => {
               <td className="itemsOrderTable">{totalOrder} soles</td>
           </tfoot>
         </table>
+        </div>
         <input type="submit" className="btnEnviar" onClick={enviarPedido} value="ENVIAR"></input>
       </div>
     </div>

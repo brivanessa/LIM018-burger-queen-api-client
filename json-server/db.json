@@ -146,6 +146,14 @@
       "image": "https://cdn-icons-png.flaticon.com/512/920/920592.png",
       "type": "tentempié",
       "dateEntry": ""
+    },
+    {
+      "_id": "12-Bebida/gaseosa 750ml1",
+      "name": "Bebida/gaseosa 750ml1",
+      "price": 110,
+      "image": "https://cdn-icons-png.flaticon.com/512/920/920592.png",
+      "type": "tentempié",
+      "dateEntry": ""
     }
   ],
   "orders": [
@@ -379,6 +387,42 @@
       ],
       "status": "pending",
       "dateEntry": "27/10/2022, 09:45:25",
+      "dateProcessed": ""
+    },
+    {
+      "_id": 13,
+      "userId": "27/10/2022, 10:08:43-undefined",
+      "client": "undefined/mesa:undefined",
+      "products": [
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        },
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        },
+        {
+          "product": "5-Hamburguesa simple",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "27/10/2022 10:08:43",
+      "dateProcessed": ""
+    },
+    {
+      "_id": 14,
+      "userId": "27/10/2022, 10:11:23-undefined",
+      "client": "undefined/mesa:undefined",
+      "products": [
+        {
+          "product": "2-Café con leche",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "27/10/2022 10:11:23",
       "dateProcessed": ""
     }
   ]
