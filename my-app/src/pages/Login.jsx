@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../assets/logo.png'
-import './login.css'
+import './login.css'//ejecuta login sin importar ningun elemento
 
 import { auth } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'
@@ -25,7 +25,8 @@ export const Login = () => {
                         //const tokenSaved = localStorage.getItem('llave') //para obtener la var
                         // guardar el token: se puede guardar en el localStorage o en el sessionStorage
                         // tener en cuenta que la mejor man era es en una cookie
-                        setLogin("true");
+                        console.log("busand",res)
+                        localStorage.setItem('correo', correo)//guardo en locaStorage el correo
                         document.getElementById("viewLogin").style.display = "none";
                         // navigate("/Menu")
                         // navigate(1)
