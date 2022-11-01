@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { WPendientes } from './WPendientes'
 import { WPreparados } from './WPreparados'
 import { Header } from '../components/Header'
+import { Footer} from '../components/Footer'
 import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
 
@@ -26,7 +27,7 @@ export const WPedidos = () => {
 
         </Routes>
       </BrowserRouter>
-
+      <Footer/>
     </div>
   )
 }
