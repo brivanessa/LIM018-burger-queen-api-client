@@ -4,6 +4,7 @@ import './login.css'//ejecuta login sin importar ningun elemento
 
 import { auth } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'
+import { Menu } from './Menu'
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -27,10 +28,12 @@ export const Login = () => {
                         console.log("busand",res)
                         localStorage.setItem('correo', correo)//guardo en locaStorage el correo
                         document.getElementById("viewLogin").style.display = "none";
-                       
-                        navigate("/Menu");
-              
-                      
+                        // navigate("/Menu")
+                        // navigate(1)
+                        window.location = '/Menu';
+                        // return {Menu()};
+                        
+
 
                     } else if (res.status === 400) {
                         setLogin("false");

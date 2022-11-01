@@ -5,8 +5,5 @@ return(
     <div className='copyrigth'>Copyrigth</div> 
     <div className='copyrigth'>  @ArkellyPerez - @VanessaArapa</div>
 </div>
-
-
 )
-
 }

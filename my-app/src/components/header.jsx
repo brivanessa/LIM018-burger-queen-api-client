@@ -30,7 +30,7 @@ console.log("ddd")
 
       <div className="imgLogo"><img src={whitelogo} alt="logo"></img></div>
       <div className="imgSalir"> <img src={salir} alt="loginout"></img>
-       <button><img src={salir} alt="loginout" onClick={closeSesion() } /></button>   
+       {/* <button><img src={salir} alt="loginout" onClick={closeSesion() } /></button>    */}
       
        {/* <li href="">Cerrar sesión</li> */}
       </div>

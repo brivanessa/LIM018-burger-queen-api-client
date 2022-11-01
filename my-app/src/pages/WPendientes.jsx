@@ -11,11 +11,13 @@ export const WPendientes = () => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        setOrdersuArray(ordersGeneral)
+        const ordersPending = ordersGeneral.filter(order=>order.status==="pending")
+        setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
   },[tokenSaved])
   //console.log(ordersArray)
   return (
+    <div className='areaPendientes3'>
     <div className='areaPendientes'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order._id}>
@@ -31,7 +33,10 @@ export const WPendientes = () => {
       </div>
       <br/>
       <div>
+        <div className='estadoPedido'>
         <h1>Pedido Nº {order._id}</h1>
+        <h2 className='statusOrder'>{order.status.toUpperCase()}</h2>
+        </div>
         <table className='tableOrder'>
         <thead>
             <tr className="rowHead">
@@ -51,11 +56,12 @@ export const WPendientes = () => {
           </tbody>
 
         </table>
-        <h2>{order.status}</h2>
+        {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
       ))}
 
+    </div>
     </div>
   )
 }
