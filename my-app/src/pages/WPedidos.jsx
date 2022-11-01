@@ -45,6 +45,7 @@ export const WPedidos = () => {
         </Routes>
    
        </Router>
+       <Footer/>
       </div>
 
   )
