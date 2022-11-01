@@ -16,6 +16,7 @@ export const WPendientes = () => {
   },[tokenSaved])
   //console.log(ordersArray)
   return (
+    <div className='areaPendientes3'>
     <div className='areaPendientes'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order._id}>
@@ -56,6 +57,7 @@ export const WPendientes = () => {
     </div>
       ))}
 
+    </div>
     </div>
   )
 }
