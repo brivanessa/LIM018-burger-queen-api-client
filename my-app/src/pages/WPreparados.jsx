@@ -2,8 +2,9 @@ import React from 'react'
 
 export const WPreparados = () => {
   return (
-    <div>
+    <div className='areaPreparados'>
       Pedidos Preparados
+
     </div>
   )
 }

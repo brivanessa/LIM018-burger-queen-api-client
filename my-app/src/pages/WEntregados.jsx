@@ -2,7 +2,7 @@ import React from 'react'
 
 export const WEntregados = () => {
   return (
-    <div>
+    <div className='areaEntregados'>
       Pedidos Entregados
     </div>
   )

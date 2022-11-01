@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router, 
   Routes, 
   Route,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 import { WPendientes } from './WPendientes'
 import { WPreparados } from './WPreparados'
@@ -18,20 +19,22 @@ export const WPedidos = () => {
   return (
     <div className='pedidosMenuView'>
       <Header/>
-      <Router>
-
+      <Router >
+        {/* <div className='pedidosButtons'> /////////////*/}
+        <div className='pedidosButtons'>
         <Link to="/Menu" className="waiterButtonsPrincipal">
         Pedidos  
         </Link>
-        <Link to="/Menu/Pendientes" className="waiterButtonsPrincipal">
+        <NavLink to="/Menu/Pendientes" className="waiterButtonsPrincipal" activeClassName="active">
         Pendiente
-        </Link>
-        <Link to="/Menu/Preparados" className="waiterButtonsPrincipal">
+        </NavLink>
+        <NavLink to="/Menu/Preparados" className="waiterButtonsPrincipal" activeClassName="active">
         Preparados
-        </Link>
-        <Link to="/Menu/Entregados" className="waiterButtonsPrincipal">
+        </NavLink>
+        <NavLink to="/Menu/Entregados" className="waiterButtonsPrincipal" activeClassName="active">
         Entregados
-        </Link>
+        </NavLink>
+        </div>
 
         <Routes>
           <Route path="/Menu" element={<Menu/>}/>

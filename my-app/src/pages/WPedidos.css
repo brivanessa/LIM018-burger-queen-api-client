@@ -5,16 +5,19 @@
     font-size: 62.5%;
   }
 
- .pedidosMenuView{
-    background-color: rgba(243, 143, 143, 0.8);
-    /* background-size: cover; */
-    /* background-attachment: fixed; */
-    height: 100vh;
-    margin: 0rem;
-    /* position: absolute; */
 
-  } 
+.pedidosButtons{
+background-color:rgba(9, 4, 1, 0.3);
+margin-top: 0rem;
+padding: 1rem;
+  /* height: 100%; */
+  /* position: fixed;///////////////// */
+  width: 100%;
 
+}
+.header{
+  position: fixed; 
+}
   .waiterButtons, .waiterButtonsPrincipal{
     /* margin-top:5rem; */
     /* margin: 10rem 0.5rem; */
@@ -36,10 +39,14 @@
     border-color:  transparent;
     /* border-width: 5rem; */
     font-size: 1.5rem;
+    /* position:fixed;  */
+    /* width: 100%;  */
   }
 
 
-  .waiterButtons:hover {
+  .waiterButtons:hover, .active {
     background-color: rgb(245, 220, 120);
     color:rgba(48, 31, 16, 1);
+    border-color:  rgba(48, 31, 16, 1);
+    border-width: medium;
   }
