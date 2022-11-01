@@ -8,6 +8,12 @@
   --white: #FFFFFE;
 }
 
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
 
 .product {
   display: flex;
@@ -17,7 +23,7 @@
   /* width: 100px;
   height: 130px; */
   width: 10rem;
-  height: 15rem;
+  height: 17rem;
   color: aliceblue;
   /* font-size: 10px; */
   border-radius: 6px;
@@ -25,9 +31,8 @@
   border:2rem;
   margin: 0.5rem;
   margin-block-end: 1rem;
+  overflow: hidden;
 }
-
-
 
 
 .productName {
@@ -41,12 +46,7 @@
   justify-content: center;
   align-items: center;
 }
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
+
 
 .ButonDeleteItem{
   background-color: transparent;
@@ -73,7 +73,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 1rem;
   margin: 0rem;
   background-color: BLACK;
   color: white;
@@ -92,13 +92,30 @@
     background-size: cover;
   } 
 
+
+
 .waiterContainer {
   background-color: rgba(9, 4, 1, 0.3);
   margin: 0rem 1rem;
   height: 70vh;
   border-radius: 1rem;
   padding: 0.5rem;
+  overflow:auto;
 }
+
+.waiterContainer::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  display: none;   
+}
+  .waiterContainer::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /*  Ocultar scroll */
+
+  background: #5e2b2b;
+ border-radius: 3rem;
+}
+
 
 
 .waiterOptions {
@@ -175,7 +192,7 @@ input::placeholder {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-}
+ }
 
 .product {
   display: flex;
@@ -190,19 +207,16 @@ input::placeholder {
   margin: 0.5rem;
   margin-block-end: 1rem;
 }
-
-
-
 .productCost {
 
   color: aliceblue;
   font-size: 12px;
 }
 
-img {
+ img {
   max-width: 80%;
   max-height: 80%;
-}
+} 
 
 .imgProduct {
 
@@ -228,15 +242,27 @@ img {
 }
 
 .waiterList {
-  background-color: rgba(9, 4, 1, 0.3);
+ /*overflow: scroll;
+   background-color: rgba(9, 4, 1, 0.3);
   width: 100vh;
   margin: 0rem 1rem;
   padding: 1.5rem;
   color: aliceblue;
   font-size: 2.5rem;
+  border-radius: 1rem; */
+  background-color: rgba(9, 4, 1, 0.3);
+  margin: 0rem 1rem;
+  height: 70vh;
   border-radius: 1rem;
+  padding: 1.5rem;
+  color: aliceblue;
+  font-size: 2.5rem;
+  border-radius: 1rem;
+  overflow-y:scroll;
+ 
+  /* overflow-y:visible;
+  overflow-y:scroll; */
 }
-
 
 td {
   background-color: rgba(255, 255, 255, 0.5);
@@ -254,7 +280,9 @@ table {
   border-collapse: separate;
   padding: 1rem;
   font-size: 3rem;
-  color: black
+  color: black;
+ 
+
 }
 
 .btnsMenu{
