@@ -1,7 +1,6 @@
 import React from 'react'
-import { 
-  BrowserRouter as Router, 
-  Routes, 
+import {
+  Routes,
   Route,
   Link,
   NavLink
@@ -9,7 +8,7 @@ import {
 import { WPendientes } from './WPendientes'
 import { WPreparados } from './WPreparados'
 import { Header } from '../components/header'
-import { Footer} from '../components/Footer'
+import { Footer } from '../components/Footer'
 import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
 
@@ -17,36 +16,42 @@ import { WEntregados } from './WEntregados'
 import '../pages/WPedidos.css'
 export const WPedidos = () => {
 
+  function getUser() {
+    if (localStorage.getItem('llave') === null) {
+      console.log(" Ningún usuario logueado")
+    } else {
+      console.log(" usuario logueado")
+    }
+  }
+
   return (
     <div className='pedidosMenuView'>
-      <Header/>
-      <Router >
-        {/* <div className='pedidosButtons'> /////////////*/}
-        <div className='pedidosButtons'>
+      <Header />
+      {/* <div className='pedidosButtons'> /////////////*/}
+      <div className='pedidosButtons'>
         <Link to="/Menu" className="waiterButtonsPrincipal">
-        Pedidos  
+          Pedidos
         </Link>
         <NavLink to="/Menu/Pendientes" className="waiterButtonsPrincipal" activeClassName="active">
-        Pendiente
+          Pendiente
         </NavLink>
         <NavLink to="/Menu/Preparados" className="waiterButtonsPrincipal" activeClassName="active">
-        Preparados
+          Preparados
         </NavLink>
         <NavLink to="/Menu/Entregados" className="waiterButtonsPrincipal" activeClassName="active">
-        Entregados
+          Entregados
         </NavLink>
-        </div>
-
-        <Routes>
-          <Route path="/Menu" element={<Menu/>}/>
-          <Route path="/Menu/Pendientes" element={<WPendientes/>}/>
-          <Route path="/Menu/Preparados" element={<WPreparados/>}/>
-          <Route path="/Menu/Entregados" element={<WEntregados/>}/>
-        </Routes>
-   
-       </Router>
-       <Footer/>
       </div>
+
+      <Routes>
+        <Route path="/Menu" element={<Menu />} />
+        <Route path="/Menu/Pendientes" element={<WPendientes />} />
+        <Route path="/Menu/Preparados" element={<WPreparados />} />
+        <Route path="/Menu/Entregados" element={<WEntregados />} />
+      </Routes>
+
+      <Footer />
+    </div>
 
   )
 }

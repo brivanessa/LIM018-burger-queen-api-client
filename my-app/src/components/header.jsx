@@ -5,16 +5,21 @@ import imgUser from '../assets/imguser.png'
 import whitelogo from '../assets/whitelogo.png'
 import salir from '../assets/salir1.PNG'
 import { useNavigate } from 'react-router-dom'
-import {Login} from '..//pages/Login';
-export const Header = () => {
-//const navigate = useNavigate();
-console.log("navigate")
-  const email = localStorage.getItem('correo')
+import { Login } from '..//pages/Login';
 
-function closeSesion(){
- 
-console.log("ddd")
-}
+import { useUser } from "../App"
+
+export const Header = () => {
+  //const navigate = useNavigate();
+
+  const { getUser, logout } = useUser()
+
+  console.log("navigate")
+
+  function closeSesion() {
+
+    console.log("ddd")
+  }
 
   return (
     <div className="headerViews" id="menu">
@@ -23,16 +28,16 @@ console.log("ddd")
         <img src={imgUser} alt="imgUser" />
         {/* </div> */}
         <div className="greetingContainer">
-          <div className="greeting">Hola</div>
-          <div className="userName">{email}</div>
+          <div className="greeting">Mesero</div>
+          <div className="userName">{getUser().email}</div>
         </div>
       </div>
 
       <div className="imgLogo"><img src={whitelogo} alt="logo"></img></div>
-      <div className="imgSalir"> <img src={salir} alt="loginout"></img>
-       {/* <button><img src={salir} alt="loginout" onClick={closeSesion() } /></button>    */}
-      
-       {/* <li href="">Cerrar sesión</li> */}
+      <div className="imgSalir" onClick={() => logout()}> <img src={salir} alt="loginout"></img>
+        {/* <button><img src={salir} alt="loginout" onClick={closeSesion() } /></button>    */}
+
+        {/* <li href="">Cerrar sesión</li> */}
       </div>
     </div>
   );

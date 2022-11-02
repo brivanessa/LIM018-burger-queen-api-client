@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { productsGet, orderPost} from '../helpers/api'
+import { productsGet, orderPost } from '../helpers/api'
 import '../pages/Menu.css'
 
 export const Menu = () => {
@@ -17,28 +17,29 @@ export const Menu = () => {
     productsGet(tokenSaved)
       .then((res) => {
         const productosMenu = res.data;
-        if(desayuno==='true' &&  almuerzo==='false'){
-          return setProductosMenuArray(productosMenu.filter((item)=>{
-            return item.type==="desayuno"  
+        if (desayuno === 'true' && almuerzo === 'false') {
+          return setProductosMenuArray(productosMenu.filter((item) => {
+            return item.type === "desayuno"
           }))
-        } else if (desayuno==='false' &&  almuerzo==='true'){
-          return setProductosMenuArray(productosMenu.filter((item)=>{
-            return item.type==="tentempié"}))
+        } else if (desayuno === 'false' && almuerzo === 'true') {
+          return setProductosMenuArray(productosMenu.filter((item) => {
+            return item.type === "tentempié"
+          }))
         } else {
           setProductosMenuArray(productosMenu)
         }
       }).catch(error => console.log(error))
-      
-       },[desayuno,almuerzo,tokenSaved] )
 
-  function filterDesayuno(){
+  }, [desayuno, almuerzo, tokenSaved])
+
+  function filterDesayuno() {
     setDesayuno('true');
     setAlmuerzo('false')
-  }  
-  function filterAlmuerzo(){
+  }
+  function filterAlmuerzo() {
     setDesayuno('false');
     setAlmuerzo('true')
-  }   
+  }
 
   //-----------Añadir productos al pedido------------------------------------------------------------------------
 
@@ -92,30 +93,32 @@ export const Menu = () => {
     // console.log(localStorage.getItem('llave'))
     // console.log('qwer', OrderArray)
     const today = new Date();
-    const productsAndQty = OrderArray.map((item)=>{return (
-      {
-        product: item._id, //cambiar por productId si no funciona
-        qty: item.quantity,
-      })})
+    const productsAndQty = OrderArray.map((item) => {
+      return (
+        {
+          product: item._id, //cambiar por productId si no funciona
+          qty: item.quantity,
+        })
+    })
     const resumenPedido = {
       userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
       client: `${cliente}/mesa:${mesa}`,
       products: productsAndQty
     }
     //console.log(resumenPedido)
-      orderPost(localStorage.getItem('llave'), resumenPedido)
+    orderPost(localStorage.getItem('llave'), resumenPedido)
       .then((res) => {
-        if(res.status===200){
+        if (res.status === 200) {
           alert('su pedido fue agregado exitosamente')
-        } else{ alert('hubo un error')}
+        } else { alert('hubo un error') }
       })
-      .catch((err)=>{console.log('error',err)})
+      .catch((err) => { console.log('error', err) })
   }
 
-  function cleanPedido () {
+  function cleanPedido() {
     //document.getElementsByClassName('text').value='';
-    document.getElementById('textName').value='';
-    document.getElementById('textMesa').value='';
+    document.getElementById('textName').value = '';
+    document.getElementById('textMesa').value = '';
     setOrderArray([])
 
   }
@@ -124,61 +127,61 @@ export const Menu = () => {
   return (
     <div className='viewWaiterPedidos' id='viewWPedidos'>
       <div className="waiterContainer">
-          < div className="waiterOptions" >
-            <button type="submit" className="waiterButtons" onClick={filterDesayuno}>DESAYUNO</button>
-            <button type="submit" className="waiterButtons" onClick={filterAlmuerzo}>ALMUERZO</button>
-          </div>
-          <div className="menuConstainer">
-            {productosMenuArray.map((producto) => (
-              <div className="product" key={producto._id}>
-                <div className="productName">{producto.name}</div>
-                <div className="productCost">`S/{producto.price}`</div>
-                <div className="imgProduct">
-                  <img src={producto.image} alt="sanwich"></img>
-                </div>
-                <div className="buttonAñadir" onClick={() => {
-                    ClientOrderAdd(producto);
-                  }
-                  }>+ Añadir
-                </div>
+        < div className="waiterOptions" >
+          <button type="submit" className="waiterButtons" onClick={filterDesayuno}>DESAYUNO</button>
+          <button type="submit" className="waiterButtons" onClick={filterAlmuerzo}>ALMUERZO</button>
+        </div>
+        <div className="menuConstainer">
+          {productosMenuArray.map((producto) => (
+            <div className="product" key={producto._id}>
+              <div className="productName">{producto.name}</div>
+              <div className="productCost">`S/{producto.price}`</div>
+              <div className="imgProduct">
+                <img src={producto.image} alt="sanwich"></img>
               </div>
-            ))}
-          </div>
+              <div className="buttonAñadir" onClick={() => {
+                ClientOrderAdd(producto);
+              }
+              }>+ Añadir
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="waiterList">
         <h1 className='subtituloPedido'>DETALLE DEL PEDIDO</h1>
         <div className='datos' >
-          <input type='text'  placeholder='CLIENTE:' className='text'  id='textName' onChange={(e) => setCliente(e.target.value)}
+          <input type='text' placeholder='CLIENTE:' className='text' id='textName' onChange={(e) => setCliente(e.target.value)}
           ></input>
-          <input type='text'  placeholder='MESA Nº:' className='text'  id='textMesa' onChange={(e) => setMesa(e.target.value)}
+          <input type='text' placeholder='MESA Nº:' className='text' id='textMesa' onChange={(e) => setMesa(e.target.value)}
           ></input>
         </div>
-        <div className="x">
-        <table className="TableOrder">
-          <thead>
-            <tr className="rowHead">
-              <th className="rowHeadTable">Cantidad</th>
-              <th className="rowHeadTable">Descripción</th>
-              <th className="rowHeadTable">Importe S/.</th>
-            </tr>
-          </thead>
-          <tbody>
-            {OrderArray.map((product, i) => (
-              <tr key={i}>
-                <td className="itemsOrderTable">{product.quantity} unid.</td>
-                <td className="itemsOrderTable">{product.name}</td>
-                <td className="itemsOrderTable">{product.priceTotal}</td>           
-                  <button className="ButonDeleteItem" type="button" onClick={() => deleteItemOrder(product)}>
-                    <img   src="https://cdn-icons-png.flaticon.com/512/1175/1175088.png" alt="borrar"/> 
-                  </button>
+        <div className="divOrder">
+          <table className="TableOrder">
+            <thead>
+              <tr className="rowHead">
+                <th className="rowHeadTable">Cantidad</th>
+                <th className="rowHeadTable">Descripción</th>
+                <th className="rowHeadTable">Importe S/.</th>
               </tr>
-            ))}
-          </tbody>
-          <tfoot>
-          <th className="itemsOrderTable">TotalPedido</th>
+            </thead>
+            <tbody>
+              {OrderArray.map((product, i) => (
+                <tr key={i}>
+                  <td className="itemsOrderTable">{product.quantity} unid.</td>
+                  <td className="itemsOrderTable">{product.name}</td>
+                  <td className="itemsOrderTable">{product.priceTotal}</td>
+                  <button className="ButonDeleteItem" type="button" onClick={() => deleteItemOrder(product)}>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1175/1175088.png" alt="borrar" />
+                  </button>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <th className="itemsOrderTable">TotalPedido</th>
               <td className="itemsOrderTable">{totalOrder} soles</td>
-          </tfoot>
-        </table>
+            </tfoot>
+          </table>
         </div>
         <div className="btnsMenu">
           <input type="submit" className="btnEnviar" onClick={enviarPedido} value="ENVIAR"></input>

@@ -414,6 +414,20 @@
       "status": "pending",
       "dateEntry": "1/11/2022, 18:16:21",
       "dateProcessed": ""
+    },
+    {
+      "_id": 14,
+      "userId": "2/11/2022, 10:41:43-ARKELLY",
+      "client": "ARKELLY/mesa:3",
+      "products": [
+        {
+          "product": "5-Hamburguesa simple",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "2/11/2022 10:41:43",
+      "dateProcessed": ""
     }
   ]
 }
