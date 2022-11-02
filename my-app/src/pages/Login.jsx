@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { Menu } from './Menu'
 
 export const Login = () => {
-    const navigate = useNavigate();
+   const navigate = useNavigate();
     const [myLogin, setLogin] = useState("false");
     const [correo, setCorreo] = useState();
     const [password, setPassword] = useState();
@@ -30,7 +30,7 @@ export const Login = () => {
                         document.getElementById("viewLogin").style.display = "none";
                         // navigate("/Menu")
                         // navigate(1)
-                        window.location = '/Menu';
+                        window.location = '/Menu'; // cambiar y usar useNavigate
                         // return {Menu()};
                         
 
