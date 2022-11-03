@@ -1,58 +1,25 @@
-// import React from 'react'
-
-// export const WPreparados = () => {
-//   return (
-//     <div className='areaPreparados'>
-//       Pedidos Preparados
-
-//     </div>
-//   )
-// }
-
-
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet, orderPut } from '../helpers/api'
-import { useNavigate } from 'react-router-dom'
+import { ordersGet } from '../../helpers/api'
+import './WaiterPendiente&Preparados.css'
 
-export const WPreparados = () => {
+export const WPendientes = () => {
   const tokenSaved = localStorage.getItem('llave');
   const [ordersArray, setOrdersuArray] = useState([])
-  const [changeStatus1, setChangeStatus] = useState("delivering")
 
   useEffect(() => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        const ordersPending = ordersGeneral.filter(order=>order.status==="delivering")
+        const ordersPending = ordersGeneral.filter(order=>order.status==="pending")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
-  },[tokenSaved,changeStatus1])
-
-  function changeStatus(idOrder){
-    orderPut(tokenSaved,idOrder)
-    .then((res) => {
-      if (res.status === 200) {
-        alert('El pedido fue entregado :)')
-        setChangeStatus(`delivered -${idOrder}`)
-        // useNavigate("/Preparados")
-      } 
-      // else if(res.status === 400){
-      //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
-      // }else { 
-      //   alert(' No hay cabecera de autenticación.') 
-      // }
-    })
-    .catch((err) => { console.log(err) })
-  }
-
-
-
+  },[tokenSaved])
   //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
-    <div className='areaPreparados'>
+    <div className='areaPendientes'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order.id}>
       <div className='datosCard'>
@@ -88,9 +55,8 @@ export const WPreparados = () => {
           </tr>
             ))}
           </tbody>
+
         </table>
-        {/* onClick={changeStatus} */}
-        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value=" DELIVERED ᐅ"></input>       
         {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
@@ -101,6 +67,18 @@ export const WPreparados = () => {
   )
 }
 
-
-
-// export default WPreparados
+// {productosMenuArray.map((producto) => (
+//   <div className="product" key={producto.id}>
+//     <div className="productName">{producto.name}</div>
+//     <div className="productCost">`S/{producto.price}`</div>
+//     <div className="imgProduct">
+//       <img src={producto.image} alt="sanwich"></img>
+//     </div>
+//     <div className="buttonAñadir" onClick={() => {
+//         ClientOrderAdd(producto);
+//       }
+//       }>+ Añadir
+//     </div>
+//   </div>
+// ))}
+// export default WPendientes

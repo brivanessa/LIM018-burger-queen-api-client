@@ -1,25 +1,54 @@
+// import React from 'react'
+
+// export const WEntregados = () => {
+//   return (
+//     <div className='areaEntregados'>
+//       Pedidos Entregados
+//     </div>
+//   )
+// }
+
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet } from '../helpers/api'
-import '../pages/WaiterPendiente&Preparados.css'
+import { ordersGet, orderPutReverse } from '../../helpers/api'
 
-export const WPendientes = () => {
+export const  WEntregados = () => {
   const tokenSaved = localStorage.getItem('llave');
   const [ordersArray, setOrdersuArray] = useState([])
+  const [changeStatus1, setChangeStatus] = useState("delivered")
 
   useEffect(() => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        const ordersPending = ordersGeneral.filter(order=>order.status==="pending")
+        const ordersPending = ordersGeneral.filter(order=>order.status==="delivered")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
-  },[tokenSaved])
+  },[tokenSaved,changeStatus1])
+
+
+  function changeStatus(idOrder){
+    orderPutReverse(tokenSaved,idOrder)
+    .then((res) => {
+      if (res.status === 200) {
+        alert('El estado del Pedido pasó de DELIVERED a DELIVERING...')
+        setChangeStatus(`delivering -${idOrder}`)
+        // useNavigate("/Preparados")
+      } 
+      // else if(res.status === 400){
+      //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
+      // }else { 
+      //   alert(' No hay cabecera de autenticación.') 
+      // }
+    })
+    .catch((err) => { console.log(err) })
+  }
+
   //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
-    <div className='areaPendientes'>
+    <div className='areaEntregados'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order.id}>
       <div className='datosCard'>
@@ -57,6 +86,8 @@ export const WPendientes = () => {
           </tbody>
 
         </table>
+        <p className="fechaDelivered">FECHA DELIVERED: {order.dateProcessed}</p>
+        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>       
         {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
@@ -67,18 +98,4 @@ export const WPendientes = () => {
   )
 }
 
-// {productosMenuArray.map((producto) => (
-//   <div className="product" key={producto.id}>
-//     <div className="productName">{producto.name}</div>
-//     <div className="productCost">`S/{producto.price}`</div>
-//     <div className="imgProduct">
-//       <img src={producto.image} alt="sanwich"></img>
-//     </div>
-//     <div className="buttonAñadir" onClick={() => {
-//         ClientOrderAdd(producto);
-//       }
-//       }>+ Añadir
-//     </div>
-//   </div>
-// ))}
-// export default WPendientes
+// export default WEntregados

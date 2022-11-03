@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { productsGet, orderPost } from '../helpers/api'
-import '../pages/Menu.css'
+import { productsGet, orderPost } from '../../helpers/api'
+import './Menu.css'
 
 export const Menu = () => {
   const [productosMenuArray, setProductosMenuArray] = useState([])

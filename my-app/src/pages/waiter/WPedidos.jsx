@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 import { WPendientes } from './WPendientes'
 import { WPreparados } from './WPreparados'
-import { Header } from '../components/header'
-import { Footer } from '../components/Footer'
+import { Header } from '../../components/header'
+import { Footer } from '../../components/Footer'
 import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
 
 
-import '../pages/WPedidos.css'
+import './WPedidos.css'
 export const WPedidos = () => {
 
   function getUser() {
