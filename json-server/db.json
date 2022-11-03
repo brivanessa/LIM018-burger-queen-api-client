@@ -325,9 +325,9 @@
           "qty": 1
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "3/11/2022 03:19:55",
-      "dateProcessed": ""
+      "dateProcessed": "3/11/2022 05:17:14"
     },
     {
       "id": 9,
@@ -385,9 +385,9 @@
           "qty": 1
         }
       ],
-      "status": "delivering",
+      "status": "delivered",
       "dateEntry": "27/10/2022, 09:45:25",
-      "dateProcessed": ""
+      "dateProcessed": "3/11/2022 05:17:22"
     },
     {
       "id": 13,
@@ -470,7 +470,7 @@
       "dateProcessed": ""
     },
     {
-      "_id": 17,
+      "id": 17,
       "userId": "3/11/2022 03:44:45-FER NUÑEZ",
       "client": "FER NUÑEZ/mesa:4",
       "products": [
@@ -492,9 +492,9 @@
       "dateProcessed": ""
     },
     {
-      "_id": 18,
+      "id": 18,
       "userId": "3/11/2022 04:02:58-SOFI TUNEZ",
-      "client": "SOFI TUNEZ/mesa:3 : 29 SOLES",
+      "client": "SOFI TUNEZ/mesa:3",
       "products": [
         {
           "product": "1-Café americano",
@@ -515,6 +515,28 @@
       ],
       "status": "delivering",
       "dateEntry": "3/11/2022, 04:02:58",
+      "dateProcessed": ""
+    },
+    {
+      "id": 19,
+      "userId": "3/11/2022 05:18:31-SOFIA",
+      "client": "SOFIA/mesa:3",
+      "products": [
+        {
+          "product": "6-Hamburguesa doble",
+          "qty": 1
+        },
+        {
+          "product": "5-Hamburguesa simple",
+          "qty": 1
+        },
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "3/11/2022, 05:18:31",
       "dateProcessed": ""
     }
   ]

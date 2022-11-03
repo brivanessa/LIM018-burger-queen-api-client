@@ -42,7 +42,7 @@ server.post("/orders", (req,res)=>{
       const orders = router.db.get('orders');
       // console.log('jj',orders.__wrapped__.orders)
       const order = {
-        _id: orders.__wrapped__.orders.length + 1,
+        id: orders.__wrapped__.orders.length + 1,
         userId: req.body.userId,
         client: req.body.client,
         products: req.body.products,

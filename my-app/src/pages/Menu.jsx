@@ -100,7 +100,8 @@ export const Menu = () => {
     })
     const resumenPedido = {
       userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
-      client: `${cliente}/mesa:${mesa} : ${totalOrder} SOLES`,
+      // client: `${cliente}/mesa:${mesa} : ${totalOrder} SOLES`,
+      client: `${cliente}/mesa:${mesa}`,
       products: productsAndQty
     }
     //console.log(resumenPedido)
