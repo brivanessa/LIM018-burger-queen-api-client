@@ -284,3 +284,24 @@ table {
   display: flex;
   justify-content: space-around;
 }
+
+.btnLogin, .btnEnviar, .btnClear{
+  margin-top:3rem;
+  width: 10rem;
+  border-style:solid;
+  border-color: black;
+  border-width: medium;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  margin-block-end: 0rem;
+
+}
+
+.btnLogin:hover, .btnEnviar:hover, .btnClear:hover  {
+  background-color: white;
+  color: black;
+}

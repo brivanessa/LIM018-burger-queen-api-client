@@ -1,0 +1,37 @@
+:root {
+  --brown: #9D7261;
+  --brown1: #CCB19D;
+  --orange1: #F0A28E;
+  --brown2: #675741;
+  --black: #000000;
+  --brown3: #BA8A6A;
+  --white: #FFFFFE;
+  --yellow:rgb(245, 220, 120);
+}
+
+.btnWaiterEntregar{
+  margin-top:3rem;
+  width: 13.5rem;
+  border-style:solid;
+  border-color: black;
+  border-width: medium;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  margin-block-end: 0rem;
+
+}
+
+.btnWaiterEntregar:hover{
+  background-color: white;
+  color: black;
+}
+
+.fechaDelivered{
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  color: var(--yellow)
+}
