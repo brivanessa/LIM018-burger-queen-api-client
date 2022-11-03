@@ -118,6 +118,7 @@ export const Menu = () => {
         // }
       })
       .catch((err) => { alert(err.response.data) })
+      cleanPedido()
   }
 
   function cleanPedido() {

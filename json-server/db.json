@@ -428,6 +428,28 @@
       "status": "pending",
       "dateEntry": "2/11/2022 10:41:43",
       "dateProcessed": ""
+    },
+    {
+      "_id": 15,
+      "userId": "2/11/2022 21:31:49-SOFIA DEL CARMEN",
+      "client": "SOFIA DEL CARMEN/mesa:9",
+      "products": [
+        {
+          "product": "1-Café americano",
+          "qty": 1
+        },
+        {
+          "product": "10-Agua 750ml",
+          "qty": 1
+        },
+        {
+          "product": "8-Aros de cebolla",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "2/11/2022, 21:31:49",
+      "dateProcessed": ""
     }
   ]
 }
