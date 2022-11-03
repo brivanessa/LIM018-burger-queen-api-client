@@ -146,14 +146,6 @@
       "image": "https://cdn-icons-png.flaticon.com/512/920/920592.png",
       "type": "tentempié",
       "dateEntry": ""
-    },
-    {
-      "_id": "12-Bebida/gaseosa 750ml1",
-      "name": "Bebida/gaseosa 750ml1",
-      "price": 110,
-      "image": "https://cdn-icons-png.flaticon.com/512/920/920592.png",
-      "type": "tentempié",
-      "dateEntry": ""
     }
   ],
   "orders": [
@@ -325,9 +317,9 @@
           "qty": 1
         }
       ],
-      "status": "delivered",
+      "status": "delivering",
       "dateEntry": "3/11/2022 03:19:55",
-      "dateProcessed": "3/11/2022 05:17:14"
+      "dateProcessed": ""
     },
     {
       "id": 9,
@@ -385,9 +377,9 @@
           "qty": 1
         }
       ],
-      "status": "delivered",
+      "status": "delivering",
       "dateEntry": "27/10/2022, 09:45:25",
-      "dateProcessed": "3/11/2022 05:17:22"
+      "dateProcessed": ""
     },
     {
       "id": 13,
