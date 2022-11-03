@@ -35,7 +35,8 @@ server.post('/auth', (req, res) => {
 server.post("/orders", (req,res)=>{
 
   if(!!req.headers){
-    if(req.body.userId.includes('undefined')||(req.body.products.length==0)){
+
+    if(req.body.client.includes('undefined')||req.body.client.split('/')[0].length==0||(req.body.products.length==0)||(req.body.client.split(':')[1].length==0)){
       res.status(400).send('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
     }else{
       // console.log('a')
