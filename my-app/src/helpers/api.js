@@ -106,3 +106,30 @@ export const orderPutReverse = (token, id) => {
         }},
     )
 }
+
+export const orderPutChef = (token, id) => {
+    // let user = axios.get(`${BASE_URL}${ordersPostPath}/:`+id).then(r => console.log(r.data))
+    
+    const status = {
+
+        // userId: user.userId,
+        // client: user.client,
+        // products: user.products,
+        //status: "delivered",
+        // dateEntry: user.dateEntry,
+        // dateProcessed: user.dateProcessed
+
+
+        //  userId: id.userId,
+        //  client: id.client,
+        //  products: id.products,
+        status: "pending",
+        dateProcessed: new Date().toLocaleString(),
+
+    }
+    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+        {headers: {
+            'authorization':`Bearer ${token}` 
+        }},
+    )
+}

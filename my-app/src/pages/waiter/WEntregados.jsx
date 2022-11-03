@@ -1,41 +1,39 @@
 // import React from 'react'
 
-// export const WPreparados = () => {
+// export const WEntregados = () => {
 //   return (
-//     <div className='areaPreparados'>
-//       Pedidos Preparados
-
+//     <div className='areaEntregados'>
+//       Pedidos Entregados
 //     </div>
 //   )
 // }
 
-
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet, orderPut } from '../helpers/api'
-import { useNavigate } from 'react-router-dom'
+import { ordersGet, orderPutReverse } from '../../helpers/api'
 
-export const WPreparados = () => {
+export const  WEntregados = () => {
   const tokenSaved = localStorage.getItem('llave');
   const [ordersArray, setOrdersuArray] = useState([])
-  const [changeStatus1, setChangeStatus] = useState("delivering")
+  const [changeStatus1, setChangeStatus] = useState("delivered")
 
   useEffect(() => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        const ordersPending = ordersGeneral.filter(order=>order.status==="delivering")
+        const ordersPending = ordersGeneral.filter(order=>order.status==="delivered")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
   },[tokenSaved,changeStatus1])
 
+
   function changeStatus(idOrder){
-    orderPut(tokenSaved,idOrder)
+    orderPutReverse(tokenSaved,idOrder)
     .then((res) => {
       if (res.status === 200) {
-        alert('El pedido fue entregado :)')
-        setChangeStatus(`delivered -${idOrder}`)
+        alert('El estado del Pedido pasó de DELIVERED a DELIVERING...')
+        setChangeStatus(`delivering -${idOrder}`)
         // useNavigate("/Preparados")
       } 
       // else if(res.status === 400){
@@ -47,12 +45,10 @@ export const WPreparados = () => {
     .catch((err) => { console.log(err) })
   }
 
-
-
   //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
-    <div className='areaPreparados'>
+    <div className='areaEntregados'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order.id}>
       <div className='datosCard'>
@@ -88,9 +84,10 @@ export const WPreparados = () => {
           </tr>
             ))}
           </tbody>
+
         </table>
-        {/* onClick={changeStatus} */}
-        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value=" DELIVERED ᐅ"></input>       
+        <p className="fechaDelivered">FECHA DELIVERED: {order.dateProcessed}</p>
+        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>       
         {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
@@ -101,6 +98,4 @@ export const WPreparados = () => {
   )
 }
 
-
-
-// export default WPreparados
+// export default WEntregados
