@@ -11,7 +11,8 @@ import { Header } from '../../components/header'
 import { Footer } from '../../components/Footer'
 import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
-
+import {ChefPendientes} from '../chef/ChefPendientes'
+import {ChefPreparados} from '../chef/ChefPreparados'
 
 import './WPedidos.css'
 export const WPedidos = () => {
@@ -41,6 +42,13 @@ export const WPedidos = () => {
         <NavLink to="/Menu/Entregados" className="waiterButtonsPrincipal" activeClassName="active">
           ENTREGADOS
         </NavLink>
+        <NavLink to="/Menu/ChefPendientes" className="waiterButtonsPrincipal" activeClassName="active">
+         CHEF PENDIENTES
+        </NavLink>
+        <NavLink to="/Menu/ChefPreparados" className="waiterButtonsPrincipal" activeClassName="active">
+         CHEF PREPARADOS
+        </NavLink>
+
       </div>
 
       <Routes>
@@ -48,6 +56,10 @@ export const WPedidos = () => {
         <Route path="/Menu/Pendientes" element={<WPendientes />} />
         <Route path="/Menu/Preparados" element={<WPreparados />} />
         <Route path="/Menu/Entregados" element={<WEntregados />} />
+        <Route path="/Menu/ChefPendientes" element={<ChefPendientes/>} />
+        <Route path="/Menu/ChefPreparados" element={<ChefPreparados/>} />
+
+
       </Routes>
 
       <Footer />
