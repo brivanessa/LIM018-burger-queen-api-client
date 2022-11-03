@@ -90,8 +90,6 @@ export const Menu = () => {
 
   function enviarPedido(e) {
     e.preventDefault();
-    // console.log(localStorage.getItem('llave'))
-    // console.log('qwer', OrderArray)
     const today = new Date();
     const productsAndQty = OrderArray.map((item) => {
       return (
@@ -102,6 +100,7 @@ export const Menu = () => {
     })
     const resumenPedido = {
       userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
+      // client: `${cliente}/mesa:${mesa} : ${totalOrder} SOLES`,
       client: `${cliente}/mesa:${mesa}`,
       products: productsAndQty
     }
@@ -109,10 +108,16 @@ export const Menu = () => {
     orderPost(localStorage.getItem('llave'), resumenPedido)
       .then((res) => {
         if (res.status === 200) {
-          alert('su pedido fue agregado exitosamente')
-        } else { alert('hubo un error') }
+          alert('Su pedido fue agregado exitosamente.')
+          cleanPedido()
+        } 
+        // else if(res.status === 400){
+        //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
+        // }else { 
+        //   alert(' No hay cabecera de autenticación.') 
+        // }
       })
-      .catch((err) => { console.log('error', err) })
+      .catch((err) => { alert(err.response.data) })
   }
 
   function cleanPedido() {

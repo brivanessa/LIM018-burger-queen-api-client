@@ -11,11 +11,12 @@
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet } from '../helpers/api'
+import { ordersGet, orderPutReverse } from '../helpers/api'
 
 export const  WEntregados = () => {
   const tokenSaved = localStorage.getItem('llave');
   const [ordersArray, setOrdersuArray] = useState([])
+  const [changeStatus1, setChangeStatus] = useState("delivered")
 
   useEffect(() => {
     ordersGet(tokenSaved)
@@ -24,13 +25,32 @@ export const  WEntregados = () => {
         const ordersPending = ordersGeneral.filter(order=>order.status==="delivered")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
-  },[tokenSaved])
+  },[tokenSaved,changeStatus1])
+
+
+  function changeStatus(idOrder){
+    orderPutReverse(tokenSaved,idOrder)
+    .then((res) => {
+      if (res.status === 200) {
+        alert('El estado del Pedido pasó de DELIVERED a DELIVERING...')
+        setChangeStatus(`delivering -${idOrder}`)
+        // useNavigate("/Preparados")
+      } 
+      // else if(res.status === 400){
+      //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
+      // }else { 
+      //   alert(' No hay cabecera de autenticación.') 
+      // }
+    })
+    .catch((err) => { console.log(err) })
+  }
+
   //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
     <div className='areaEntregados'>
       {ordersArray.map((order) => (
-      <div className='pendienteCard' key={order._id}>
+      <div className='pendienteCard' key={order.id}>
       <div className='datosCard'>
         <div>
           <p> Fecha: {order.dateEntry} </p>
@@ -44,7 +64,7 @@ export const  WEntregados = () => {
       <br/>
       <div>
         <div className='estadoPedido'>
-        <h1>Pedido Nº {order._id}</h1>
+        <h1>Pedido Nº {order.id}</h1>
         <h2 className='statusOrder'>{order.status.toUpperCase()}</h2>
         </div>
         <table className='tableOrder'>
@@ -66,6 +86,8 @@ export const  WEntregados = () => {
           </tbody>
 
         </table>
+        <p className="fechaDelivered">FECHA DELIVERED: {order.dateProcessed}</p>
+        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>       
         {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>

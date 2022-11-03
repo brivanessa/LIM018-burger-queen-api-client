@@ -30,16 +30,16 @@ export const WPedidos = () => {
       {/* <div className='pedidosButtons'> /////////////*/}
       <div className='pedidosButtons'>
         <Link to="/Menu" className="waiterButtonsPrincipal">
-          Pedidos
+          REGISTRAR
         </Link>
         <NavLink to="/Menu/Pendientes" className="waiterButtonsPrincipal" activeClassName="active">
-          Pendiente
+          PENDIENTES
         </NavLink>
         <NavLink to="/Menu/Preparados" className="waiterButtonsPrincipal" activeClassName="active">
-          Preparados
+          PREPARADOS
         </NavLink>
         <NavLink to="/Menu/Entregados" className="waiterButtonsPrincipal" activeClassName="active">
-          Entregados
+          ENTREGADOS
         </NavLink>
       </div>
 

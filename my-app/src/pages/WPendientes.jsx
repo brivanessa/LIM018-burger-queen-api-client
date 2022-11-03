@@ -2,6 +2,7 @@ import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
 import { ordersGet } from '../helpers/api'
+import '../pages/WaiterPendiente&Preparados.css'
 
 export const WPendientes = () => {
   const tokenSaved = localStorage.getItem('llave');
@@ -20,7 +21,7 @@ export const WPendientes = () => {
     <div className='areaPendientes3'>
     <div className='areaPendientes'>
       {ordersArray.map((order) => (
-      <div className='pendienteCard' key={order._id}>
+      <div className='pendienteCard' key={order.id}>
       <div className='datosCard'>
         <div>
           <p> Fecha: {order.dateEntry} </p>
@@ -34,7 +35,7 @@ export const WPendientes = () => {
       <br/>
       <div>
         <div className='estadoPedido'>
-        <h1>Pedido Nº {order._id}</h1>
+        <h1>Pedido Nº {order.id}</h1>
         <h2 className='statusOrder'>{order.status.toUpperCase()}</h2>
         </div>
         <table className='tableOrder'>
@@ -67,7 +68,7 @@ export const WPendientes = () => {
 }
 
 // {productosMenuArray.map((producto) => (
-//   <div className="product" key={producto._id}>
+//   <div className="product" key={producto.id}>
 //     <div className="productName">{producto.name}</div>
 //     <div className="productCost">`S/{producto.price}`</div>
 //     <div className="imgProduct">

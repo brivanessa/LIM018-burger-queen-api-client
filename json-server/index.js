@@ -9,9 +9,7 @@ server.use(jsonServer.bodyParser)
 server.use(middlewares)
 
 server.use((req, res, next) => {
-
-  console.log("HOLAAAAAA",req.headers);
-
+  //console.log("HOLAAAAAA",req.headers);
   if(req.method === "POST" && req.path === "/auth") {
    next();
   } 
@@ -22,7 +20,6 @@ server.use((req, res, next) => {
   res.sendStatus(401)
   }
  })
-
 
 server.post('/auth', (req, res) => {
   if (
@@ -38,23 +35,47 @@ server.post('/auth', (req, res) => {
 server.post("/orders", (req,res)=>{
 
   if(!!req.headers){
-    console.log('a')
-    const orders = router.db.get('orders');
-    console.log('jj',orders.__wrapped__.orders)
-    const order = {
-      _id: orders.__wrapped__.orders.length + 1,
-      userId: req.body.userId,
-      client: req.body.client,
-      products: req.body.products,
-      status: 'pending',
-      dateEntry: new Date().toLocaleString(),
-      dateProcessed:''
+    if(req.body.userId.includes('undefined')||(req.body.products.length==0)){
+      res.status(400).send('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
+    }else{
+      // console.log('a')
+      const orders = router.db.get('orders');
+      // console.log('jj',orders.__wrapped__.orders)
+      const order = {
+        id: orders.__wrapped__.orders.length + 1,
+        userId: req.body.userId,
+        client: req.body.client,
+        products: req.body.products,
+        status: 'pending',
+        dateEntry: new Date().toLocaleString(),
+        dateProcessed:''
+      }
+      orders.push(order).write();
+      res.status(200).jsonp(order)
     }
-
-    orders.push(order).write();
-    res.status(200).jsonp(order)
-  } else res.status(400).send('Bad Request 3')
+  } else res.status(401).send(' No hay cabecera de autenticación.')
 })
+
+// server.put(`/orders/${id}`, (req,res)=>{
+
+//   if(!!req.headers){
+//       // console.log('a')
+//       const orders = router.db.get('orders');
+//       // console.log('jj',orders.__wrapped__.orders)
+
+//       const order = {
+//         _id: orders.__wrapped__.orders.length + 1,
+//         userId: req.body.userId,
+//         client: req.body.client,
+//         products: req.body.products,
+//         status: 'pending',
+//         dateEntry: new Date().toLocaleString(),
+//         dateProcessed:''
+//       }
+//       orders.push(order).write();
+//       res.status(200).jsonp(order)
+//     } else res.status(401).send(' No hay cabecera de autenticación.')
+// })
 
 server.use(router)
 server.listen(3001, () => {

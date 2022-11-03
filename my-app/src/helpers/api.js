@@ -35,3 +35,74 @@ export const ordersGet = (token) => {
             'authorization':`Bearer ${token}` 
         }})
 }
+
+// export const orderPut = (token, id) => {
+//     let user = axios.get(`${BASE_URL}${ordersPostPath}/`+id).then(r => r.data)
+//     console.log(id)
+//     const status = {
+//         userId: user.userId,
+//         client: user.client,
+//         products: user.products,
+//         status: "delivered",
+//         dateEntry: user.dateEntry,
+//         dateProcessed: user.dateProcessed
+//     }
+//     return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
+//         {headers: {
+//             'authorization':`Bearer ${token}` 
+//         }},
+//     )
+// }
+export const orderPut = (token, id) => {
+    // let user = axios.get(`${BASE_URL}${ordersPostPath}/:`+id).then(r => console.log(r.data))
+    
+    const status = {
+
+        // userId: user.userId,
+        // client: user.client,
+        // products: user.products,
+        //status: "delivered",
+        // dateEntry: user.dateEntry,
+        // dateProcessed: user.dateProcessed
+
+
+        //  userId: id.userId,
+        //  client: id.client,
+        //  products: id.products,
+        status: "delivered",
+        dateProcessed: new Date().toLocaleString(),
+
+    }
+    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+        {headers: {
+            'authorization':`Bearer ${token}` 
+        }},
+    )
+}
+
+export const orderPutReverse = (token, id) => {
+    // let user = axios.get(`${BASE_URL}${ordersPostPath}/:`+id).then(r => console.log(r.data))
+    
+    const status = {
+
+        // userId: user.userId,
+        // client: user.client,
+        // products: user.products,
+        //status: "delivered",
+        // dateEntry: user.dateEntry,
+        // dateProcessed: user.dateProcessed
+
+
+        //  userId: id.userId,
+        //  client: id.client,
+        //  products: id.products,
+        status: "delivering",
+        dateProcessed: "",
+
+    }
+    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+        {headers: {
+            'authorization':`Bearer ${token}` 
+        }},
+    )
+}
