@@ -171,7 +171,7 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "26/10/2022, 23:32:50",
       "dateProcessed": ""
     },
@@ -691,6 +691,20 @@
       ],
       "status": "pending",
       "dateEntry": "3/11/2022, 10:40:51",
+      "dateProcessed": ""
+    },
+    {
+      "id": 27,
+      "userId": "3/11/2022, 11:31:00-Arkelly",
+      "client": "Arkelly/mesa:3",
+      "products": [
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "3/11/2022 11:31:00",
       "dateProcessed": ""
     }
   ]

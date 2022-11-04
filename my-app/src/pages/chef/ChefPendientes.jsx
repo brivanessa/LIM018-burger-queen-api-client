@@ -1,38 +1,32 @@
-// import React from 'react'
-
-// export const WEntregados = () => {
-//   return (
-//     <div className='areaEntregados'>
-//       Pedidos Entregados
-//     </div>
-//   )
-// }
-
 import React from 'react'
-import './wPendientes.css'
+//import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet, orderPutReverse } from '../helpers/api'
+import { ordersGet,orderPutReverse } from '../../helpers/api'
+//import './WaiterPendiente&Preparados.css'
 
-export const  WEntregados = () => {
+
+export const ChefPendientes = () => {
   const tokenSaved = localStorage.getItem('llave');
   const [ordersArray, setOrdersuArray] = useState([])
+
   const [changeStatus1, setChangeStatus] = useState("delivered")
+
 
   useEffect(() => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        const ordersPending = ordersGeneral.filter(order=>order.status==="delivered")
+        const ordersPending = ordersGeneral.filter(order=>order.status==="pending")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
-  },[tokenSaved,changeStatus1])
-
+  },[tokenSaved])
+  //console.log(ordersArray)
 
   function changeStatus(idOrder){
     orderPutReverse(tokenSaved,idOrder)
     .then((res) => {
       if (res.status === 200) {
-        alert('El estado del Pedido pasó de DELIVERED a DELIVERING...')
+        alert('El pedido está listo:)')
         setChangeStatus(`delivering -${idOrder}`)
         // useNavigate("/Preparados")
       } 
@@ -45,10 +39,9 @@ export const  WEntregados = () => {
     .catch((err) => { console.log(err) })
   }
 
-  //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
-    <div className='areaEntregados'>
+    <div className='areaPendientes'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order.id}>
       <div className='datosCard'>
@@ -86,8 +79,7 @@ export const  WEntregados = () => {
           </tbody>
 
         </table>
-        <p className="fechaDelivered">FECHA DELIVERED: {order.dateProcessed}</p>
-        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>       
+        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="DELIVERING ᐅ"></input>   
         {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
@@ -98,4 +90,18 @@ export const  WEntregados = () => {
   )
 }
 
-// export default WEntregados
+// {productosMenuArray.map((producto) => (
+//   <div className="product" key={producto.id}>
+//     <div className="productName">{producto.name}</div>
+//     <div className="productCost">`S/{producto.price}`</div>
+//     <div className="imgProduct">
+//       <img src={producto.image} alt="sanwich"></img>
+//     </div>
+//     <div className="buttonAñadir" onClick={() => {
+//         ClientOrderAdd(producto);
+//       }
+//       }>+ Añadir
+//     </div>
+//   </div>
+// ))}
+// export default WPendientes

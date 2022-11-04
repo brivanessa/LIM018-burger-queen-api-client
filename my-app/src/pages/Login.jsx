@@ -4,7 +4,7 @@ import './login.css'//ejecuta login sin importar ningun elemento
 
 import { auth } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'
-import { Menu } from './Menu'
+import { Menu } from './waiter/Menu'
 
 export const Login = () => {
    const navigate = useNavigate();

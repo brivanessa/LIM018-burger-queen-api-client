@@ -3,7 +3,7 @@ import './App.css';
 import { useNavigate, BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Login } from './pages/Login';
-import { WPedidos } from './pages/WPedidos'
+import { WPedidos } from './pages/waiter/WPedidos'
 
 // Custom Hook -> investigar
 export const useUser = () => {
