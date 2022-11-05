@@ -16,38 +16,42 @@
   "profile": {
     "name": "typicode"
   },
-  "user": [
+  "users": [
     {
       "_id": "1",
       "email": "maria@gmail.com",
       "password": "123456",
       "nombre": "Maria Fernandez",
-      "roles": "waiter",
-      "admin": false
+      "roles": [
+        "admin"
+      ]
     },
     {
       "_id": "2",
       "email": "mariano@gmail.com",
       "password": "123456",
       "nombre": "Mariano Fernandez",
-      "roles": "waiter",
-      "admin": false
-    },
+      "roles": [
+        "admin"
+      ]
+    },  
     {
       "_id": "3",
       "email": "mario@gmail.com",
       "password": "123456",
       "nombre": "Mario Fernandez",
-      "roles": "chef",
-      "admin": false
+      "roles": [
+        "mesero"
+      ]
     },
     {
       "_id": "4",
       "email": "mariana@gmail.com",
       "password": "123456",
       "nombre": "Mariana Fernandez",
-      "roles": "administrador",
-      "admin": true
+      "roles": [
+        "chef" 
+      ]
     }
   ],
   "products": [
@@ -689,12 +693,11 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "3/11/2022, 10:40:51",
       "dateProcessed": ""
     },
     {
-      "id": 27,
       "userId": "3/11/2022, 11:31:00-Arkelly",
       "client": "Arkelly/mesa:3",
       "products": [
@@ -703,9 +706,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivered",
       "dateEntry": "3/11/2022 11:31:00",
-      "dateProcessed": ""
+      "dateProcessed": "",
+      "id": 27
     }
   ]
 }
