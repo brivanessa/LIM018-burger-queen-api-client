@@ -22,8 +22,14 @@
   font-size: 1.5rem;
   padding: 0.3rem;
   margin-block-end: 0rem;
-
+  
 }
+
+/* .btns{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+} */
 
 .btnWaiterEntregar:hover{
   background-color: white;
