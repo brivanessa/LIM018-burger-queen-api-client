@@ -61,7 +61,7 @@ export const  WEntregados = () => {
             {order.products.map ((product) => (
             <tr>
             <td>{product.product.split('-')[0]}</td>
-            <td>{product.product.split('-')[1]}</td>
+            <td className="productDescription">{product.product.split('-')[1]}</td>
             <td>{product.qty}</td>
           </tr>
             ))}

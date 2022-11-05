@@ -3,11 +3,16 @@ const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
-const secret = "EsUnSecreto"
+// const secret = "EsUnSecreto"
 const tokenMeseroMario ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIzIiwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJyb2xlcyI6WyJtZXNlcm8iXX0.4EM1L2ThUV1uIyPaGYFJDlbv_oHTIQ8eAbQDJ93RDOo";
+const tokenWaiter1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndhaXRlcjFAZGVsaWNlcy5jb20iLCJyb2xlcyI6eyJtZXNlcm8iOnRydWV9fQ.WOSQaf_-4sbSQSQab_p3cQ8Y9eEygZoY-clOBhcknRg"
+const tokenChef1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWYxQGRlbGljZXMuY29tIiwicm9sZXMiOnsiY2hlZiI6dHJ1ZX19.PmbJQxA7YPk2u8iaTRrcsdxwfSftST74lO2vBx9diJo"
+const tokenAdmin1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGRlbGljZXMuY29tIiwicm9sZXMiOnsiYWRtaW4iOnRydWV9fQ.LzbbGXw95_XjmitjZG9QazytGHyhmpEpj_IQTfDdceU"
+// const secret ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIzIiwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJyb2xlcyI6WyJtZXNlcm8iXX0.4EM1L2ThUV1uIyPaGYFJDlbv_oHTIQ8eAbQDJ93RDOo";
+//let token = (tokenWaiter1|tokenChef1|tokenAdmin1)
 
-
-
+//const [token, setToken] = useState("");
+let tokenOk
 server.use(jsonServer.bodyParser)
 server.use(middlewares)
 
@@ -16,7 +21,7 @@ server.use((req, res, next) => {
   if(req.method === "POST" && req.path === "/auth") {
    next();
   } 
-  else if (req.headers.authorization === `Bearer ${secret}`) {
+  else if (req.headers.authorization === `Bearer ${tokenOk}`) {
     console.log('qqqqqq',req.headers);
   next();
   } else {
@@ -25,15 +30,25 @@ server.use((req, res, next) => {
  })
 
 server.post('/auth', (req, res) => {
-  if (
-    req.body.email === 'mario@gmail.com' &&
-    req.body.password === '123456') { //JWT -ENCRIPTAR CONTRASEÑA - DE UNA SOLA VIA -
-        console.log('hey',req.body)
-    res.jsonp({
-      // token: tokenMeseroMario
-      token: secret
-
+  if ( req.body.email === 'waiter1@delices.com' && req.body.password === 'waiter1') { //JWT -ENCRIPTAR CONTRASEÑA - DE UNA SOLA VIA -
+        // console.log('hey',req.body)
+      tokenOk=tokenWaiter1;
+      res.jsonp({
+      token: tokenWaiter1 ///OH
+      // token: secret
     })
+  } else if ( req.body.email === 'chef1@delices.com' && req.body.password === 'chef1') { 
+      // setToken(tokenChef1)
+      tokenOk=tokenChef1;
+      res.jsonp({
+      token:  tokenChef1 ///OH
+    })
+  }  else if ( req.body.email === 'admin@delices.com' && req.body.password === 'admin') { 
+    //setToken(tokenAdmin1)
+    tokenOk=tokenAdmin1;
+    res.jsonp({
+    token:  tokenAdmin1 ///OH
+  })
   } else res.status(400).send('Bad Request')
 })
 

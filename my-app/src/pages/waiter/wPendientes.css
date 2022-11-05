@@ -6,6 +6,7 @@
     --black: #000000;
     --brown3: #BA8A6A;
     --white: #FFFFFE;
+    --brown0: rgba(48, 31, 16, 1);
 }
   
 *{
@@ -31,6 +32,8 @@ flex-direction: column;
     height: 78vh;
     display: flex;
     justify-content: space-around;
+    /* justify-content: space-evenly; */
+
     flex-flow: row wrap;
     margin: 2rem;
 }
@@ -44,6 +47,9 @@ flex-direction: column;
     padding: 1rem;
     border: 1px solid black;
     border-radius: 1rem;
+    justify-content: space-between;
+    /* height: 15rem; */
+    /* width: 12rem; */
     /* border-color: #000000; */
 
 }
@@ -60,13 +66,15 @@ flex-direction: column;
     border-radius: 0.5rem;
 }
 .statusOrder{
-    background-color: rgb(245, 220, 120);
+    background-color: var(--brown1);
     border-radius: 0.5rem;
-    /* margin: 0.5rem; */
+    border: 1px solid var(--brown0);
+    color: var(--brown0);
     height: 1.5rem;
-    width: 7rem;
+    width: 10rem;
     margin-block-end: 0.5rem;
 }
+
 .estadoPedido{
     display: flex;
     justify-content: space-between;

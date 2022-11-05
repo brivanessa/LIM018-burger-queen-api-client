@@ -33,22 +33,21 @@ export const ChefPendientes = () => {
     <div className='areaPendientes'>
       {ordersArray.map((order) => (
       <div className='pendienteCard' key={order.id}>
-      <div className='datosCard'>
-        <div>
-          <p> Fecha: {order.dateEntry} </p>
-          <p> Cliente: {order.client.split('/',1)} </p>
-        </div>
-        <div>
-          <p> Nro de Mesa: </p>
-          <p> Nº {order.client.split(':')[1]}</p>
-        </div>
-      </div>
-      <br/>
-      <div>
         <div className='estadoPedido'>
-        <h1>Pedido Nº {order.id}</h1>
-        <h2 className='statusOrder'>{order.status.toUpperCase()}</h2>
+          <h1>Pedido Nº {order.id}</h1>
+          <h2 className='statusOrder'>POR PREPARAR</h2>
         </div>
+      <div>
+        <div className='datosCard'>
+          <div>
+            <p> Fecha: {order.dateEntry} </p>
+            <p> Cliente: {order.client.split('/',1)} </p>
+          </div>
+          <div>
+            <p> Nro de Mesa: </p>
+            <p> Nº {order.client.split(':')[1]}</p>
+          </div>
+      </div>
         <table className='tableOrder'>
         <thead>
             <tr className="rowHead">
@@ -61,13 +60,15 @@ export const ChefPendientes = () => {
             {order.products.map ((product) => (
             <tr>
             <td>{product.product.split('-')[0]}</td>
-            <td>{product.product.split('-')[1]}</td>
+            <td className="productDescription">{product.product.split('-')[1]}</td>
             <td>{product.qty}</td>
           </tr>
             ))}
           </tbody>
         </table>
-        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="DELIVERING ᐅ"></input>   
+        <div className='btns'>
+          <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="DELIVERING ᐅ"></input>   
+        </div>
       </div>
     </div>
       ))}

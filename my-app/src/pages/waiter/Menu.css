@@ -261,8 +261,12 @@ input::placeholder {
 
 td {
   background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: yellow; */
 }
 
+.productDescription{
+  width: 20rem;
+}
 th, td{
   border-radius:  0.5rem;
   font-size: 1.5rem;
