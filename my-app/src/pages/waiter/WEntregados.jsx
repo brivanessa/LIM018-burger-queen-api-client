@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// export const WEntregados = () => {
-//   return (
-//     <div className='areaEntregados'>
-//       Pedidos Entregados
-//     </div>
-//   )
-// }
-
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
@@ -34,18 +24,10 @@ export const  WEntregados = () => {
       if (res.status === 200) {
         alert('El estado del Pedido pasó de DELIVERED a DELIVERING...')
         setChangeStatus(`delivering -${idOrder}`)
-        // useNavigate("/Preparados")
       } 
-      // else if(res.status === 400){
-      //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
-      // }else { 
-      //   alert(' No hay cabecera de autenticación.') 
-      // }
     })
     .catch((err) => { console.log(err) })
   }
-
-  //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
     <div className='areaEntregados'>
@@ -86,16 +68,15 @@ export const  WEntregados = () => {
           </tbody>
 
         </table>
-        <p className="fechaDelivered">FECHA DELIVERED: {order.dateProcessed}</p>
+
+        <p className="fechaDelivered">ENTREGADO EN {parseInt((new Date(order.dateProcessed)-new Date(order.dateEntry))/1000/60)} MINUTOS</p>
+        <p className="fechaDelivering">LISTO EN {parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)} MINUTOS</p>
+        <p className="fechaDelivering">(ENTREGADO: {order.dateProcessed})</p>
         <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>       
-        {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
       ))}
-
     </div>
     </div>
   )
 }
-
-// export default WEntregados

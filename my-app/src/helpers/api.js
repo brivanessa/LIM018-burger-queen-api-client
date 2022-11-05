@@ -37,25 +37,25 @@ export const ordersGet = (token) => {
         }})
 }
 
+// WAITER
+// CAMBIANDO DE DELIVERING (PREPARADOS) A DELIVERED (ENTREGADOS)
 export const orderPut = async (token, id) => {
-    const user = await axios.get(`${BASE_URL}${ordersPostPath}/:`+id, {
-        headers: {
-            'authorization':`Bearer ${token}` 
-        }}).then(r => {
-            console.log('hola')
-            console.log(r.data)
-            return(r.data)
-        }).catch(err=>console.log('error',err))
-   console.log(id);
-   console.log(`${BASE_URL}${ordersPostPath}/:`+id);
-   console.log(user);
+    const user = await axios.get(`${BASE_URL}${ordersPostPath}/`+id, {
+                    headers: {
+                        'authorization':`Bearer ${token}` 
+                    }})
+                    .then(r => {
+                        return(r.data)
+                    })
+                    .catch(err=>console.log('error',err))
     const status = {
         userId: user.userId,
         client: user.client,
         products: user.products,
         status: "delivered",
         dateEntry: user.dateEntry,
-        dateProcessed: user.dateProcessed
+        dateProcessed: new Date().toLocaleString(),
+        dateDelivering: user.dateDelivering,
     }
     return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
@@ -64,38 +64,25 @@ export const orderPut = async (token, id) => {
     )
 }
 
-
-// export const orderPut = (token, id) => {    
-//     const status = {
-//         status: "delivered",
-//         dateProcessed: new Date().toLocaleString(),
-
-//     }
-//     return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
-//         {headers: {
-//             'authorization':`Bearer ${token}` 
-//         }},
-//     )
-// }
-
-export const orderPutReverse = (token, id) => {
-    // let user = axios.get(`${BASE_URL}${ordersPostPath}/:`+id).then(r => console.log(r.data))
-    
+// WAITER
+// CAMBIANDO DE DELIVERED (ENTREGADOS) A DELIVERING (PREPARADOS) 
+export const orderPutReverse = async(token, id) => {
+    const user = await axios.get(`${BASE_URL}${ordersPostPath}/`+id, {
+        headers: {
+            'authorization':`Bearer ${token}` 
+        }})
+        .then(r => {
+            return(r.data)
+        })
+        .catch(err=>console.log('error',err))
     const status = {
-
-        // userId: user.userId,
-        // client: user.client,
-        // products: user.products,
-        //status: "delivered",
-        // dateEntry: user.dateEntry,
-        // dateProcessed: user.dateProcessed
-
-
-        //  userId: id.userId,
-        //  client: id.client,
-        //  products: id.products,
+        userId: user.userId,
+        client: user.client,
+        products: user.products,
         status: "delivering",
+        dateEntry: user.dateEntry,
         dateProcessed: "",
+        dateDelivering: user.dateDelivering,
 
     }
     return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
@@ -105,25 +92,51 @@ export const orderPutReverse = (token, id) => {
     )
 }
 
-export const orderPutChef = (token, id) => {
-    // let user = axios.get(`${BASE_URL}${ordersPostPath}/:`+id).then(r => console.log(r.data))
-    
+// CHEF
+// CAMBIANDO DE DELIVERING (PREPARADOS) A PENDING (PENDIENTE)
+export const orderPutChefReverse = async(token, id) => {
+    const user = await axios.get(`${BASE_URL}${ordersPostPath}/`+id, {
+        headers: {
+            'authorization':`Bearer ${token}` 
+        }})
+        .then(r => {
+            return(r.data)
+        })
+        .catch(err=>console.log('error',err))
     const status = {
-
-        // userId: user.userId,
-        // client: user.client,
-        // products: user.products,
-        //status: "delivered",
-        // dateEntry: user.dateEntry,
-        // dateProcessed: user.dateProcessed
-
-
-        //  userId: id.userId,
-        //  client: id.client,
-        //  products: id.products,
+        userId: user.userId,
+        client: user.client,
+        products: user.products,
         status: "pending",
-        dateProcessed: new Date().toLocaleString(),
+        dateEntry: user.dateEntry,
+        dateProcessed: ""
+    }
+    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+        {headers: {
+            'authorization':`Bearer ${token}` 
+        }},
+    )
+}
 
+// CHEF
+// CAMBIANDO DE PENDING (PENDIENTE) A DELIVERING (PREPARADOS) 
+export const orderPutChef = async(token, id) => {
+    const user = await axios.get(`${BASE_URL}${ordersPostPath}/`+id, {
+        headers: {
+            'authorization':`Bearer ${token}` 
+        }})
+        .then(r => {
+            return(r.data)
+        })
+        .catch(err=>console.log('error',err))
+    const status = {
+        userId: user.userId,
+        client: user.client,
+        products: user.products,
+        status: "delivering",
+        dateEntry: user.dateEntry,
+        dateProcessed: "",
+        dateDelivering: new Date().toLocaleString(),
     }
     return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
