@@ -4,6 +4,9 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const secret = "EsUnSecreto"
+const tokenMeseroMario ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIzIiwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJyb2xlcyI6WyJtZXNlcm8iXX0.4EM1L2ThUV1uIyPaGYFJDlbv_oHTIQ8eAbQDJ93RDOo";
+
+
 
 server.use(jsonServer.bodyParser)
 server.use(middlewares)
@@ -23,11 +26,11 @@ server.use((req, res, next) => {
 
 server.post('/auth', (req, res) => {
   if (
-    req.body.email === 'maria@gmail.com' &&
-    req.body.password === '123456') {
+    req.body.email === 'mario@gmail.com' &&
+    req.body.password === '123456') { //JWT -ENCRIPTAR CONTRASEÑA - DE UNA SOLA VIA -
         console.log('hey',req.body)
     res.jsonp({
-      token: secret
+      token: tokenMeseroMario
     })
   } else res.status(400).send('Bad Request')
 })
