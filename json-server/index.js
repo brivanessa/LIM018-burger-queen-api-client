@@ -30,7 +30,9 @@ server.post('/auth', (req, res) => {
     req.body.password === '123456') { //JWT -ENCRIPTAR CONTRASEÑA - DE UNA SOLA VIA -
         console.log('hey',req.body)
     res.jsonp({
-      token: tokenMeseroMario
+      // token: tokenMeseroMario
+      token: secret
+
     })
   } else res.status(400).send('Bad Request')
 })

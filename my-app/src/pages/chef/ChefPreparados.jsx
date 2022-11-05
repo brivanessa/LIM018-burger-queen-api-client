@@ -1,20 +1,6 @@
-// import React from 'react'
-
-// export const WPreparados = () => {
-//   return (
-//     <div className='areaPreparados'>
-//       Pedidos Preparados
-
-//     </div>
-//   )
-// }
-
-
 import React from 'react'
-//import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet, orderPut, orderPutChef } from '../../helpers/api'
-import { useNavigate } from 'react-router-dom'
+import { ordersGet, orderPutChefReverse } from '../../helpers/api'
 
 export const ChefPreparados = () => {
   const tokenSaved = localStorage.getItem('llave');
@@ -31,25 +17,18 @@ export const ChefPreparados = () => {
   },[tokenSaved,changeStatus1])
 
   function changeStatus(idOrder){
-    orderPutChef(tokenSaved,idOrder)
+    orderPutChefReverse(tokenSaved,idOrder)
     .then((res) => {
       if (res.status === 200) {
         alert('El estado del Pedido pasó de DELIVERING a PENDING...')
         setChangeStatus(`delivered -${idOrder}`)
-        // useNavigate("/Preparados")
       } 
-      // else if(res.status === 400){
-      //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
-      // }else { 
-      //   alert(' No hay cabecera de autenticación.') 
-      // }
     })
     .catch((err) => { console.log(err) })
   }
 
 
 
-  //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
     <div className='areaPreparados'>
@@ -89,9 +68,9 @@ export const ChefPreparados = () => {
             ))}
           </tbody>
         </table>
-        {/* onClick={changeStatus} */}
+        <p className="fechaDelivered">LISTO EN {parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)} MINUTOS</p>
+        <p className="fechaDelivering">(PREPARADO: {order.dateDelivering})</p>
         <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value=" ᐊ PENDING"></input>       
-        {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
       ))}
@@ -100,7 +79,3 @@ export const ChefPreparados = () => {
     </div>
   )
 }
-
-
-
-// export default WPreparados

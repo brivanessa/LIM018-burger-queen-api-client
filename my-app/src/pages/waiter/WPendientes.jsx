@@ -16,7 +16,6 @@ export const WPendientes = () => {
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
   },[tokenSaved])
-  //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
     <div className='areaPendientes'>
@@ -55,9 +54,7 @@ export const WPendientes = () => {
           </tr>
             ))}
           </tbody>
-
         </table>
-        {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
       ))}
@@ -66,19 +63,3 @@ export const WPendientes = () => {
     </div>
   )
 }
-
-// {productosMenuArray.map((producto) => (
-//   <div className="product" key={producto.id}>
-//     <div className="productName">{producto.name}</div>
-//     <div className="productCost">`S/{producto.price}`</div>
-//     <div className="imgProduct">
-//       <img src={producto.image} alt="sanwich"></img>
-//     </div>
-//     <div className="buttonAñadir" onClick={() => {
-//         ClientOrderAdd(producto);
-//       }
-//       }>+ Añadir
-//     </div>
-//   </div>
-// ))}
-// export default WPendientes

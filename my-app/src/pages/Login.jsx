@@ -26,7 +26,7 @@ export const Login = () => {
                         //const tokenSaved = localStorage.getItem('llave') //para obtener la var
                         // guardar el token: se puede guardar en el localStorage o en el sessionStorage
                         // tener en cuenta que la mejor man era es en una cookie
-                        console.log(jwt_decode(res.data.token))
+                        //console.log(jwt_decode(res.data.token)) // PARA OH ////////////////////////////
                         console.log("busand",res)
                         localStorage.setItem('correo', correo)//guardo en locaStorage el correo
                         document.getElementById("viewLogin").style.display = "none";

@@ -1,20 +1,7 @@
-// import React from 'react'
-
-// export const WPreparados = () => {
-//   return (
-//     <div className='areaPreparados'>
-//       Pedidos Preparados
-
-//     </div>
-//   )
-// }
-
-
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
 import { ordersGet, orderPut } from '../../helpers/api'
-import { useNavigate } from 'react-router-dom'
 
 export const WPreparados = () => {
   const tokenSaved = localStorage.getItem('llave');
@@ -36,20 +23,11 @@ export const WPreparados = () => {
       if (res.status === 200) {
         alert('El pedido fue entregado :)')
         setChangeStatus(`delivered -${idOrder}`)
-        // useNavigate("/Preparados")
       } 
-      // else if(res.status === 400){
-      //   alert('No se indica userId(nombre de usuario o mesa) o se intenta crear una orden sin productos.')
-      // }else { 
-      //   alert(' No hay cabecera de autenticación.') 
-      // }
     })
     .catch((err) => { console.log(err) })
   }
 
-
-
-  //console.log(ordersArray)
   return (
     <div className='areaPendientes3'>
     <div className='areaPreparados'>
@@ -89,9 +67,10 @@ export const WPreparados = () => {
             ))}
           </tbody>
         </table>
-        {/* onClick={changeStatus} */}
+        <p className="fechaDelivered">LISTO EN {parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)} MINUTOS</p>
+        <p className="fechaDelivering">(PREPARADO: {order.dateDelivering})</p>
+
         <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value=" DELIVERED ᐅ"></input>       
-        {/* <h2 className='statusOrder'>{order.status}</h2> */}
       </div>
     </div>
       ))}
@@ -100,7 +79,3 @@ export const WPreparados = () => {
     </div>
   )
 }
-
-
-
-// export default WPreparados
