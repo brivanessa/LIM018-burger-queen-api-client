@@ -28,7 +28,7 @@ export const Header = () => {
         <img src={imgUser} alt="imgUser" />
         {/* </div> */}
         <div className="greetingContainer">
-          <div className="greeting">Mesero</div>
+          <div className="greeting">Hola!</div>
           <div className="userName">{getUser().email}</div>
         </div>
       </div>
