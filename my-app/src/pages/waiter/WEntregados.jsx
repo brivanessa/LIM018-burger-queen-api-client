@@ -72,7 +72,7 @@ export const  WEntregados = () => {
         <p className="fechaDelivered">ENTREGADO EN {parseInt((new Date(order.dateProcessed)-new Date(order.dateEntry))/1000/60)} MINUTOS</p>
         <p className="fechaDelivering">LISTO EN {parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)} MINUTOS</p>
         <p className="fechaDelivering">(ENTREGADO: {order.dateProcessed})</p>
-        <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>       
+        {/* <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ᐊ DELIVERING"></input>        */}
       </div>
     </div>
       ))}

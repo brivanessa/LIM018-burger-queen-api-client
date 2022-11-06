@@ -8,12 +8,12 @@ import { useNavigate } from 'react-router-dom'
 import { Menu } from './waiter/Menu'
 
 export const Login = () => {
-   const navigate = useNavigate();
+    const navigate = useNavigate();
     const [myLogin, setLogin] = useState("false");
     const [correo, setCorreo] = useState();
     const [password, setPassword] = useState();
     const [errorMessage, seterrorMessage] = useState("");
-
+let rol;
     function iniciarSesion(e) {
         e.preventDefault();
         if (correo.length === 0 || password.length === 0) {
@@ -22,20 +22,31 @@ export const Login = () => {
             auth(correo, password)
                 .then((res) => {
                     if (res.status === 200) {
-                        localStorage.setItem('llave',res.data.token); //guardar datos en el navegador
+                        localStorage.setItem('llave', res.data.token); //guardar datos en el navegador
                         //const tokenSaved = localStorage.getItem('llave') //para obtener la var
                         // guardar el token: se puede guardar en el localStorage o en el sessionStorage
                         // tener en cuenta que la mejor man era es en una cookie
                         console.log(res.data.token)
-                        // console.log(jwt_decode(res.data.token)) // PARA OH ////////////////////////////
-                        console.log("busand",res)
-                        localStorage.setItem('correo', correo)//guardo en locaStorage el correo
-                        document.getElementById("viewLogin").style.display = "none";
-                        navigate("/Menu")
-                        // navigate(1)
-                        //window.location = '/Menu'; // cambiar y usar useNavigate
-                        // return {Menu()};
-                        
+                        const s = jwt_decode(res.data.token)
+                        console.log(s.roles.mesero)
+                        if (s.roles.mesero == true) {
+                            rol='mesero'
+                            localStorage.setItem('rol',rol);
+                            console.log("s.roles==true")
+                            console.log("busand", res)
+                            localStorage.setItem('correo', correo)//guardo en locaStorage el correo
+                            document.getElementById("viewLogin").style.display = "none";
+                            navigate("/Menu")
+                            // navigate(1)
+                            //window.location = '/Menu'; // cambiar y usar useNavigate
+                            // return {Menu()};
+                        } else if (s.roles.chef == true) {
+                            console.log("estoy en la vista chef")
+                            rol='chef'
+                            localStorage.setItem('rol',rol);
+                            navigate("/Chef/ChefPendientes")
+                          
+                        }
 
 
                     } else if (res.status === 400) {
