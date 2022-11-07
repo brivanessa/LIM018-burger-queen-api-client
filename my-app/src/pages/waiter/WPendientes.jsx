@@ -23,10 +23,10 @@ export const WPendientes = () => {
       <div className='pendienteCardView' key={order.id}>
         <div className='estadoPedido'>
         <h1>Pedido Nº {order.id}</h1>
-        <h2 className='statusOrder'>EN PREPARACIÓN</h2>
+        <h2 className='statusOrder'>POR PREPARAR</h2>
         </div>
       <div>
-        <div className='datosCard'>
+        <div className='datosCardPendiente'>
         <div>
           <p> Fecha: {order.dateEntry} </p>
           <p> Cliente: {order.client.split('/',1)} </p>

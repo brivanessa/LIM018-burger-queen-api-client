@@ -196,10 +196,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "5/11/2022, 01:15:28",
       "dateProcessed": "",
-      "dateDelivering": "5/11/2022 01:30:26",
+      "dateDelivering": "6/11/2022 23:56:49",
       "id": 2
     },
     {
@@ -234,9 +234,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "5/11/2022, 01:15:28",
-      "dateProcessed": ""
+      "dateProcessed": "",
+      "dateDelivering": "7/11/2022 02:02:55"
     },
     {
       "id": 5,
@@ -487,9 +488,9 @@
           "qty": 1
         }
       ],
-      "status": "delivered",
+      "status": "delivering",
       "dateEntry": "5/11/2022, 01:15:28",
-      "dateProcessed": "5/11/2022 02:00:01",
+      "dateProcessed": "",
       "dateDelivering": "5/11/2022 01:31:11",
       "id": 17
     },

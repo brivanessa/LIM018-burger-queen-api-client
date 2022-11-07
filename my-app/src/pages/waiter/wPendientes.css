@@ -24,7 +24,6 @@ display:flex;
 flex-direction: column;
 }
 .areaPendientes, .areaPreparados, .areaEntregados{
-
     background-color: rgba(9, 4, 1, 0.18);
     border-radius: 2rem;
     padding: 1rem;
@@ -33,19 +32,9 @@ flex-direction: column;
     display: flex;
     /* border: 0.7rem solid rgba(9, 4, 1, 0.7); */
     border: 0.7rem double rgba(9, 4, 1, 0.7);
-    /* solid.
-    dotted.
-    double.
-    dashed.
-    groove.
-    ridge.
-    inset.
-    outset. */
     justify-content: space-around;
-    /* justify-content: space-evenly; */
-
     flex-flow: row wrap;
-    margin: 1.5rem;
+    margin: 2rem 5rem;
 }
 
 .pendienteCard{
@@ -73,12 +62,19 @@ flex-direction: column;
 }
 .datosCard{
     display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 3rem;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    font-size: 1.8rem;
+    text-align: justify;
 }
 
-
+.datosCardPendiente{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 3rem;
+    text-align: center;  
+}
 .tablePedido{
     display: flex;
     flex-direction: column;
@@ -86,14 +82,33 @@ flex-direction: column;
     background-color: white;
     border-radius: 0.5rem;
 }
-.statusOrder{
+.statusOrder, .statusOrderPreparado, .statusOrderEntregado{
     border-radius: 0.5rem;
     border: 1px solid black;
     color: black;
     background-color: rgb(245, 220, 120);
     height: 1.5rem;
     width: 10rem;
-    margin-block-end: 0.5rem;
+    margin-block-end: 0.7rem;
+}
+.statusOrderPreparado{
+    background-color: rgb(140, 246, 205);
+    width: 6rem;
+    height: 6.8rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.1rem;
+    align-items: center;
+}
+
+.statusOrderEntregado{
+    background-color:  rgba(243, 143, 143);
+    width: 8rem;
+    height: 6.8rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.1rem;
+    align-items: center;
 }
 
 .estadoPedido{

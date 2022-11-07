@@ -24,7 +24,7 @@
   margin-block-end: 0rem;
 }
 
-.btnChefPendientes{
+.btnChefPendientes, .btnChefPreparados{
   margin-top:1rem;
   width: 25rem;
   /* height: 3.5rem; */
@@ -43,18 +43,46 @@
   justify-content: space-between;
 
 }
-.enviarIMG{
-width: 3rem;
+
+.btnChefPreparados{
+  /* padding: 0rem; */
+  padding-right: 2rem;
+  padding-left: 1rem;
+  width: 26rem;
 }
+.enviarIMG, .enviarIMGchefPend, .enviarIMGwaitPrep{
+  width: 3rem;
+  background-color:  rgb(245, 220, 120);
+  border-radius: 10rem;
+  border: 0.25rem solid white;
+}
+.enviarIMGchefPend{
+background-color:   rgb(140, 246, 205);
+}
+
+.enviarIMGwaitPrep{
+  /* background-color: rgb(252, 158, 194); */
+  background-color: rgba(243, 143, 143);
+  }
 
 .btnChefPendientes:hover{
   /* background-color: white; */
   background-color: rgba(255, 255, 255, 0.7);
   /* background-color: rgb(55, 122, 113); */
-
   color: black;
   padding: 0.6rem 0.9rem;
   padding-left: 1.6rem;
+  transition: 0.3s;
+  border-radius: 25px;
+  font-weight: bold;
+}
+.btnChefPreparados:hover{
+  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0.7);
+  /* background-color: rgb(55, 122, 113); */
+  color: black;
+  padding: 0.6rem 0.9rem;
+  padding-right: 2rem;
   transition: 0.3s;
   border-radius: 25px;
   font-weight: bold;
@@ -70,7 +98,9 @@ justify-content: center;}
 }
 
 .fechaDelivered{
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  color: var(--yellow)
+  font-size: 1rem;
+  color: black
+}
+.cronometro{
+  width: 4rem;
 }
