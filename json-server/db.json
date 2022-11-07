@@ -196,7 +196,7 @@
           "qty": 1
         }
       ],
-      "status": "delivering",
+      "status": "pending",
       "dateEntry": "5/11/2022, 01:15:28",
       "dateProcessed": "",
       "dateDelivering": "5/11/2022 01:30:26",
@@ -364,9 +364,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "5/11/2022, 01:15:28",
-      "dateProcessed": ""
+      "dateProcessed": "",
+      "dateDelivering": "6/11/2022 20:26:41"
     },
     {
       "id": 12,
@@ -748,6 +749,29 @@
       "dateEntry": "5/11/2022, 01:15:28",
       "dateProcessed": "",
       "dateDelivering": "5/11/2022 01:30:41"
+    },
+    {
+      "userId": "5/11/2022, 22:09:20-ARKELLY FLOR",
+      "client": "ARKELLY FLOR/mesa:1",
+      "products": [
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        },
+        {
+          "product": "1-Café americano",
+          "qty": 2
+        },
+        {
+          "product": "2-Café con leche",
+          "qty": 1
+        }
+      ],
+      "status": "delivered",
+      "dateEntry": "5/11/2022 22:09:21",
+      "dateProcessed": "5/11/2022, 22:11:09",
+      "dateDelivering": "5/11/2022, 22:10:39",
+      "id": 29
     }
   ]
 }

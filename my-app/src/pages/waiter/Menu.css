@@ -75,12 +75,20 @@
   justify-content: space-between;
   padding: 1rem;
   margin: 0rem;
-  background-color: BLACK;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 0.7rem double rgba(255, 255, 255, 0.8);
+  /* border-bottom: 0.6rem  double white; */
+  /* border-top: 0.6rem double white; */
+  border-top: 0.7rem double rgba(255, 255, 255, 0.8);
+
+/* border-radius: 3rem ; */
+  /* background-color:  rgba(0, 0, 0, 0.89); */
+  /* background-image: url("https://static.vecteezy.com/system/resources/previews/002/247/732/non_2x/empty-clean-black-chalkboard-background-free-photo.jpg"); */
   color: white;
   /* position:fixed; ///////////////// */
   width: 100%; 
-  box-shadow: 3px 3px 10px black;
-  text-shadow:  5px 5px 10px;
+  /* box-shadow: 3px 3px 10px black; */
+  /* text-shadow:  5px 5px 10px; */
  
  }
 

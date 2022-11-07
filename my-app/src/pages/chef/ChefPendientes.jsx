@@ -48,6 +48,7 @@ export const ChefPendientes = () => {
             <p> Nº {order.client.split(':')[1]}</p>
           </div>
       </div>
+      <br/>
         <table className='tableOrder'>
         <thead>
             <tr className="rowHead">
@@ -67,7 +68,8 @@ export const ChefPendientes = () => {
           </tbody>
         </table>
         <div className='btns'>
-          <input type="submit" className="btnWaiterEntregar" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="DELIVERING ᐅ"></input>   
+          <div type="submit" className="btnChefPendientes" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value="ENVIAR A PREPARADOS ᐅ">ENVIAR A PREPARADOS <img className="enviarIMG" src="https://cdn-icons-png.flaticon.com/512/892/892535.png" alt="preparadoOK" />   </div>
+          
         </div>
       </div>
     </div>

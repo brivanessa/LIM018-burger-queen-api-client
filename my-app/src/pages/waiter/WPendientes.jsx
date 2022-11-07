@@ -20,7 +20,7 @@ export const WPendientes = () => {
     <div className='areaPendientes3'>
     <div className='areaPendientes'>
       {ordersArray.map((order) => (
-      <div className='pendienteCard' key={order.id}>
+      <div className='pendienteCardView' key={order.id}>
         <div className='estadoPedido'>
         <h1>Pedido Nº {order.id}</h1>
         <h2 className='statusOrder'>EN PREPARACIÓN</h2>
