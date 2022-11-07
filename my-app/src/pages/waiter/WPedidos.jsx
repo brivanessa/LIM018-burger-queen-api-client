@@ -1,4 +1,5 @@
 import React from 'react'
+import jwt_decode from "jwt-decode";
 import {
   Routes,
   Route,
@@ -24,12 +25,15 @@ export const WPedidos = () => {
       console.log(" usuario logueado")
     }
   }
-
+  const tokenSaved = localStorage.getItem('llave');
+  const user = jwt_decode(tokenSaved);
+  console.log(user.roles.mesero)
   return (
     <div className='pedidosMenuView'>
       <Header />
       {/* <div className='pedidosButtons'> /////////////*/}
       <div className='pedidosButtons'>
+        {user.roles.mesero===true}
         <Link to="/Menu" className="waiterButtonsPrincipal">
           REGISTRAR
         </Link>
