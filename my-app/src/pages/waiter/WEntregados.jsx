@@ -24,6 +24,7 @@ export const  WEntregados = () => {
       if (res.status === 200) {
         // alert('El estado del Pedido pasó de DELIVERED a DELIVERING...')
         const modalPage = document.getElementById("modalPage")
+        document.getElementById("messageModal").textContent= 'La orden regresó a órdenes preparadas: "PREPARADOS"'
         modalPage.style.display = 'flex';
         setChangeStatus(`delivering -${idOrder}`)
       } 

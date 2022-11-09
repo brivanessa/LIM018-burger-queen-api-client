@@ -22,8 +22,9 @@ export const ChefPendientes = () => {
     .then((res) => {
       if (res.status === 200) {
         const modalPage = document.getElementById("modalPage")
+        //console.log(document.getElementById("messageModal").textContent)
+        document.getElementById("messageModal").textContent= 'La orden se envió a órdenes preparadas: "CHEF PREPARADOS"'
         modalPage.style.display = 'flex';
-        // Modal("OKS","OK")
         setChangeStatus(`delivering -${idOrder}`)
       } 
     })

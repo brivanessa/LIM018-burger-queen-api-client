@@ -23,6 +23,7 @@ export const WPreparados = () => {
       if (res.status === 200) {
         // alert('El pedido fue entregado :)')
         const modalPage = document.getElementById("modalPage")
+        document.getElementById("messageModal").textContent= 'La orden se envió a órdenes entregadas: "ENTREGADOS"'
         modalPage.style.display = 'flex';
         
         setChangeStatus(`delivered -${idOrder}`)

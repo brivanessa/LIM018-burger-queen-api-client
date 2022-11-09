@@ -22,6 +22,7 @@ export const ChefPreparados = () => {
       if (res.status === 200) {
         // alert('El estado del Pedido pasó de DELIVERING a PENDING...')
         const modalPage = document.getElementById("modalPage")
+        document.getElementById("messageModal").textContent= 'La orden regresó a órdenes pendientes: "CHEF PENDIENTES"'
         modalPage.style.display = 'flex';
         setChangeStatus(`delivered -${idOrder}`)
       } 
@@ -67,8 +68,6 @@ export const ChefPreparados = () => {
             ))}
           </tbody>
         </table>
-        {/* <p className="fechaDelivered">LISTO EN {parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)} MINUTOS</p> */}
-        {/* <div type="submit"  className="btnChefPreparados"  onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id} value=" ᐊ PENDING"> <img className="enviarIMG" src="https://cdn-icons-png.flaticon.com/512/892/892519.png" alt="volver a pendientes" />VOLVER A PENDIENTE </div>        */}
         <div className='btns'>
           <div type="submit"  className="btnChefPreparados"  onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id}> 
             <img className="enviarIMG" src="https://cdn-icons-png.flaticon.com/512/5166/5166419.png" alt="ir a pendientes"/>ENVIAR A PENDIENTES 

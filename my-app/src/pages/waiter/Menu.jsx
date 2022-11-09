@@ -107,7 +107,7 @@ export const Menu = () => {
     const clienteFinal=(clienteName||mesaName)?"":`${cliente}/mesa:${mesa}`;
 
     // const clienteFinal=(cliente.trim() === ""||mesa.trim() === ""||clienteOk.includes('undefined');
-    console.log(clienteFinal)
+    console.log(clienteFinal==="")
     const resumenPedido = {
       userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
       // client: `${cliente}/mesa:${mesa} : ${totalOrder} SOLES`,
@@ -120,7 +120,8 @@ export const Menu = () => {
       .then((res) => {
         if (res.status === 200) {
           // alert('Su pedido fue agregado exitosamente.')
-          const modalPage = document.getElementById("modalPage")
+          const modalPage = document.getElementById("modalPage");
+          document.getElementById("messageModal").textContent= 'La orden se guardó exitosamente.';
           modalPage.style.display = 'flex';
           cleanPedido()
         } 
@@ -133,6 +134,12 @@ export const Menu = () => {
       .catch((err) => {
         // Modal("Poceso cancelado","ERROR");
         const modalPage = document.getElementById("modalPage2");
+        const messageModal= document.getElementById("messageModal2");
+        if(clienteFinal==="" && productsAndQty.length!==0){
+          messageModal.textContent= 'No se escribió el nombre de cliente y/o nro. de mesa.'
+        } else if (productsAndQty.length===0 && clienteFinal!=="" ) {
+          messageModal.textContent= 'No hay productos en la orden/pedido.'
+        }
         modalPage.style.display = 'flex';
         // alert(err.response.data) 
       })
