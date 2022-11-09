@@ -12,16 +12,10 @@ import { Header } from '../../components/header'
 import { Footer } from '../../components/Footer'
 import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
-<<<<<<< HEAD
-import { Chef } from '../chef/Chef'
-import { ChefPendientes } from '../chef/ChefPendientes'
-import { ChefPreparados } from '../chef/ChefPreparados'
-=======
 import {ChefPendientes} from '../chef/ChefPendientes'
 import {ChefPreparados} from '../chef/ChefPreparados'
 import {Modal} from '../../components/Modal'
 import {ModalError} from '../../components/ModalError'
->>>>>>> main_insomnia
 
 import './WPedidos.css'
 export const WPedidos = () => {
@@ -90,11 +84,6 @@ export const WPedidos = () => {
         </Routes>
         <Footer/>
       </div>
-       {/* <Modal
-       message="Proceso ok"
-       gif="OK"
-       /> */}
-      {/* {Modal("Poceso realizado exitosamente","OK")} */}
       <Modal/>
       <ModalError/>
       </>
