@@ -145,10 +145,29 @@ export const orderPutChef = async(token, id) => {
     )
 }
 
-//WAITER: ELIMINAR
-export const orderDelete = (token, id) => {
-    return axios.delete(`${BASE_URL}${ordersPostPath}/`+id, {
+//WAITER: ELIMINAR -de PENDING A CANCELLED
+export const orderDelete = async (token, id) => {
+    const user = await axios.get(`${BASE_URL}${ordersPostPath}/`+id, {
         headers: {
             'authorization':`Bearer ${token}` 
         }})
+        .then(r => {
+            return(r.data)
+        })
+        .catch(err=>console.log('error',err))
+    const status = {
+        userId: user.userId,
+        client: user.client,
+        products: user.products,
+        status: "canceled",
+        dateEntry: user.dateEntry,
+        dateProcessed: "",
+        dateDelivering: new Date().toLocaleString(),
+    }
+    return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
+        {headers: {
+            'authorization':`Bearer ${token}` 
+        }},
+    )
+
 }

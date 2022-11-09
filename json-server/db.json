@@ -152,5 +152,52 @@
       "dateEntry": ""
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "userId": "9/11/2022 16:35:12-MARIANA",
+      "client": "MARIANA/mesa:1",
+      "products": [
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        },
+        {
+          "product": "2-Café con leche",
+          "qty": 1
+        },
+        {
+          "product": "1-Café americano",
+          "qty": 1
+        }
+      ],
+      "status": "canceled",
+      "dateEntry": "9/11/2022, 16:35:12",
+      "dateProcessed": "",
+      "dateDelivering": "9/11/2022 16:35:47",
+      "id": "1"
+    },
+    {
+      "userId": "9/11/2022 16:35:22-MARIO",
+      "client": "MARIO/mesa:5",
+      "products": [
+        {
+          "product": "3-Sandwich de jamón y queso",
+          "qty": 1
+        },
+        {
+          "product": "6-Hamburguesa doble",
+          "qty": 1
+        },
+        {
+          "product": "4-Jugo de frutas natural",
+          "qty": 1
+        }
+      ],
+      "status": "canceled",
+      "dateEntry": "9/11/2022, 16:35:22",
+      "dateProcessed": "",
+      "dateDelivering": "9/11/2022 16:35:26",
+      "id": "2"
+    }
+  ]
 }

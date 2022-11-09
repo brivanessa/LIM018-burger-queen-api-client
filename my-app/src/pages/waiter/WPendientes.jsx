@@ -3,10 +3,13 @@ import './wPendientes.css'
 import { useState, useEffect } from 'react';
 import { ordersGet, orderDelete } from '../../helpers/api'
 import './WaiterPendiente&Preparados.css'
+import axios from 'axios'
 
 export const WPendientes = () => {
   const tokenSaved = localStorage.getItem('llave');
   const [ordersArray, setOrdersuArray] = useState([])
+  const [changeStatus2, setChangeStatus2] = useState("delivered")
+
 
   useEffect(() => {
     ordersGet(tokenSaved)
@@ -15,18 +18,23 @@ export const WPendientes = () => {
         const ordersPending = ordersGeneral.filter(order=>order.status==="pending")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
-  },[tokenSaved])
+  },[tokenSaved,changeStatus2])
+
 
   function deleteOrder(idOrder){
-    console.log(idOrder)
-    orderDelete(tokenSaved, idOrder)
-    .then(()=>{
-      const modalPage = document.getElementById("modalPage")
-      document.getElementById("messageModal").textContent= 'La orden fue eliminada'
-      modalPage.style.display = 'flex';
+    orderDelete(tokenSaved,idOrder)
+    .then((res) => {
+      if (res.status === 200) {
+        const modalPage = document.getElementById("modalPage")
+        //console.log(document.getElementById("messageModal").textContent)
+        document.getElementById("messageModal").textContent= 'La orden se canceló"'
+        modalPage.style.display = 'flex';
+        setChangeStatus2(`canceled -${idOrder}`)
+      } 
     })
-    .catch((err)=>{console.log(err)})
+    .catch((err) => { console.log(err) })
   }
+  
   return (
     <div className='areaPendientes3'>
     <div className='areaPendientes'>
@@ -67,7 +75,13 @@ export const WPendientes = () => {
           </tbody>
         </table>
         <div className='btns'>
-          <div type="submit" className="btnEliminar" onClick={(event)=>deleteOrder(event.target.dataset.id)} data-id={order.id}>
+          <div type="submit" className="btnEliminar" onClick={(event)=>{
+            //console.log(event.target.dataset.userid)
+            deleteOrder(event.target.dataset.id)
+            // deleteOrder(event.target.dataset.id)
+            //deleteOrder(event.target.dataset.client);
+            // deleteOrder(event.target.dataset.id);
+            }} data-id={order.id} data-userId={order.userId} data-client={order.client}>
           ❌ ELIMINAR
           </div>
         </div>
