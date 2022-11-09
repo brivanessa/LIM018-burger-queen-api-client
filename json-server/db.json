@@ -172,7 +172,7 @@
       ],
       "status": "delivered",
       "dateEntry": "8/11/2022, 20:12:36",
-      "dateProcessed": "8/11/2022 23:30:57",
+      "dateProcessed": "8/11/2022 23:56:34",
       "dateDelivering": "8/11/2022 20:14:53",
       "id": 1
     },
@@ -194,10 +194,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "8/11/2022, 20:13:04",
       "dateProcessed": "",
-      "dateDelivering": "8/11/2022 23:02:02"
+      "dateDelivering": "8/11/2022 23:59:40"
     },
     {
       "userId": "8/11/2022 20:13:26-SOL MEZA",
@@ -218,7 +218,7 @@
       ],
       "status": "delivered",
       "dateEntry": "8/11/2022, 20:13:26",
-      "dateProcessed": "8/11/2022 23:31:02",
+      "dateProcessed": "8/11/2022 23:56:36",
       "dateDelivering": "8/11/2022 20:15:15",
       "id": 3
     },
@@ -240,10 +240,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "8/11/2022, 20:13:52",
       "dateProcessed": "",
-      "dateDelivering": "8/11/2022 23:02:07"
+      "dateDelivering": "8/11/2022 23:59:42"
     },
     {
       "id": 5,
@@ -263,9 +263,10 @@
           "qty": 1
         }
       ],
-      "status": "pending",
+      "status": "delivering",
       "dateEntry": "8/11/2022, 23:04:25",
-      "dateProcessed": ""
+      "dateProcessed": "",
+      "dateDelivering": "8/11/2022 23:59:44"
     }
   ]
 }

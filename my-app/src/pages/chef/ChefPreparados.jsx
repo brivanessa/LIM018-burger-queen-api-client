@@ -75,7 +75,7 @@ export const ChefPreparados = () => {
         </div>
       </div>
     </div>
-      ))}
+      )).reverse()}
 
     </div>
     </div>

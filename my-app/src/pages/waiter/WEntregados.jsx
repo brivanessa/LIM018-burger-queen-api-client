@@ -77,7 +77,7 @@ export const  WEntregados = () => {
         </div>
       </div>
     </div>
-      ))}
+      )).reverse()}
     </div>
     </div>
   )
