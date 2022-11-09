@@ -14,6 +14,8 @@ import { Menu } from './Menu'
 import { WEntregados } from './WEntregados'
 import {ChefPendientes} from '../chef/ChefPendientes'
 import {ChefPreparados} from '../chef/ChefPreparados'
+import {Modal} from '../../components/Modal'
+import {ModalError} from '../../components/ModalError'
 
 import './WPedidos.css'
 export const WPedidos = () => {
@@ -30,6 +32,7 @@ export const WPedidos = () => {
   console.log(user.roles.mesero)
   if(user.roles.mesero===true){
     return (
+    <>  
       <div className='pedidosMenuView'>
         <Header />
         <div className='pedidosButtons'>
@@ -57,10 +60,13 @@ export const WPedidos = () => {
   
         <Footer />
       </div>
-  
+      <Modal/>
+      <ModalError/>
+   </>
     )
   } else if(user.roles.chef===true){
     return (
+      <>
       <div className='pedidosMenuView'>
         <Header />
         <div className='pedidosButtons'>
@@ -70,14 +76,22 @@ export const WPedidos = () => {
           <NavLink to="/Menu/ChefPreparados" className="waiterButtonsPrincipal" activeClassName="active">
            CHEF PREPARADOS
           </NavLink>
+
         </div>
-  
         <Routes>
           <Route path="/Menu/ChefPendientes" element={<ChefPendientes/>} />
           <Route path="/Menu/ChefPreparados" element={<ChefPreparados/>} />
         </Routes>
-        <Footer />
+        <Footer/>
       </div>
+       {/* <Modal
+       message="Proceso ok"
+       gif="OK"
+       /> */}
+      {/* {Modal("Poceso realizado exitosamente","OK")} */}
+      <Modal/>
+      <ModalError/>
+      </>
     )
   }
   // return (
