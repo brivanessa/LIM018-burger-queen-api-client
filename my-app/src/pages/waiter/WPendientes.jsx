@@ -1,7 +1,7 @@
 import React from 'react'
 import './wPendientes.css'
 import { useState, useEffect } from 'react';
-import { ordersGet } from '../../helpers/api'
+import { ordersGet, orderDelete } from '../../helpers/api'
 import './WaiterPendiente&Preparados.css'
 
 export const WPendientes = () => {
@@ -16,6 +16,17 @@ export const WPendientes = () => {
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
   },[tokenSaved])
+
+  function deleteOrder(idOrder){
+    console.log(idOrder)
+    orderDelete(tokenSaved, idOrder)
+    .then(()=>{
+      const modalPage = document.getElementById("modalPage")
+      document.getElementById("messageModal").textContent= 'La orden fue eliminada'
+      modalPage.style.display = 'flex';
+    })
+    .catch((err)=>{console.log(err)})
+  }
   return (
     <div className='areaPendientes3'>
     <div className='areaPendientes'>
@@ -55,6 +66,11 @@ export const WPendientes = () => {
             ))}
           </tbody>
         </table>
+        <div className='btns'>
+          <div type="submit" className="btnEliminar" onClick={(event)=>deleteOrder(event.target.dataset.id)} data-id={order.id}>
+          ❌ ELIMINAR
+          </div>
+        </div>
       </div>
     </div>
       )).reverse()}

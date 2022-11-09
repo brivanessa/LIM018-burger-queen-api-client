@@ -24,7 +24,7 @@
   margin-block-end: 0rem;
 }
 
-.btnChefPendientes, .btnChefPreparados{
+.btnChefPendientes, .btnChefPreparados, .btnEliminar{
   margin-top:1rem;
   width: 25rem;
   /* height: 3.5rem; */
@@ -44,6 +44,9 @@
 
 }
 
+.btnEliminar{
+  width:14rem;
+}
 .btnChefPreparados{
   /* padding: 0rem; */
   padding-right: 2rem;
@@ -65,7 +68,7 @@ background-color:   rgb(140, 246, 205);
   background-color: rgba(243, 143, 143);
   }
 
-.btnChefPendientes:hover{
+.btnChefPendientes:hover, .btnEliminar:hover{
   /* background-color: white; */
   background-color: rgba(255, 255, 255, 0.7);
   /* background-color: rgb(55, 122, 113); */

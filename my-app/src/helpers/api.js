@@ -85,7 +85,7 @@ export const orderPutReverse = async(token, id) => {
         dateDelivering: user.dateDelivering,
 
     }
-    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+    return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
             'authorization':`Bearer ${token}` 
         }},
@@ -111,7 +111,7 @@ export const orderPutChefReverse = async(token, id) => {
         dateEntry: user.dateEntry,
         dateProcessed: ""
     }
-    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+    return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
             'authorization':`Bearer ${token}` 
         }},
@@ -138,9 +138,17 @@ export const orderPutChef = async(token, id) => {
         dateProcessed: "",
         dateDelivering: new Date().toLocaleString(),
     }
-    return axios.patch(`${BASE_URL}${ordersPostPath}/`+id, status,
+    return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
             'authorization':`Bearer ${token}` 
         }},
     )
+}
+
+//WAITER: ELIMINAR
+export const orderDelete = (token, id) => {
+    return axios.delete(`${BASE_URL}${ordersPostPath}/`+id, {
+        headers: {
+            'authorization':`Bearer ${token}` 
+        }})
 }
