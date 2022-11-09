@@ -57,7 +57,7 @@ export const WPendientes = () => {
         </table>
       </div>
     </div>
-      ))}
+      )).reverse()}
 
     </div>
     </div>

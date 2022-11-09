@@ -172,7 +172,7 @@
       ],
       "status": "delivered",
       "dateEntry": "8/11/2022, 20:12:36",
-      "dateProcessed": "8/11/2022 23:56:34",
+      "dateProcessed": "8/11/2022 20:16:18",
       "dateDelivering": "8/11/2022 20:14:53",
       "id": 1
     },
@@ -194,10 +194,10 @@
           "qty": 1
         }
       ],
-      "status": "delivering",
+      "status": "pending",
       "dateEntry": "8/11/2022, 20:13:04",
       "dateProcessed": "",
-      "dateDelivering": "8/11/2022 23:59:40"
+      "dateDelivering": "8/11/2022 20:14:58"
     },
     {
       "userId": "8/11/2022 20:13:26-SOL MEZA",
@@ -218,7 +218,7 @@
       ],
       "status": "delivered",
       "dateEntry": "8/11/2022, 20:13:26",
-      "dateProcessed": "8/11/2022 23:56:36",
+      "dateProcessed": "8/11/2022 20:16:28",
       "dateDelivering": "8/11/2022 20:15:15",
       "id": 3
     },
@@ -240,15 +240,14 @@
           "qty": 1
         }
       ],
-      "status": "delivering",
+      "status": "pending",
       "dateEntry": "8/11/2022, 20:13:52",
-      "dateProcessed": "",
-      "dateDelivering": "8/11/2022 23:59:42"
+      "dateProcessed": ""
     },
     {
       "id": 5,
-      "userId": "8/11/2022 23:04:25-MARIO SALAS",
-      "client": "MARIO SALAS/mesa:9",
+      "userId": "9/11/2022 00:59:18-JOSE PEREZ",
+      "client": "JOSE PEREZ/mesa:2",
       "products": [
         {
           "product": "6-Hamburguesa doble",
@@ -259,14 +258,13 @@
           "qty": 1
         },
         {
-          "product": "2-Café con leche",
+          "product": "9-Agua 500ml",
           "qty": 1
         }
       ],
-      "status": "delivering",
-      "dateEntry": "8/11/2022, 23:04:25",
-      "dateProcessed": "",
-      "dateDelivering": "8/11/2022 23:59:44"
+      "status": "pending",
+      "dateEntry": "9/11/2022, 00:59:18",
+      "dateProcessed": ""
     }
   ]
 }

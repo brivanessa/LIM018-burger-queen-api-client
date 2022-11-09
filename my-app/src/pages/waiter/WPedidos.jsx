@@ -30,7 +30,9 @@ export const WPedidos = () => {
   const tokenSaved = localStorage.getItem('llave');
   const user = jwt_decode(tokenSaved);
   console.log(user.roles.mesero)
-  if(user.roles.mesero===true){
+  console.log(user)
+  console.log(user.roles==={'mesero':true})
+  if(user.roles){
     return (
     <>  
       <div className='pedidosMenuView'>
@@ -84,11 +86,6 @@ export const WPedidos = () => {
         </Routes>
         <Footer/>
       </div>
-       {/* <Modal
-       message="Proceso ok"
-       gif="OK"
-       /> */}
-      {/* {Modal("Poceso realizado exitosamente","OK")} */}
       <Modal/>
       <ModalError/>
       </>
@@ -97,9 +94,7 @@ export const WPedidos = () => {
   // return (
   //   <div className='pedidosMenuView'>
   //     <Header />
-  //     {/* <div className='pedidosButtons'> /////////////*/}
   //     <div className='pedidosButtons'>
-  //       {user.roles.mesero===true}
   //       <Link to="/Menu" className="waiterButtonsPrincipal">
   //         REGISTRAR
   //       </Link>
