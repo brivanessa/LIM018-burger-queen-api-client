@@ -49,7 +49,11 @@ export const WPreparados = () => {
           <div className='statusOrderPreparado'>
             <h2>¡LISTO!</h2>
             <img className="cronometro" src="https://cdn-icons-png.flaticon.com/512/3877/3877672.png" alt="ir a pendientes"/>
-            <p className="fechaDelivered">{parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)} min</p>
+            <p className="fechaDelivered">{
+                        console.log(new Date(order.dateDelivering))
+
+            // parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)
+            } min</p>
 
           </div>
         </div>

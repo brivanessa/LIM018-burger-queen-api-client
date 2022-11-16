@@ -32,10 +32,11 @@ export const Login = () => {
                         console.log("busand",res)
                         localStorage.setItem('correo', correo)//guardo en locaStorage el correo
                         document.getElementById("viewLogin").style.display = "none";
-                        if(user.roles.mesero===true){
+                        if(user.payload.roles.admin===false){
                         navigate("/Menu")
-                        } else if(user.roles.chef===true){
-                            navigate("/Menu/ChefPendientes")  
+                       //  } else if(user.payload.roles.admin===true){
+                        } else {
+                        navigate("/Menu/ChefPendientes")  
                         }
                     } else if (res.status === 400) {
                         setLogin("false");

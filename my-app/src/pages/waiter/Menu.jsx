@@ -115,8 +115,9 @@ export const Menu = () => {
       client: clienteFinal,
       products: productsAndQty
     }
-    //console.log(resumenPedido)
-    orderPost(localStorage.getItem('llave'), resumenPedido)
+    console.log(localStorage.getItem('llave'))
+    console.log(resumenPedido)
+    orderPost(`${localStorage.getItem('llave')}`, resumenPedido)
       .then((res) => {
         if (res.status === 200) {
           // alert('Su pedido fue agregado exitosamente.')

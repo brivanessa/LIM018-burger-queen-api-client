@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:3001" //MOCK API
-//const BASE_URL ="https://bqapi.fakel.lol" -API
+//const BASE_URL = "http://localhost:3001" //MOCK API
+const BASE_URL ="https://bqapi.fakel.lol" //API
 const authPath = "/auth"
 const productsGetPath = "/products"
 const ordersPostPath = "/orders"

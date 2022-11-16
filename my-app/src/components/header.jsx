@@ -15,7 +15,15 @@ export const Header = () => {
   const tokenSaved = localStorage.getItem('llave');
   const user = jwt_decode(tokenSaved);
 
-  if(user.roles.mesero===true){
+  // const {email, roles} = user
+  // console.log(email)
+  // console.log(roles)
+  // console.log(user)
+
+  // if(roles.admin===false){
+    //if(user.roles.mesero===true){
+
+ if(user.payload.roles.admin===false){
     return (
       <div className="headerViews" id="menu">
         <div className="userSection">
@@ -34,7 +42,8 @@ export const Header = () => {
         </div>
       </div>
     )
-  }else if(user.roles.chef===true){
+  //}else if(user.payload.roles.admin===true){
+  }else {
     return (
       <div className="headerViews" id="menu">
         <div className="userSection">
