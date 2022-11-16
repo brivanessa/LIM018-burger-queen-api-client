@@ -12,7 +12,7 @@ export const WPreparados = () => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        const ordersPending = ordersGeneral.filter(order=>order.status.includes()==="delivering")
+        const ordersPending = ordersGeneral.filter(order=>order.status.includes("delivering")===true)
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
   },[tokenSaved,changeStatus1])
@@ -31,7 +31,22 @@ export const WPreparados = () => {
     })
     .catch((err) => { console.log(err) })
   }
-
+  function timePrepared (fecha1, fecha2){
+    console.log(fecha1)
+    let hora1 = (`${fecha1.split(' ')[1]}`).split(":");
+    let hora2 = (`${fecha2.split(' ')[1]}`).split(":");
+    let   t1 = new Date();
+    let   t2 = new Date();
+     
+    t1.setHours(hora1[0], hora1[1], hora1[2]);
+    t2.setHours(hora2[0], hora2[1], hora2[2]);
+    //Aquí hago la resta
+    t1.setHours(t1.getHours() - t2.getHours(), t1.getMinutes() - t2.getMinutes(), t1.getSeconds() - t2.getSeconds());
+    //Imprimo el resultado
+    let timeFinal =  (t1.getHours() ? t1.getHours() + (t1.getHours() > 1 ? "h" : "h") : "") + (t1.getMinutes() ? "," + t1.getMinutes() + (t1.getMinutes() > 1 ? "m" : "m") : "") + (t1.getSeconds() ? (t1.getHours() || t1.getMinutes() ? "," : "") + t1.getSeconds() + (t1.getSeconds() > 1 ? "s" : "s") : "");
+    console.log( timeFinal ) // resultado 5;  
+    return timeFinal
+  }
   return (
     <div className='areaPendientes3'>
     <div className='areaPreparados'>
@@ -39,21 +54,21 @@ export const WPreparados = () => {
       <div className='pendienteCard' key={order.id}>
         <div className='estadoPedido'>
           <div className='datosCard'>
-            <h1>Pedido Nº {order._id}</h1>
-            <p> Mesa: Nº {order.client.split('-')[1].split(':')[1]}</p>
-            <p> Cliente:  {order.client.split('-')[1].split('/',1)} </p>
-            <p> Fecha Ingreso: {order.client.split('-',1)}  </p>
-            <p> Pedido Listo: {new Date().toLocaleString()}</p>
+          <h1>Pedido Nº {order._id}</h1>
+            <p> Mesa: Nº {order.client.split('-')[1].split(':')[1]} </p>
+            <p> Cliente: {order.client.split('-')[1].split('/',1)}</p>
+            <p> Fecha Ingreso: {order.client.split('-')[0]} </p>
+            <p> Pedido Listo: {order.client.split('-')[2]}</p>
 
           </div>
           <div className='statusOrderPreparado'>
             <h2>¡LISTO!</h2>
             <img className="cronometro" src="https://cdn-icons-png.flaticon.com/512/3877/3877672.png" alt="ir a pendientes"/>
             <p className="fechaDelivered">{
-                        console.log(new Date(order.dateDelivering))
-
+                        // console.log(new Date(order.dateDelivering))
+                        timePrepared(order.client.split('-')[2],order.client.split('-')[0])
             // parseInt((new Date(order.dateDelivering)-new Date(order.dateEntry))/1000/60)
-            } min</p>
+            }</p>
 
           </div>
         </div>
@@ -69,15 +84,15 @@ export const WPreparados = () => {
           <tbody>
             {order.products.map ((product) => (
             <tr>
-            <td>{product.product.split('-')[0]}</td>
-            <td className="productDescription">{product.product.split('-')[1]}</td>
+            <td>{product._id}</td>
+            <td className="productDescription">{product.name}</td>
             <td>{product.qty}</td>
           </tr>
             ))}
           </tbody>
         </table>
         <div className='btns'>
-         <div type="submit" className="btnChefPendientes" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id}>
+         <div type="submit" className="btnChefPendientes" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order._id}>
             ENVIAR A ENTREGADOS <img className="enviarIMGwaitPrep" src="https://cdn-icons-png.flaticon.com/128/5166/5166431.png" alt="ir a Entregador"/> 
          </div>       
         </div>

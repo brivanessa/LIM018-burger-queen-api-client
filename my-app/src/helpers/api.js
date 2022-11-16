@@ -55,7 +55,6 @@ export const orderPut = async (token, id) => {
         status: "delivered",
         dateEntry: user.dateEntry,
         dateProcessed: new Date().toLocaleString(),
-        dateDelivering: user.dateDelivering,
     }
     return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
@@ -81,8 +80,7 @@ export const orderPutReverse = async(token, id) => {
         products: user.products,
         status: "delivering",
         dateEntry: user.dateEntry,
-        dateProcessed: "",
-        dateDelivering: user.dateDelivering,
+        dateProcessed: null,
 
     }
     return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
@@ -105,11 +103,11 @@ export const orderPutChefReverse = async(token, id) => {
         .catch(err=>console.log('error',err))
     const status = {
         userId: user.userId,
-        client: user.client,
+        client: user.client.split('-')[0]+'-'+user.client.split('-')[1],
         products: user.products,
         status: "pending",
         dateEntry: user.dateEntry,
-        dateProcessed: ""
+        dateProcessed: null
     }
     return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
@@ -131,9 +129,9 @@ export const orderPutChef = async(token, id) => {
         .catch(err=>console.log('error',err))
     const status = {
         userId: user.userId,
-        client: user.client,
+        client: user.client+`-${new Date().toLocaleString()}`,
         products: user.products,
-        status: `delivering-${new Date().toLocaleString()}`,
+        status: 'delivering',
         // dateProcessed: `delivering - ${new Date().toLocaleString()}`,
         //dateDelivering: new Date().toLocaleString(),
     }

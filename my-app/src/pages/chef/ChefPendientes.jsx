@@ -45,12 +45,16 @@ export const ChefPendientes = () => {
       <div>
         <div className='datosCardPendiente'>
           <div>
-          <p> Fecha: {order.client.split('-',1)} </p>
-          <p> Cliente: {order.client.split('-')[1].split('/',1)} </p>
+          <p> Fecha: {order.client.split('-')[0]} </p>
+          <p> Cliente: {order.client.split('-')[1].split('/')[0]} </p>
+          {/* <p> Cliente: {order.client} </p> */}
+
           </div>
           <div>
             <p> Nro de Mesa: </p>
             <p> Nº {order.client.split('-')[1].split(':')[1]}</p>
+            {/* <p> Nº {order.client}</p> */}
+
           </div>
       </div>
       <br/>

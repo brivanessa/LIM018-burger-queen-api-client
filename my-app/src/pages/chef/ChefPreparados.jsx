@@ -58,13 +58,13 @@ export const ChefPreparados = () => {
             <p> Mesa: Nº {order.client.split('-')[1].split(':')[1]} </p>
             <p> Cliente: {order.client.split('-')[1].split('/',1)}</p>
             <p> Fecha Ingreso: {order.client.split('-')[0]} </p>
-            <p> Pedido Listo: {order.status.split('-')[1]}</p>
+            <p> Pedido Listo: {order.client.split('-')[2]}</p>
         </div>
           <div className='statusOrderPreparado'>
           <h2>¡LISTO!</h2>
           <img className="cronometro" src="https://cdn-icons-png.flaticon.com/512/3877/3877672.png" alt="ir a pendientes"/>
           <p className="fechaDelivered">{
-            timePrepared(order.status.split('-')[1],order.client.split('-')[0])
+            timePrepared(order.client.split('-')[2],order.client.split('-')[0])
           // parseInt((new Date(order.status.split('-')[1])-new Date(order.client.split('-',1)))/1000/60)
           }</p>
           </div>
