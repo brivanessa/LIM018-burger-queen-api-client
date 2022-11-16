@@ -12,7 +12,7 @@ export const WPreparados = () => {
     ordersGet(tokenSaved)
       .then((res) => {
         const ordersGeneral = res.data;
-        const ordersPending = ordersGeneral.filter(order=>order.status==="delivering")
+        const ordersPending = ordersGeneral.filter(order=>order.status.includes()==="delivering")
         setOrdersuArray(ordersPending)
       }).catch(error => console.log(error))
   },[tokenSaved,changeStatus1])
@@ -43,7 +43,7 @@ export const WPreparados = () => {
             <p> Mesa: Nº {order.client.split('-')[1].split(':')[1]}</p>
             <p> Cliente:  {order.client.split('-')[1].split('/',1)} </p>
             <p> Fecha Ingreso: {order.client.split('-',1)}  </p>
-            <p> Pedido Listo: {order.dateDelivering}</p>
+            <p> Pedido Listo: {new Date().toLocaleString()}</p>
 
           </div>
           <div className='statusOrderPreparado'>

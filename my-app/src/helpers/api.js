@@ -133,9 +133,9 @@ export const orderPutChef = async(token, id) => {
         userId: user.userId,
         client: user.client,
         products: user.products,
-        status: "delivering",
-        dateProcessed: "",
-        dateDelivering: new Date().toLocaleString(),
+        status: `delivering-${new Date().toLocaleString()}`,
+        // dateProcessed: `delivering - ${new Date().toLocaleString()}`,
+        //dateDelivering: new Date().toLocaleString(),
     }
     return axios.put(`${BASE_URL}${ordersPostPath}/`+id, status,
         {headers: {
