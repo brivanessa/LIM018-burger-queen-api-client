@@ -37,10 +37,10 @@ export const ChefPreparados = () => {
       <div className='pendienteCard' key={order.id}>
         <div className='estadoPedido'>
         <div className='datosCard'>
-            <h1>Pedido Nº {order.id}</h1>
-            <p> Mesa: Nº {order.client.split(':')[1]} </p>
-            <p> Cliente: {order.client.split('/',1)} </p>
-            <p> Fecha Ingreso: {order.dateEntry} </p>
+            <h1>Pedido Nº {order._id}</h1>
+            <p> Mesa: Nº {order.client.split('-')[1].split(':')[1]} </p>
+            <p> Cliente: {order.client.split('-')[1].split('/',1)}</p>
+            <p> Fecha Ingreso: {order.client.split('-',1)} </p>
             <p> Pedido Listo: {order.dateDelivering}</p>
         </div>
           <div className='statusOrderPreparado'>
@@ -63,15 +63,15 @@ export const ChefPreparados = () => {
           <tbody>
             {order.products.map ((product) => (
             <tr>
-            <td>{product.product.split('-')[0]}</td>
-            <td className="productDescription">{product.product.split('-')[1]}</td>
+            <td>{product._id}</td>
+            <td className="productDescription">{product.name}</td>
             <td>{product.qty}</td>
           </tr>
             ))}
           </tbody>
         </table>
         <div className='btns'>
-          <div type="submit"  className="btnChefPreparados"  onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id}> 
+          <div type="submit"  className="btnChefPreparados"  onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order._id}> 
             <img className="enviarIMG" src="https://cdn-icons-png.flaticon.com/512/5166/5166419.png" alt="ir a pendientes"/>ENVIAR A PENDIENTES 
           </div>       
         </div>

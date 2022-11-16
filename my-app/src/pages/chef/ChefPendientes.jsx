@@ -18,6 +18,7 @@ export const ChefPendientes = () => {
   },[tokenSaved,changeStatus1])
 
   function changeStatus(idOrder){
+    console.log(idOrder)
     orderPutChef(tokenSaved,idOrder)
     .then((res) => {
       if (res.status === 200) {
@@ -75,7 +76,13 @@ export const ChefPendientes = () => {
           </tbody>
         </table>
         <div className='btns'>
-          <div type="submit" className="btnChefPendientes" onClick={(event)=>changeStatus(event.target.dataset.id)} data-id={order.id}>
+          <div type="submit" className="btnChefPendientes" onClick={(event)=>{
+            //console.log('OKS')
+            //console.log(event.target.dataset.id)
+            changeStatus(event.target.dataset.id)
+          }
+          } data-id={order._id}
+          >
             ENVIAR A PREPARADOS <img className="enviarIMGchefPend" src="https://cdn-icons-png.flaticon.com/128/5166/5166431.png" alt="preparadoOK"/> 
           </div>
         </div>

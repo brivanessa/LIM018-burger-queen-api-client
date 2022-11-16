@@ -39,10 +39,10 @@ export const WPreparados = () => {
       <div className='pendienteCard' key={order.id}>
         <div className='estadoPedido'>
           <div className='datosCard'>
-            <h1>Pedido Nº {order.id}</h1>
-            <p> Mesa: Nº {order.client.split(':')[1]}</p>
-            <p> Cliente: {order.client.split('/',1)} </p>
-            <p> Fecha Ingreso: {order.dateEntry} </p>
+            <h1>Pedido Nº {order._id}</h1>
+            <p> Mesa: Nº {order.client.split('-')[1].split(':')[1]}</p>
+            <p> Cliente:  {order.client.split('-')[1].split('/',1)} </p>
+            <p> Fecha Ingreso: {order.client.split('-',1)}  </p>
             <p> Pedido Listo: {order.dateDelivering}</p>
 
           </div>

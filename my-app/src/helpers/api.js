@@ -134,7 +134,6 @@ export const orderPutChef = async(token, id) => {
         client: user.client,
         products: user.products,
         status: "delivering",
-        dateEntry: user.dateEntry,
         dateProcessed: "",
         dateDelivering: new Date().toLocaleString(),
     }
