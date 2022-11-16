@@ -99,9 +99,7 @@ export const Menu = () => {
           qty: item.quantity,
         })
     })
-    // console.log(cliente===undefined)
-    // console.log(cliente !== undefined)
-    // const clienteOk=`${cliente}/mesa:${mesa}`;
+
     const clienteName = (cliente !== undefined)?(cliente.trim() === ""):true;
     const mesaName = (mesa !== undefined)?(mesa.trim() === ""):true;
     const clienteFinal=(clienteName||mesaName)?"":`${cliente}/mesa:${mesa}`;
@@ -109,19 +107,13 @@ export const Menu = () => {
     // const clienteFinal=(cliente.trim() === ""||mesa.trim() === ""||clienteOk.includes('undefined');
     console.log(clienteFinal==="")
     const resumenPedido = {
-      //userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
-      // client: `${cliente}/mesa:${mesa} : ${totalOrder} SOLES`,
-      // client: `${cliente}/mesa:${mesa}`,
-      // client: clientefinal
       client: `${today.toLocaleString()}-${clienteFinal}`,
       products: productsAndQty
     }
-    
-    console.log(localStorage.getItem('llave'))
-    console.log(resumenPedido)
-    orderPost(tokenSaved, resumenPedido)
+    if(productsAndQty.length!==0 && clienteFinal!==""){
+      orderPost(tokenSaved, resumenPedido)
       .then((res) => {
-        if (res.status === 200) {
+        if (res.status === 200 && productsAndQty.length!==0 && clienteFinal!=="") {
           // alert('Su pedido fue agregado exitosamente.')
           const modalPage = document.getElementById("modalPage");
           document.getElementById("messageModal").textContent= 'La orden se guardó exitosamente.';
@@ -146,6 +138,17 @@ export const Menu = () => {
         modalPage.style.display = 'flex';
         // alert(err.response.data) 
       })
+    } else {
+              const modalPage = document.getElementById("modalPage2");
+        const messageModal= document.getElementById("messageModal2");
+        if(clienteFinal==="" && productsAndQty.length!==0){
+          messageModal.textContent= 'No se escribió el nombre de cliente y/o nro. de mesa.'
+        } else if (productsAndQty.length===0 && clienteFinal!=="" ) {
+          messageModal.textContent= 'No hay productos en la orden/pedido.'
+        }
+        modalPage.style.display = 'flex';
+    }
+
   }
 
   function cleanPedido() {

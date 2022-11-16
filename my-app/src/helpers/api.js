@@ -6,6 +6,9 @@ const authPath = "/auth"
 const productsGetPath = "/products"
 const ordersPostPath = "/orders"
 
+const ordersPostPath1 = "/orders?limit=100"
+
+
 export const auth = (email,password) => {
      console.log(email)
     console.log(password)
@@ -31,7 +34,7 @@ export const orderPost = (token, saveOrder) => {
 }
 
 export const ordersGet = (token) => {
-    return axios.get(`${BASE_URL}${ordersPostPath}`, {
+    return axios.get(`${BASE_URL}${ordersPostPath1}`, {
         headers: {
             'authorization':`Bearer ${token}` 
         }})
