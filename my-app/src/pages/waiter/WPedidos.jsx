@@ -29,14 +29,17 @@ export const WPedidos = () => {
   }
   const tokenSaved = localStorage.getItem('llave');
   const user = jwt_decode(tokenSaved);
-  console.log(user.roles.mesero)
-  if(user.roles.mesero===true){
+  const {email, roles} = user
+  console.log(email)
+  console.log(roles)
+   if(user.payload.roles.admin===false){
+
     return (
     <>  
       <div className='pedidosMenuView'>
         <Header />
         <div className='pedidosButtons'>
-          {user.roles.mesero===true}
+          {/* {user.roles.mesero===true} */}
           <Link to="/Menu" className="waiterButtonsPrincipal">
             REGISTRAR
           </Link>
@@ -64,7 +67,7 @@ export const WPedidos = () => {
       <ModalError/>
    </>
     )
-  } else if(user.roles.chef===true){
+  } else {
     return (
       <>
       <div className='pedidosMenuView'>
@@ -89,47 +92,48 @@ export const WPedidos = () => {
       </>
     )
   }
-  // return (
-  //   <div className='pedidosMenuView'>
-  //     <Header />
-  //     {/* <div className='pedidosButtons'> /////////////*/}
-  //     <div className='pedidosButtons'>
-  //       {user.roles.mesero===true}
-  //       <Link to="/Menu" className="waiterButtonsPrincipal">
-  //         REGISTRAR
-  //       </Link>
-  //       <NavLink to="/Menu/Pendientes" className="waiterButtonsPrincipal" activeClassName="active">
-  //         PENDIENTES
-  //       </NavLink>
-  //       <NavLink to="/Menu/Preparados" className="waiterButtonsPrincipal" activeClassName="active">
-  //         PREPARADOS
-  //       </NavLink>
-  //       <NavLink to="/Menu/Entregados" className="waiterButtonsPrincipal" activeClassName="active">
-  //         ENTREGADOS
-  //       </NavLink>
-  //       <NavLink to="/Menu/ChefPendientes" className="waiterButtonsPrincipal" activeClassName="active">
-  //        CHEF PENDIENTES
-  //       </NavLink>
-  //       <NavLink to="/Menu/ChefPreparados" className="waiterButtonsPrincipal" activeClassName="active">
-  //        CHEF PREPARADOS
-  //       </NavLink>
 
-  //     </div>
+ /*
+  return (
+    <div className='pedidosMenuView'>
+      <Header />
+      <div className='pedidosButtons'>
+        <Link to="/Menu" className="waiterButtonsPrincipal">
+          REGISTRAR
+        </Link>
+        <NavLink to="/Menu/Pendientes" className="waiterButtonsPrincipal" activeClassName="active">
+          PENDIENTES
+        </NavLink>
+        <NavLink to="/Menu/Preparados" className="waiterButtonsPrincipal" activeClassName="active">
+          PREPARADOS
+        </NavLink>
+        <NavLink to="/Menu/Entregados" className="waiterButtonsPrincipal" activeClassName="active">
+          ENTREGADOS
+        </NavLink>
+        <NavLink to="/Menu/ChefPendientes" className="waiterButtonsPrincipal" activeClassName="active">
+         CHEF PENDIENTES
+        </NavLink>
+        <NavLink to="/Menu/ChefPreparados" className="waiterButtonsPrincipal" activeClassName="active">
+         CHEF PREPARADOS
+        </NavLink>
 
-  //     <Routes>
-  //       <Route path="/Menu" element={<Menu />} />
-  //       <Route path="/Menu/Pendientes" element={<WPendientes />} />
-  //       <Route path="/Menu/Preparados" element={<WPreparados />} />
-  //       <Route path="/Menu/Entregados" element={<WEntregados />} />
-  //       <Route path="/Menu/ChefPendientes" element={<ChefPendientes/>} />
-  //       <Route path="/Menu/ChefPreparados" element={<ChefPreparados/>} />
+      </div>
+
+      <Routes>
+        <Route path="/Menu" element={<Menu />} />
+        <Route path="/Menu/Pendientes" element={<WPendientes />} />
+        <Route path="/Menu/Preparados" element={<WPreparados />} />
+        <Route path="/Menu/Entregados" element={<WEntregados />} />
+        <Route path="/Menu/ChefPendientes" element={<ChefPendientes/>} />
+        <Route path="/Menu/ChefPreparados" element={<ChefPreparados/>} />
 
 
-  //     </Routes>
+      </Routes>
 
-  //     <Footer />
-  //   </div>
+      <Footer />
+    </div>
 
-  // )
+  )
+  */
 }
 

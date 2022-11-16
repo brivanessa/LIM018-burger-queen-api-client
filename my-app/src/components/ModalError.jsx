@@ -9,7 +9,7 @@ export const ModalError = () => {
         <div className="Modal2" id="modalPage2">
              <div className="ModalWindow">
                 <img className="imgError" src="https://jaguar.wwfbolivia.org/theme/front/img/wrong.gif" alt="checkmark" />
-                <h1 className="messageModal" id="messageModal">Complete todos los campos</h1>
+                <h1 className="messageModal" id="messageModal2">Complete todos los campos...</h1>
                 <input type="submit" className="btnEnviar" onClick={cerrarModal} value="OK"></input>
             </div>
         </div>

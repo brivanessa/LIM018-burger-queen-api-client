@@ -5,9 +5,11 @@ const middlewares = jsonServer.defaults()
 
 // const secret = "EsUnSecreto"
 const tokenMeseroMario ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIzIiwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJyb2xlcyI6WyJtZXNlcm8iXX0.4EM1L2ThUV1uIyPaGYFJDlbv_oHTIQ8eAbQDJ93RDOo";
-const tokenWaiter1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndhaXRlcjFAZGVsaWNlcy5jb20iLCJyb2xlcyI6eyJtZXNlcm8iOnRydWV9fQ.WOSQaf_-4sbSQSQab_p3cQ8Y9eEygZoY-clOBhcknRg"
-const tokenChef1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWYxQGRlbGljZXMuY29tIiwicm9sZXMiOnsiY2hlZiI6dHJ1ZX19.PmbJQxA7YPk2u8iaTRrcsdxwfSftST74lO2vBx9diJo"
-const tokenAdmin1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGRlbGljZXMuY29tIiwicm9sZXMiOnsiYWRtaW4iOnRydWV9fQ.LzbbGXw95_XjmitjZG9QazytGHyhmpEpj_IQTfDdceU"
+//const tokenWaiter1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndhaXRlcjFAZGVsaWNlcy5jb20iLCJyb2xlcyI6eyJtZXNlcm8iOnRydWV9fQ.WOSQaf_-4sbSQSQab_p3cQ8Y9eEygZoY-clOBhcknRg"
+const tokenWaiter1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiZW1wbG95ZWVAZGVsaWNlcy5jb20iLCJyb2xlcyI6eyJhZG1pbiI6ZmFsc2V9fSwiaWF0IjoxNjY4NTU4MzE1LCJleHAiOjE2Njg2NDQ3MTV9.1TOBHulAvHnOYCKvqQJXGVjIkVEDQlH4Wd6Uks900N0"
+//const tokenChef1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWYxQGRlbGljZXMuY29tIiwicm9sZXMiOnsiY2hlZiI6dHJ1ZX19.PmbJQxA7YPk2u8iaTRrcsdxwfSftST74lO2vBx9diJo"
+const tokenChef1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiYWRtaW5AZGVsaWNlcy5jb20iLCJyb2xlcyI6eyJhZG1pbiI6dHJ1ZX19LCJpYXQiOjE2Njg1NTk3MTksImV4cCI6MTY2ODY0NjExOX0.9DbvsKZAVVpldqECP3sRK4ESbIX5lZu9f8GYC2iGeIA"
+//const tokenAdmin1 ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGRlbGljZXMuY29tIiwicm9sZXMiOnsiYWRtaW4iOnRydWV9fQ.LzbbGXw95_XjmitjZG9QazytGHyhmpEpj_IQTfDdceU"
 // const secret ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIzIiwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJyb2xlcyI6WyJtZXNlcm8iXX0.4EM1L2ThUV1uIyPaGYFJDlbv_oHTIQ8eAbQDJ93RDOo";
 //let token = (tokenWaiter1|tokenChef1|tokenAdmin1)
 
@@ -30,25 +32,25 @@ server.use((req, res, next) => {
  })
 
 server.post('/auth', (req, res) => {
-  if ( req.body.email === 'waiter1@delices.com' && req.body.password === 'waiter1') { //JWT -ENCRIPTAR CONTRASEÑA - DE UNA SOLA VIA -
+  if ( req.body.email === 'employee@delices.com' && req.body.password === 'employee') { //JWT -ENCRIPTAR CONTRASEÑA - DE UNA SOLA VIA -
         // console.log('hey',req.body)
       tokenOk=tokenWaiter1;
       res.jsonp({
       token: tokenWaiter1 ///OH
       // token: secret
     })
-  } else if ( req.body.email === 'chef1@delices.com' && req.body.password === 'chef1') { 
+  } else if ( req.body.email === 'admin@delices.com' && req.body.password === 'admin') { 
       // setToken(tokenChef1)
       tokenOk=tokenChef1;
       res.jsonp({
-      token:  tokenChef1 ///OH
+      token: tokenChef1 ///OH
     })
-  }  else if ( req.body.email === 'admin@delices.com' && req.body.password === 'admin') { 
-    //setToken(tokenAdmin1)
-    tokenOk=tokenAdmin1;
-    res.jsonp({
-    token:  tokenAdmin1 ///OH
-  })
+  // }  else if ( req.body.email === 'admin@delices.com' && req.body.password === 'admin') { 
+  //   //setToken(tokenAdmin1)
+  //   tokenOk=tokenAdmin1;
+  //   res.jsonp({
+  //   token:  tokenAdmin1 ///OH
+  // })
   } else res.status(400).send('Bad Request')
 
 
