@@ -95,7 +95,7 @@ export const Menu = () => {
     const productsAndQty = OrderArray.map((item) => {
       return (
         {
-          product: item._id, //cambiar por productId si no funciona
+          productId: item._id, //cambiar por productId si no funciona
           qty: item.quantity,
         })
     })
@@ -109,15 +109,17 @@ export const Menu = () => {
     // const clienteFinal=(cliente.trim() === ""||mesa.trim() === ""||clienteOk.includes('undefined');
     console.log(clienteFinal==="")
     const resumenPedido = {
-      userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
+      //userId: `${today.toLocaleString()}-${cliente}`, // si queremos despues modificar por un numero en el id
       // client: `${cliente}/mesa:${mesa} : ${totalOrder} SOLES`,
       // client: `${cliente}/mesa:${mesa}`,
-      client: clienteFinal,
+      // client: clientefinal
+      client: `${today.toLocaleString()}-${clienteFinal}`,
       products: productsAndQty
     }
+    
     console.log(localStorage.getItem('llave'))
     console.log(resumenPedido)
-    orderPost(`${localStorage.getItem('llave')}`, resumenPedido)
+    orderPost(tokenSaved, resumenPedido)
       .then((res) => {
         if (res.status === 200) {
           // alert('Su pedido fue agregado exitosamente.')

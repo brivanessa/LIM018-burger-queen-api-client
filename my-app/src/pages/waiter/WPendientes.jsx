@@ -39,20 +39,20 @@ export const WPendientes = () => {
     <div className='areaPendientes3'>
     <div className='areaPendientes'>
       {ordersArray.map((order) => (
-      <div className='pendienteCardView' key={order.id}>
+      <div className='pendienteCardView' key={order._id}>
         <div className='estadoPedido'>
-        <h1>Pedido Nº {order.id}</h1>
+        <h1>Pedido Nº {order._id}</h1>
         <h2 className='statusOrder'>POR PREPARAR</h2>
         </div>
       <div>
         <div className='datosCardPendiente'>
         <div>
-          <p> Fecha: {order.dateEntry} </p>
-          <p> Cliente: {order.client.split('/',1)} </p>
+          <p> Fecha: {order.client.split('-',1)} </p>
+          <p> Cliente: {order.client.split('-')[1].split('/',1)} </p>
         </div>
         <div>
           <p> Nro de Mesa: </p>
-          <p> Nº {order.client.split(':')[1]}</p>
+          <p> Nº {order.client.split('-')[1].split(':')[1]}</p>
         </div>
         </div>
         <br></br>
@@ -67,8 +67,8 @@ export const WPendientes = () => {
           <tbody>
             {order.products.map ((product) => (
             <tr>
-            <td>{product.product.split('-')[0]}</td>
-            <td className="productDescription">{product.product.split('-')[1]}</td>
+            <td>{product._id}</td>
+            <td className="productDescription">{product.name}</td>
             <td>{product.qty}</td>
           </tr>
             ))}
@@ -81,7 +81,7 @@ export const WPendientes = () => {
             // deleteOrder(event.target.dataset.id)
             //deleteOrder(event.target.dataset.client);
             // deleteOrder(event.target.dataset.id);
-            }} data-id={order.id} data-userId={order.userId} data-client={order.client}>
+            }} data-id={order._id} data-userId={order.userId} data-client={order.client}>
           ❌ ELIMINAR
           </div>
         </div>
