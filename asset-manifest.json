@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/LIM018-burger-queen-api-client/my-app/static/css/main.14d33455.css",
-    "main.js": "/LIM018-burger-queen-api-client/my-app/static/js/main.737e495f.js",
-    "static/js/787.28cb0dcd.chunk.js": "/LIM018-burger-queen-api-client/my-app/static/js/787.28cb0dcd.chunk.js",
-    "static/media/fondoFastFood.jpg": "/LIM018-burger-queen-api-client/my-app/static/media/fondoFastFood.c1f7a2f53ed9d6aaee6c.jpg",
-    "index.html": "/LIM018-burger-queen-api-client/my-app/index.html",
-    "main.14d33455.css.map": "/LIM018-burger-queen-api-client/my-app/static/css/main.14d33455.css.map",
-    "main.737e495f.js.map": "/LIM018-burger-queen-api-client/my-app/static/js/main.737e495f.js.map",
-    "787.28cb0dcd.chunk.js.map": "/LIM018-burger-queen-api-client/my-app/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/LIM018-burger-queen-api-client/static/css/main.b5ffceca.css",
+    "main.js": "/LIM018-burger-queen-api-client/static/js/main.e38cb6cd.js",
+    "static/js/787.28cb0dcd.chunk.js": "/LIM018-burger-queen-api-client/static/js/787.28cb0dcd.chunk.js",
+    "static/media/fondoFastFood.jpg": "/LIM018-burger-queen-api-client/static/media/fondoFastFood.c1f7a2f53ed9d6aaee6c.jpg",
+    "index.html": "/LIM018-burger-queen-api-client/index.html",
+    "main.b5ffceca.css.map": "/LIM018-burger-queen-api-client/static/css/main.b5ffceca.css.map",
+    "main.e38cb6cd.js.map": "/LIM018-burger-queen-api-client/static/js/main.e38cb6cd.js.map",
+    "787.28cb0dcd.chunk.js.map": "/LIM018-burger-queen-api-client/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.14d33455.css",
-    "static/js/main.737e495f.js"
+    "static/css/main.b5ffceca.css",
+    "static/js/main.e38cb6cd.js"
   ]
 }
