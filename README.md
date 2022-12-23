@@ -12,10 +12,12 @@ Además la clienta nos ha dado un [link a la documentación](https://laboratoria
 
 Se puede acceder al proyecto siguiendo el enlace: 
 [Burger Queen (ApiClient)](https://brivanessa.github.io/LIM018-burger-queen-api-client/)
-Usuario (Chef): admin@delices.com
-Contraseña (Chef): admin
-Usuario (Waiter): employee@delices.com
-Contraseña (Waiter): employee
+
+- Usuario (Chef): admin@delices.com
+- Contraseña (Chef): admin
+
+- Usuario (Waiter): employee@delices.com
+- Contraseña (Waiter): employee
 
 ## 2. Objetivo del proyecto
 
